@@ -89,6 +89,12 @@
   </a>
 </li>             
 <li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/3_Advanced_Usage.html">
+    Advanced Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
   <a class="nav-link" href="http://localhost:8901/Examples_for_me_DELETE_BEFORE_LAUNCH.html">
     Creating a Graph
 
@@ -139,6 +145,12 @@
 <li class="nav-item active">
   <a class="nav-link" href="http://localhost:8901/2_Basic_Usage.html">
     Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/3_Advanced_Usage.html">
+    Advanced Usage
 
   </a>
 </li>             
@@ -225,6 +237,16 @@
 <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 80)" onmouseover="showTip(event, 'fs11', 80)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 81)" onmouseover="showTip(event, 'fs21', 81)" class="id">withEdge</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs29', 82)" onmouseover="showTip(event, 'fs29', 82)" class="id">yellowEdge</span><span class="pn">)</span>
 </code></pre>
 <p><img src="img\basicUsageGraph3.png" alt="image info" /></p>
+<h3><a name="Visualization" class="anchor" href="#Visualization">Visualization</a></h3>
+<p>To view the graph, you can either use the <code>Sigma.Net.Interactive</code> library or display the graph as an HTML file.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs30', 83)" onmouseover="showTip(event, 'fs30', 83)" class="id">exampleGraph</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs11', 84)" onmouseover="showTip(event, 'fs11', 84)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 85)" onmouseover="showTip(event, 'fs12', 85)" class="id">empty</span><span class="pn">(</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 86)" onmouseover="showTip(event, 'fs11', 86)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 87)" onmouseover="showTip(event, 'fs20', 87)" class="id">withNodes</span><span class="pn">(</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs27', 88)" onmouseover="showTip(event, 'fs27', 88)" class="id">redNode</span> <span class="pn">;</span> <span onmouseout="hideTip(event, 'fs28', 89)" onmouseover="showTip(event, 'fs28', 89)" class="id">greenNode</span><span class="pn">]</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 90)" onmouseover="showTip(event, 'fs11', 90)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 91)" onmouseover="showTip(event, 'fs21', 91)" class="id">withEdge</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs29', 92)" onmouseover="showTip(event, 'fs29', 92)" class="id">yellowEdge</span><span class="pn">)</span>
+
+<span onmouseout="hideTip(event, 'fs30', 93)" onmouseover="showTip(event, 'fs30', 93)" class="id">exampleGraph</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 94)" onmouseover="showTip(event, 'fs11', 94)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs31', 95)" onmouseover="showTip(event, 'fs31', 95)" class="id">show</span><span class="pn">(</span><span class="pn">)</span>
+</code></pre>
 
         <div class="fsdocs-tip" id="fs1">namespace Sigma</div>
 <div class="fsdocs-tip" id="fs2">namespace Sigma.NET</div>
@@ -278,6 +300,8 @@
 <div class="fsdocs-tip" id="fs27">val redNode: Node</div>
 <div class="fsdocs-tip" id="fs28">val greenNode: Node</div>
 <div class="fsdocs-tip" id="fs29">val yellowEdge: Edge</div>
+<div class="fsdocs-tip" id="fs30">val exampleGraph: SigmaGraph</div>
+<div class="fsdocs-tip" id="fs31">static member VisGraph.show: unit -&gt; graph: SigmaGraph -&gt; unit</div>
 
     </div>
 </main>
@@ -312,6 +336,11 @@
   <li class="level-3">
     <a href="#Color-options">
       Color options
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#Visualization">
+      Visualization
     </a>
   </li>
 </ul>
