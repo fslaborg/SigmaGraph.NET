@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sigma.NET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Timo Mühlhaus, fslab contributors">
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:8901//img/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
+
+    <link type="text/css" rel="stylesheet" href="http://localhost:8901/content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="http://localhost:8901/content/fsdocs-custom.css" />
+    <script type="text/javascript" src="http://localhost:8901/content/fsdocs-tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+    
+<script type="text/javascript">
+    var wsUri = "ws://localhost:8901/websocket";
+    function init()
+    {
+        websocket = new WebSocket(wsUri);
+        websocket.onmessage = function(evt) {
+            const data = evt.data;
+            if (data.endsWith(".css")) {
+                console.log(`Trying to reload ${data}`);
+                const link = document.querySelector(`link[href*='${data}']`);
+                if (link) {
+                    const href = new URL(link.href);
+                    const ticks = new Date().getTime();
+                    href.searchParams.set("v", ticks);
+                    link.href = href.toString();
+                }
+            }
+            else {
+                console.log('closing');
+                websocket.close();
+                document.location.reload();
+            }
+        }
+    }
+    window.addEventListener("load", init, false);
+</script>
+
+</head> 
+
+<body>
+    <div class="columns is-fullheight m-0">
+        <div id="fsdocs-menu" class="column is-2 is-paddingless">
+            <aside class="menu">
+                <div class="container is-paddingless is-marginless has-background-dark">
+                    <a href="https://fslab.org/Sigma.NET/">
+                        <figure class="image is-128x128 container">
+                            <img src="img/logo.png">
+                        </figure>
+                    </a>
+                    <h2 class="title has-text-centered has-text-white">Sigma.NET</h2>
+                    <h5 class="has-text-centered has-text-white pb-4">Documentation for 0.0.1</h5>
+                </div>
+                <div class="content">
+                    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+                    <div id="header">
+                        <div class="searchbox" id="fsdocs-searchbox">
+                            <label for="search-by">
+                                <i class="fas fa-search"></i>
+                            </label>
+                            <input data-search-input="" id="search-by" type="search" placeholder="Search..." class="input"/>
+                            <span data-search-clear="">
+                                <i class="fas fa-times"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- END SEARCH BOX: this adds support for the search box -->
+                    <ul class="navbar-nav">
+                        <li class="nav-header">Links</li>
+                        <li class="nav-item" id="fsdocs-license-link"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License (MIT)</a></li>
+                        <li class="nav-item" id="fsdocs-release-notes-link"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+                        <li class="nav-item" id="fsdocs-repository-link"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source Repository</a></li>
+                        <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="http://localhost:8901/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <div class="column is-10 is-paddingless">
+            <div class="section pt-4">
+                <div class="container" id="fsdocs-content">
+                    <div>
+  <h2 id="sigma-net">
+    Sigma.NET Namespace
+  </h2>
+  <div class="fsdocs-xmldoc"></div>
+  <table class="table outer-list fsdocs-entity-list">
+    <thead>
+      <tr>
+        <td>
+          Type/Module
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="CircularOptions">
+              <a href="http://localhost:8901/reference/sigma-net-circularoptions.html">
+                CircularOptions
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.CircularOptions`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.CircularOptions\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Layout.fs#L210-210" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="CssLength">
+              <a href="http://localhost:8901/reference/sigma-net-csslength.html">
+                CssLength
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.CssLength`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.CssLength\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Renderer.fs#L10-10" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="Defaults">
+              <a href="http://localhost:8901/reference/sigma-net-defaults.html">
+                Defaults
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.Defaults`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.Defaults\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Defaults.fs#L13-13" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+               Contains mutable global default values.
+
+ Changing these values will apply the default values to all consecutive Graph generations.
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="DisplayData">
+              <a href="http://localhost:8901/reference/sigma-net-displaydata.html">
+                DisplayData
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.DisplayData`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.DisplayData\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphData.fs#L21-21" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="DisplayOptions">
+              <a href="http://localhost:8901/reference/sigma-net-displayoptions.html">
+                DisplayOptions
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.DisplayOptions`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.DisplayOptions\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/DisplayOptions.fs#L21-21" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="Edge">
+              <a href="http://localhost:8901/reference/sigma-net-edge.html">
+                Edge
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.Edge`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.Edge\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphData.fs#L81-81" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="FA2Options">
+              <a href="http://localhost:8901/reference/sigma-net-fa2options.html">
+                FA2Options
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.FA2Options`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.FA2Options\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Layout.fs#L130-130" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="FA2Settings">
+              <a href="http://localhost:8901/reference/sigma-net-fa2settings.html">
+                FA2Settings
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.FA2Settings`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.FA2Settings\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Layout.fs#L16-16" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="Globals">
+              <a href="http://localhost:8901/reference/sigma-net-globals.html">
+                Globals
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.Globals`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.Globals\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Globals.fs#L3-3" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="GraphData">
+              <a href="http://localhost:8901/reference/sigma-net-graphdata.html">
+                GraphData
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.GraphData`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.GraphData\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphData.fs#L152-152" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="HTML">
+              <a href="http://localhost:8901/reference/sigma-net-html.html">
+                HTML
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.HTML`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.HTML\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Html.fs#L14-14" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+               HTML template for Cytoscape
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="InternalUtils">
+              <a href="http://localhost:8901/reference/sigma-net-internalutils.html">
+                InternalUtils
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.InternalUtils`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.InternalUtils\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/InternalUtils.fs#L6-6" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="JSlibReference">
+              <a href="http://localhost:8901/reference/sigma-net-jslibreference.html">
+                JSlibReference
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.JSlibReference`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.JSlibReference\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/DisplayOptions.fs#L10-10" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              Sets how the javascript library is referenced in the head of html docs.
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="Layout">
+              <a href="http://localhost:8901/reference/sigma-net-layout.html">
+                Layout
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.Layout`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.Layout\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Layout.fs#L329-329" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="Node">
+              <a href="http://localhost:8901/reference/sigma-net-node.html">
+                Node
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.Node`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.Node\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphData.fs#L121-121" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="NoverlapOptions">
+              <a href="http://localhost:8901/reference/sigma-net-noverlapoptions.html">
+                NoverlapOptions
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.NoverlapOptions`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.NoverlapOptions\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Layout.fs#L169-169" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="NoverlapSettings">
+              <a href="http://localhost:8901/reference/sigma-net-noverlapsettings.html">
+                NoverlapSettings
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.NoverlapSettings`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.NoverlapSettings\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Layout.fs#L84-84" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="PlainJsonString">
+              <a href="http://localhost:8901/reference/sigma-net-plainjsonstring.html">
+                PlainJsonString
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.PlainJsonString`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.PlainJsonString\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/JsonConverter.fs#L5-5" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="PlainJsonStringConverter">
+              <a href="http://localhost:8901/reference/sigma-net-plainjsonstringconverter.html">
+                PlainJsonStringConverter
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.PlainJsonStringConverter`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.PlainJsonStringConverter\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/JsonConverter.fs#L8-8" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="RandomOptions">
+              <a href="http://localhost:8901/reference/sigma-net-randomoptions.html">
+                RandomOptions
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.RandomOptions`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.RandomOptions\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Layout.fs#L247-247" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="Render">
+              <a href="http://localhost:8901/reference/sigma-net-render.html">
+                Render
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.Render`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.Render\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Renderer.fs#L20-20" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="RotationOptions">
+              <a href="http://localhost:8901/reference/sigma-net-rotationoptions.html">
+                RotationOptions
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.RotationOptions`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.RotationOptions\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Layout.fs#L284-284" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="SigmaGraph">
+              <a href="http://localhost:8901/reference/sigma-net-sigmagraph.html">
+                SigmaGraph
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.SigmaGraph`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.SigmaGraph\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Sigma.fs#L6-6" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="StyleParam">
+              <a href="http://localhost:8901/reference/sigma-net-styleparam.html">
+                StyleParam
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.StyleParam`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.StyleParam\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/StyleParams.fs#L3-3" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="VisGraph">
+              <a href="http://localhost:8901/reference/sigma-net-visgraph.html">
+                VisGraph
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.VisGraph`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.VisGraph\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L64-64" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="fsdocs-entity-name">
+          <p>
+            <a name="VisGraphElement">
+              <a href="http://localhost:8901/reference/sigma-net-visgraphelement.html">
+                VisGraphElement
+              </a>
+            </a>
+          </p>
+        </td>
+        <td class="fsdocs-entity-xmldoc">
+          <div>
+            <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:T:Sigma.NET.VisGraphElement`')">
+              <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+            </div>
+            <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'T:Sigma.NET.VisGraphElement\'/>')">
+              <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+            </div>
+            <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L11-11" class="fsdocs-source-link" title="Source on GitHub">
+              <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+            </a>
+            <p class="fsdocs-summary">
+              
+            </p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <script type="text/javascript">var fsdocs_search_baseurl = 'http://localhost:8901/'</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+    <script type="text/javascript" src="http://localhost:8901/content/fsdocs-search.js"></script>
+    <!-- END SEARCH BOX: this adds support for the search box -->
+</body>
+
+</html>

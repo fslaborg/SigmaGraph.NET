@@ -10,4 +10,7 @@ let creation =
         testCase "node" <| fun () ->
             
             Expect.isTrue false "test"
+        testCase "node2" <| fun () ->
+            
+            Expect.isTrue true "test2"
     ]

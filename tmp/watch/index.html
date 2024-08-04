@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-root="http://localhost:8901/">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Timo Mühlhaus, fslab contributors" name="author">
+    <!-- Opengraph properties (https://ogp.me/) -->
+    <meta property="og:site_name" content="Sigma.NET">
+    <meta property="og:title" content="Getting Started" />
+    <meta property="og:url" content="http://localhost:8901/index.html">
+    <meta property="og:type" content="website" />
+    <!-- Twitter cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="http://localhost:8901/">
+    <meta name="twitter:title" content="Getting Started">
+    
+    <title>Getting Started | Sigma.NET</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="http://localhost:8901/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+    <script type="application/javascript" src="http://localhost:8901/content/fsdocs-theme-set-dark.js"></script>
+    <link href="http://localhost:8901/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8901/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
+    
+    
+<script type="text/javascript">
+    var wsUri = "ws://localhost:8901/websocket";
+    function init()
+    {
+        websocket = new WebSocket(wsUri);
+        websocket.onmessage = function(evt) {
+            const data = evt.data;
+            if (data.endsWith(".css")) {
+                console.log(`Trying to reload ${data}`);
+                const link = document.querySelector(`link[href*='${data}']`);
+                if (link) {
+                    const href = new URL(link.href);
+                    const ticks = new Date().getTime();
+                    href.searchParams.set("v", ticks);
+                    link.href = href.toString();
+                }
+            }
+            else {
+                console.log('closing');
+                websocket.close();
+                document.location.reload();
+            }
+        }
+    }
+    window.addEventListener("load", init, false);
+</script>
+
+</head>
+<body class="content">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"></iconify-icon>
+            <input type="checkbox" name="mobile-menu" />
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+                    Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+                    Repository</a></li>
+                <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/1_Introduction.html">
+    Introduction
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/2_Basic_Usage.html">
+    Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/Examples_for_me_DELETE_BEFORE_LAUNCH.html">
+    Creating a Graph
+
+  </a>
+</li>
+                <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="http://localhost:8901/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+            </ul>
+        </div>
+        <a href="https://fslab.org/Sigma.NET/">
+            <img alt="Header menu logo" src="http://localhost:8901/img/logo.png">
+            <strong>Sigma.NET</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="https://github.com/fslaborg/Sigma.NET/" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
+        <fsdocs-theme-toggle></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                                href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+            Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+            Repository</a></li>
+        <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/1_Introduction.html">
+    Introduction
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/2_Basic_Usage.html">
+    Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/Examples_for_me_DELETE_BEFORE_LAUNCH.html">
+    Creating a Graph
+
+  </a>
+</li>
+        <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="http://localhost:8901/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        
+<h1><a name="sigmaNET" class="anchor" href="#sigmaNET">sigmaNET</a></h1>
+<p>The sigmaNET project aims to provide a rigorous and performant tool for Network Science.
+It is aimed at anyone who works with Graphs/Networks and does not require a strong knowledge of F# to get started.</p>
+<h1><a name="Getting-Started" class="anchor" href="#Getting-Started">Getting Started</a></h1>
+<h2><a name="Prerequisites" class="anchor" href="#Prerequisites">Prerequisites</a></h2>
+<p>To set up a dev environment, we recommend <a href="https://code.visualstudio.com/">VSCode</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=Ionide.Ionide-fsharp">Ionide</a> plugin<br />
+You will also need <a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">DotNet 6</a> installed.</p>
+<p>The library is designed primarily for use in an fsharp scripting environment using .fsx files.
+But it also works well in <a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode">notebooks</a>.
+This <a href="https://www.youtube.com/watch?v=1ROKvmcOloo&amp;list=PLdo4fOcmZ0oUFghYOp89baYFBTGxUkC7Z&amp;index=3">video</a> has a good walk through of setting your environment.</p>
+<h1><a name="Contributing-and-copyright" class="anchor" href="#Contributing-and-copyright">Contributing and copyright</a></h1>
+<p>The project is hosted on <a href="https://github.com/fslaborg/sigmaNET">GitHub</a> where you can <a href="https://github.com/fslaborg/sigmaNET/issues">report issues</a>, fork
+the project and submit pull requests. If you're adding a new public API, please also
+consider adding <a href="https://github.com/fslaborg/sigmaNET/tree/main/docs">samples</a> that can be turned into a documentation. You might
+also want to read the <a href="https://github.com/fslaborg/sigmaNET/blob/main/README.md">library design notes</a> to understand how it works.</p>
+<p>The library is available under the OSI-approved MIT license, which allows modification and
+redistribution for both commercial and non-commercial purposes. For more information see the
+<a href="https://github.com/fslaborg/sigmaNET/blob/main/LICENSE">License file</a> in the GitHub repository.</p>
+
+        
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <ul>
+  <li class="level-1">
+    <a href="#sigmaNET">
+      sigmaNET
+    </a>
+  </li>
+  <li class="level-1">
+    <a href="#Getting-Started">
+      Getting Started
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Prerequisites">
+      Prerequisites
+    </a>
+  </li>
+  <li class="level-1">
+    <a href="#Contributing-and-copyright">
+      Contributing and copyright
+    </a>
+  </li>
+</ul>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs" />
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="http://localhost:8901/content/fsdocs-tips.js"></script>
+<script type="module" src="http://localhost:8901/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="http://localhost:8901/content/fsdocs-theme.js"></script>
+<script type="module" src="http://localhost:8901/content/fsdocs-search.js"></script>
+
+</body>
+</html>
