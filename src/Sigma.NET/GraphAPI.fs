@@ -62,31 +62,31 @@ type VisGraphElement() =
 
 // Module to manipulate and sytely a graph
 type VisGraph() =
-    
+    ///creates an empty graph
     [<CompiledName("Empty")>]
     static member empty () = SigmaGraph()
 
-    /// Creates a graph with a single node
+    /// Adds a single node to a graph
     [<CompiledName("WithNode")>]
     static member withNode (node:Node) (graph:SigmaGraph) = 
         graph.AddNode(node)
         graph       
-
+    /// Adds a sequence of nodes to a graph
     [<CompiledName("WithNodes")>]
     static member withNodes (nodes:Node seq) (graph:SigmaGraph) = 
         nodes |> Seq.iter (fun node -> graph.AddNode node) 
         graph
-
+    ///Adds a single edge to a graph
     [<CompiledName("WithEdge")>]
     static member withEdge (edge:Edge) (graph:SigmaGraph) = 
         graph.AddEdge(edge)
         graph       
-
+    ///Adds a sequence of edges to a graph
     [<CompiledName("WithEdges")>]
     static member withEdges (edges:Edge seq) (graph:SigmaGraph) = 
         edges |> Seq.iter (fun edge -> graph.AddEdge edge) 
         graph
-
+    ///gives a graph a random layout
     [<CompiledName("WithRandomLayout")>] 
     static member withRandomLayout(
         [<Optional; DefaultParameterValue(null)>] ?Scale,
@@ -96,7 +96,7 @@ type VisGraph() =
             fun (graph:SigmaGraph) -> 
                 graph.Layout <- Layout.Random (RandomOptions.Init(?Dimensions=Dimensions,?Center=Center,?Scale=Scale))
                 graph   
-
+    ///gives a graph a circular layout
     [<CompiledName("WithCircularLayout")>]
     static member withCircularLayout(
         [<Optional; DefaultParameterValue(null)>] ?Scale,
@@ -147,7 +147,7 @@ type VisGraph() =
         fun (graph:SigmaGraph) ->
             graph.Settings <- settings
             graph
-
+    ///Hoverselector lets you hover over a node and see all its edges
     [<CompiledName("WithRenderer")>]
     static member withHoverSelector(?enable:bool) = 
         fun (graph:SigmaGraph) ->
@@ -155,7 +155,7 @@ type VisGraph() =
             if enable then
                 graph.Widgets.Add("""const state={};function setHoveredNode(e){e?(state.hoveredNode=e,state.hoveredNeighbors=new Set(graph.neighbors(e))):(state.hoveredNode=void 0,state.hoveredNeighbors=void 0),renderer.refresh()}renderer.on("enterNode",({node:e})=>{setHoveredNode(e)}),renderer.on("leaveNode",()=>{setHoveredNode(void 0)}),renderer.setSetting("nodeReducer",(e,t)=>{let o=t;return state.hoveredNeighbors&&!state.hoveredNeighbors.has(e)&&state.hoveredNode!==e&&(o.label="",o.color="#f6f6f6"),o}),renderer.setSetting("edgeReducer",(e,t)=>{let o=t;return state.hoveredNode&&!graph.hasExtremity(e,state.hoveredNode)&&(o.hidden=!0),o});""")            
             graph
-
+    ///Shows a graph as HTML
     [<CompiledName("Show")>] 
     static member show() (graph:SigmaGraph) = 
         HTML.show(graph)
