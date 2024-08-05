@@ -6,20 +6,23 @@ module Globals =
     open System.Runtime.InteropServices
     open Newtonsoft.Json
 
+    /// NuGet package version for Sigma.NET
     [<Literal>]
     let NUGET_VERSION = "0.0.0-dev"
     
+    /// Version of the Graphology library used in the project
     [<Literal>]
     let GRAPHOLOGY_LIB_VERSION = "0.8.0"
 
-    /// The sigma js version loaded from cdn in rendered html docs
+    /// The version of sigma.js used in the rendered HTML documents from the CDN
     [<Literal>]
     let SIGMAJS_VERSION = "2.4.0"
 
-    /// The graphology js version loaded from cdn in rendered html docs
+    /// The version of graphology.js used in the rendered HTML documents from the CDN
     [<Literal>]
     let GRAPHOLOGY_VERSION = "0.25.4"
 
+    /// JavaScript template for rendering the graph. It includes placeholders for container ID, graph data, layout, settings, and widgets.
     [<Literal>]
     let SCRIPT_TEMPLATE = """
     const container = document.getElementById("[CONTAINERID]");
@@ -29,9 +32,10 @@ module Globals =
     const renderer = new Sigma(graph, container,[SETTINGS]);
     [WIDGETS]
     """
+
+    /// JavaScript template for rendering the graph using RequireJS. It includes placeholders for JavaScript file URLs, container ID, graph data, layout, settings, and widgets.
     [<Literal>]
     let REQUIREJS_SCRIPT_TEMPLATE = """
-
     require([
         '[GRAPHOLOGY_JS]',
         '[SIGMA_JS]',
@@ -45,6 +49,7 @@ module Globals =
             [WIDGETS]        
         });
     """
+
 
     /// base64 encoded favicon logo for generated htmls
     [<Literal>]
