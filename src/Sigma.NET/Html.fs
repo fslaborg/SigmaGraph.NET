@@ -14,6 +14,15 @@ open Giraffe.ViewEngine
 type HTML =
  
 
+    /// Creates a script to render a graph with Sigma.js
+    /// Parameters:
+    ///   - graphData: JSON representation of the graph
+    ///   - layout: Layout configuration for the graph
+    ///   - settings: Settings configuration for the graph
+    ///   - containerId: ID of the HTML container for the graph
+    ///   - widgets: Widgets to include in the graph
+    ///   - sigmaJSRef: Reference to Sigma.js libraries
+    /// Returns: An HTML script element for embedding Sigma.js graph
     static member CreateGraphScript
         (
             graphData: string,
@@ -57,7 +66,12 @@ type HTML =
                     )
                 ]
 
-
+    /// Generates a complete HTML document including the graph and Sigma.js references
+    /// Parameters:
+    ///   - graphHTML: List of XML nodes representing the graph HTML
+    ///   - sigmaJSRef: Reference to Sigma.js libraries
+    ///   - AdditionalHeadTags: Optional additional tags to include in the <head> section
+    /// Returns: An HTML document with the embedded graph
     static member Doc(
         graphHTML: XmlNode list, 
         sigmaJSRef: JSlibReference,
@@ -104,7 +118,17 @@ type HTML =
                     ]
                 body [] [ yield! graphHTML]
             ]
-
+    /// Creates HTML content for a graph with Sigma.js embedded in a specified container
+    /// Parameters:
+    ///   - graphData: JSON representation of the graph
+    ///   - layout: Layout configuration for the graph
+    ///   - settings: Settings configuration for the graph
+    ///   - divId: ID of the HTML container for the graph
+    ///   - widgets: Widgets to include in the graph
+    ///   - sigmaJSRef: Reference to Sigma.js libraries
+    ///   - Width: Optional width of the graph container
+    ///   - Height: Optional height of the graph container
+    /// Returns: A list of HTML nodes for rendering the graph
     static member CreateGraphHTML
         (
             graphData: string,
@@ -144,7 +168,10 @@ type HTML =
                 ]
         ]
 
-    /// Converts a CyGraph to it HTML representation. The div layer has a default size of 600 if not specified otherwise.
+    /// Converts a CyGraph to its HTML representation, with optional display options
+    /// Parameters:
+    ///   - DisplayOpts: Optional display options for the graph
+    /// Returns: A function that takes a SigmaGraph and returns HTML nodes
     static member toGraphHTMLNodes (
         ?DisplayOpts: DisplayOptions
     ) =
@@ -176,7 +203,10 @@ type HTML =
                 Width = graph.Width,
                 Height = graph.Height
             )
-
+    /// Converts a SigmaGraph to its HTML representation as a string
+    /// Parameters:
+    ///   - DisplayOpts: Optional display options for the graph
+    /// Returns: A function that takes a SigmaGraph and returns HTML as a string
     static member toGraphHTML(
         ?DisplayOpts: DisplayOptions
     ) =
@@ -185,7 +215,10 @@ type HTML =
             |> HTML.toGraphHTMLNodes(?DisplayOpts = DisplayOpts)
             |> RenderView.AsString.htmlNodes
 
-    /// Converts a Graph to it HTML representation and embeds it into a html page.
+    /// Converts a SigmaGraph to its HTML representation and embeds it into a full HTML page
+    /// Parameters:
+    ///   - DisplayOpts: Optional display options for the graph
+    /// Returns: A function that takes a SigmaGraph and returns a complete HTML document as a string
     static member toEmbeddedHTML (
         ?DisplayOpts: DisplayOptions
     ) =
@@ -211,7 +244,11 @@ type HTML =
         else
             invalidOp "Not supported OS platform"
 
-
+    /// Shows a SigmaGraph in the default web browser by creating an HTML file and opening it
+    /// Parameters:
+    ///   - graph: The SigmaGraph to display
+    ///   - DisplayOpts: Optional display options for the graph
+    /// Returns: The path to the temporary HTML file
     static member show (graph:SigmaGraph, ?DisplayOpts: DisplayOptions) = 
         let guid = Guid.NewGuid().ToString()
         let html = HTML.toEmbeddedHTML(?DisplayOpts = DisplayOpts) graph
