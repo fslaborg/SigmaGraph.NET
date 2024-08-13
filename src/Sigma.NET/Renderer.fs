@@ -9,10 +9,16 @@ open Newtonsoft.Json
 // CssLength Units
 /// Represents CSS length units, either in pixels (PX) or percentage (Percent)
 type CssLength =
+ /// Represents a length in pixels.
 | PX of int
+/// Represents a length as a percentage of the containing element.
 | Percent of int 
 with 
-    /// Serializes the CssLength value to a string
+    /// Serializes a CssLength value to its string representation.
+    /// Parameters:
+    ///   - v: The CssLength value to serialize.
+    /// Returns:
+    ///   - A string representing the CssLength value in pixels or percentage.
     static member serialize (v:CssLength) =
         match v with
         | PX px -> sprintf "%ipx" px
