@@ -1,7 +1,7 @@
 ﻿namespace Sigma.NET
 
 module StyleParam =
-
+    /// Defines different types of edge styles for graph visualization.
     [<RequireQualifiedAccess>]
     type EdgeType = 
         | Line
@@ -13,6 +13,7 @@ module StyleParam =
         //| Parallel
         //| Tapered
         | Custom of string
+        /// Converts the edge type to a corresponding string representation.
         static member toString =
             function            
             | Line -> "line"
@@ -25,6 +26,7 @@ module StyleParam =
             //| Tapered -> "tapered"
             | Custom str -> str 
 
+    /// Defines different types of node shapes for graph visualization.
     [<RequireQualifiedAccess>]
     type NodeType = 
         | Circle
@@ -36,6 +38,7 @@ module StyleParam =
         //| Heart
         //| Cloud
         | Custom of string
+        /// Converts the node type to a corresponding string representation.
         static member toString =
             function
             | Circle -> "circle"
