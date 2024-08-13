@@ -7,20 +7,24 @@ open System
 open Newtonsoft.Json
 
 // CssLength Units
+/// Represents CSS length units, either in pixels (PX) or percentage (Percent)
 type CssLength =
 | PX of int
 | Percent of int 
-with static member serialize (v:CssLength) =
+with 
+    /// Serializes the CssLength value to a string
+    static member serialize (v:CssLength) =
         match v with
         | PX px -> sprintf "%ipx" px
         | Percent p -> sprintf "%i%%" p
 
 
-
+/// Module for rendering-related types and methods
 module Render =
-
+    /// A type representing either a color or a reference to a color
     type ColorOrReference() =
         inherit DynamicObj ()
+        /// Initializes a new instance of ColorOrReference with optional color and reference
         static member Init 
             ( 
                 ?Color : string,
@@ -32,6 +36,7 @@ module Render =
                         ?Color = Color,
                         ?Reference = Reference
                     )
+        /// Applies the provided color and reference to the ColorOrReference object            
         static member Style
             ( 
                 ?Color,
@@ -43,10 +48,10 @@ module Render =
                     // out ->
                     colorOrReference
                 )
-
+    /// A type representing various settings for rendering
     type Settings() =
         inherit DynamicObj ()
-   
+        /// Initializes a new instance of Settings with optional rendering settings
         static member Init(
             ?HideEdgesOnMove : bool,
             ?HideLabelsOnMove : bool,
@@ -115,6 +120,7 @@ module Render =
                     ?HoverRenderer = HoverRenderer,
                     ?EdgeLabelRenderer = EdgeLabelRenderer
                 )
+        /// Applies the provided styling options to the Settings object
         static member Style
             ( 
                 ?HideEdgesOnMove,
