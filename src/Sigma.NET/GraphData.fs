@@ -198,13 +198,21 @@ type GraphData() =
     /// A collection of nodes in the graph.
     /// Nodes are stored in a `ResizeArray` to allow dynamic resizing and efficient access.
     let nodes = ResizeArray()
+    
     /// Internal storage for edges.
     /// A collection of edges in the graph.
     /// Edges are stored in a `ResizeArray` to allow dynamic resizing and efficient access.  
     let edges = ResizeArray()
-    
+
+    /// Internal storage for nodes.
+    /// A collection of nodes in the graph.
+    /// Nodes are stored in a `ResizeArray` to allow dynamic resizing and efficient access.
     [<JsonProperty("nodes")>]
     member _.Nodes = nodes
+
+    /// Internal storage for edges.
+    /// A collection of edges in the graph.
+    /// Edges are stored in a `ResizeArray` to allow dynamic resizing and efficient access.
     [<JsonProperty("edges")>]
     member _.Edges = edges
 
