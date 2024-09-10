@@ -1,6 +1,6 @@
-#r "nuget: DynamicObj"
+#r "nuget: DynamicObj, 2.0.0"
 #r "nuget: Newtonsoft.Json"
-#r "nuget: Giraffe.ViewEngine"
+#r "nuget: Giraffe.ViewEngine, 1.4.0"
 #r "./bin/Debug/net6.0/Sigma.NET.dll"
 
 #r "nuget: Graphoscope, 0.4.0"
