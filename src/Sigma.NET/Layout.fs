@@ -358,9 +358,9 @@ type RandomOptions() =
     /// <summary>
     /// Initializes a new instance of RandomOptions with optional parameters.
     /// </summary>
-    /// <param name="Dimensions">Optional string array specifying the dimensions of the layout.
-    /// <param name="Center">Optional float to set the center of the layout.
-    /// <param name="Scale">Optional integer to set the scale of the layout.
+    /// <param name="Dimensions">Optional string array specifying the dimensions of the layout.</param>
+    /// <param name="Center">Optional float to set the center of the layout.</param>
+    /// <param name="Scale">Optional integer to set the scale of the layout.</param>
     static member Init 
         (
             ?Dimensions : string,
@@ -464,7 +464,7 @@ type RotationOptions() =
 
 // LayoutAlgorithmName
 
-/// <sumary>
+/// <summary>
 /// Layout defines different layout algorithms for a graph and serializes them into JavaScript commands.
 /// </summary>
 type Layout =
