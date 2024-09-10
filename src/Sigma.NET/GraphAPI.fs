@@ -3,6 +3,9 @@
 open System.Runtime.InteropServices
 open System
 open DynamicObj
+open System.Globalization
+open Microsoft.FSharp.Reflection
+//open Microsoft.FSharp.Core.FSharpValue
 
 // https://www.bsimard.com/2018/04/25/graph-viz-with-sigmajs.html
 
