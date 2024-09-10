@@ -42,6 +42,9 @@ type JSlibReference =
     /// </summary>
     | NoReference
 
+/// <summary>
+/// I am displayotion.
+/// </summary>
 type DisplayOptions() =
     inherit DynamicObj()
 
