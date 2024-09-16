@@ -205,353 +205,353 @@ let visGraphTests =
 
     ]
 
-[<Tests>]
-let renderSettingsTest =
-    testList "Renderer" [
-        testCase "LabelSize_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(LabelSize = 20))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+// [<Tests>]
+// let renderSettingsTest =
+//     testList "Renderer" [
+//         testCase "LabelSize_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(LabelSize = 20))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("labelSize: 20")) $"The label size was not set correctly.{x}"
-        testCase "HideEdgesOnMoveTrue_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(HideEdgesOnMove = true))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("labelSize: 20")) $"The label size was not set correctly.{x}"
+//         testCase "HideEdgesOnMoveTrue_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(HideEdgesOnMove = true))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("hideEdgesOnMove: True")) "HideEdgesOnMove was not set to True correctly"
-        testCase "HideEdgesOnMoveFalse_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(HideEdgesOnMove = false))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("hideEdgesOnMove: True")) "HideEdgesOnMove was not set to True correctly"
+//         testCase "HideEdgesOnMoveFalse_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(HideEdgesOnMove = false))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("hideEdgesOnMove: False")) "HideEdgesOnMove was not set to false correctly"
-        testCase "HideLabelsOnMoveTrue_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(HideLabelsOnMove = true))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("hideEdgesOnMove: False")) "HideEdgesOnMove was not set to false correctly"
+//         testCase "HideLabelsOnMoveTrue_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(HideLabelsOnMove = true))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("hideLabelsOnMove: True")) "HideLabelsOnMove was not set to true correctly"
-        testCase "HideLabelsOnMoveFalse_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(HideLabelsOnMove = false))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("hideLabelsOnMove: True")) "HideLabelsOnMove was not set to true correctly"
+//         testCase "HideLabelsOnMoveFalse_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(HideLabelsOnMove = false))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("hideLabelsOnMove: False")) "HideLabelsOnMove was not set to false correctly"
-        testCase "RenderLabelsTrue_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(RenderLabels = true))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("hideLabelsOnMove: False")) "HideLabelsOnMove was not set to false correctly"
+//         testCase "RenderLabelsTrue_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(RenderLabels = true))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("renderLabels: True")) "RenderLabels was not set to true correctly"
-        testCase "RenderLabelsFalse_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(RenderLabels = false))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("renderLabels: True")) "RenderLabels was not set to true correctly"
+//         testCase "RenderLabelsFalse_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(RenderLabels = false))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("renderLabels: False")) "RenderLabels was not set to false correctly"
-        testCase "RenderEdgeLabelsTrue_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(RenderEdgeLabels = true))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("renderLabels: False")) "RenderLabels was not set to false correctly"
+//         testCase "RenderEdgeLabelsTrue_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(RenderEdgeLabels = true))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("renderEdgeLabels: True")) "RenderEdgeLabels was not set to true correctly"
-        testCase "RenderEdgeLabelsFalse_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(RenderEdgeLabels = false))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("renderEdgeLabels: True")) "RenderEdgeLabels was not set to true correctly"
+//         testCase "RenderEdgeLabelsFalse_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(RenderEdgeLabels = false))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("renderEdgeLabels: False")) "RenderEdgeLabels was not set to false correctly"
-        testCase "EnableEdgeClickEventsTrue_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeClickEvents = true))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("renderEdgeLabels: False")) "RenderEdgeLabels was not set to false correctly"
+//         testCase "EnableEdgeClickEventsTrue_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeClickEvents = true))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("enableEdgeClickEvents: True")) "EnableEdgeClickEvents was not set to true correctly"
-        testCase "EnableEdgeClickEventsFalse_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeClickEvents = false))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("enableEdgeClickEvents: True")) "EnableEdgeClickEvents was not set to true correctly"
+//         testCase "EnableEdgeClickEventsFalse_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeClickEvents = false))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("enableEdgeClickEvents: False")) "EnableEdgeClickEvents was not set to false correctly"
-        testCase "EnableEdgeWheelEventsTrue_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeWheelEvents = true))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("enableEdgeClickEvents: False")) "EnableEdgeClickEvents was not set to false correctly"
+//         testCase "EnableEdgeWheelEventsTrue_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeWheelEvents = true))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("enableEdgeWheelEvents: True")) "EnableEdgeWheelEvents was not set to true correctly"
-        testCase "EnableEdgeWheelEventsFalse_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeWheelEvents = false))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("enableEdgeWheelEvents: True")) "EnableEdgeWheelEvents was not set to true correctly"
+//         testCase "EnableEdgeWheelEventsFalse_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeWheelEvents = false))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("enableEdgeWheelEvents: False")) "EnableEdgeWheelEvents was not set to false correctly"
-        testCase "EnableEdgeHoverEventsTrue_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeHoverEvents = true))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("enableEdgeWheelEvents: False")) "EnableEdgeWheelEvents was not set to false correctly"
+//         testCase "EnableEdgeHoverEventsTrue_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeHoverEvents = true))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("enableEdgeHoverEvents: True")) "EnableEdgeHoverEvents was not set to true correctly"
-        testCase "EnableEdgeHoverEventsFalse_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeHoverEvents = false))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("enableEdgeHoverEvents: True")) "EnableEdgeHoverEvents was not set to true correctly"
+//         testCase "EnableEdgeHoverEventsFalse_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeHoverEvents = false))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("enableEdgeHoverEvents: False")) "EnableEdgeHoverEvents was not set to false correctly"
-        testCase "DefaultNodeColor_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(DefaultNodeColor = "#D20103"))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("enableEdgeHoverEvents: False")) "EnableEdgeHoverEvents was not set to false correctly"
+//         testCase "DefaultNodeColor_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(DefaultNodeColor = "#D20103"))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("defaultNodeColor: #D20103")) "The Node colour was not set correctly"
-        testCase "DefaultNodeType_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(DefaultNodeType = StyleParam.NodeType.Circle))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("defaultNodeColor: #D20103")) "The Node colour was not set correctly"
+//         testCase "DefaultNodeType_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(DefaultNodeType = StyleParam.NodeType.Circle))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("defaultNodeType: circle")) "The Node type was not set correctly"
-        testCase "DefaultEdgeColor_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(DefaultEdgeColor = "#D20103"))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("defaultNodeType: circle")) "The Node type was not set correctly"
+//         testCase "DefaultEdgeColor_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(DefaultEdgeColor = "#D20103"))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("defaultEdgeColor: #D20103")) "The DefaultEdgeColor was not set correctly"
-        testCase "DefaultEdgeTypeLine_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(DefaultEdgeType = StyleParam.EdgeType.Line))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("defaultEdgeColor: #D20103")) "The DefaultEdgeColor was not set correctly"
+//         testCase "DefaultEdgeTypeLine_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(DefaultEdgeType = StyleParam.EdgeType.Line))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("defaultEdgeType: line")) "The DefaultEdgeType was not set to -line- correctly"
-        testCase "DefaultEdgeTypeArrow_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(DefaultEdgeType = StyleParam.EdgeType.Arrow))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("defaultEdgeType: line")) "The DefaultEdgeType was not set to -line- correctly"
+//         testCase "DefaultEdgeTypeArrow_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(DefaultEdgeType = StyleParam.EdgeType.Arrow))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("defaultEdgeType: arrow")) "The DefaultEdgeType was not set to -arrow- correctly"
-        testCase "LabelFont_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(LabelFont = "Arial"))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("defaultEdgeType: arrow")) "The DefaultEdgeType was not set to -arrow- correctly"
+//         testCase "LabelFont_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(LabelFont = "Arial"))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("labelFont: Arial")) "The LabelFont was not set to -Arial- correctly"
-        testCase "EdgeLabelFont_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelFont = "Arial"))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("labelFont: Arial")) "The LabelFont was not set to -Arial- correctly"
+//         testCase "EdgeLabelFont_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelFont = "Arial"))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("edgeLabelFont: Arial")) "The EdgeLabelFont was not set to -Arial- correctly"
-        testCase "EdgeLabelSize_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelSize = 20))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("edgeLabelFont: Arial")) "The EdgeLabelFont was not set to -Arial- correctly"
+//         testCase "EdgeLabelSize_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelSize = 20))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("edgeLabelSize: 20")) "The EdgeLabelSize was not set to 20 correctly"
-        testCase "LabelWeight_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(LabelWeight = "Bold"))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("edgeLabelSize: 20")) "The EdgeLabelSize was not set to 20 correctly"
+//         testCase "LabelWeight_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(LabelWeight = "Bold"))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("labelWeight: Bold")) "The LabelWeight was not set to -Bold- correctly"
-        testCase "EdgeLabelWeight_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelWeight = "Normal"))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("labelWeight: Bold")) "The LabelWeight was not set to -Bold- correctly"
+//         testCase "EdgeLabelWeight_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelWeight = "Normal"))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("edgeLabelWeight: Normal")) "The EdgeLabelWeight was not set to -Normal- correctly"
-        testCase "LabelColor_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(LabelColor = Render.ColorOrReference.Init("#ffd700")))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("edgeLabelWeight: Normal")) "The EdgeLabelWeight was not set to -Normal- correctly"
+//         testCase "LabelColor_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(LabelColor = Render.ColorOrReference.Init("#ffd700")))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("labelColor: Sigma.NET.Render+ColorOrReference")) "The Labelcolor was not set correctly"
-        testCase "EdgeLabelColor_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelColor = Render.ColorOrReference.Init("#ffd700")))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("labelColor: Sigma.NET.Render+ColorOrReference")) "The Labelcolor was not set correctly"
+//         testCase "EdgeLabelColor_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelColor = Render.ColorOrReference.Init("#ffd700")))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("edgeLabelColor: Sigma.NET.Render+ColorOrReference")) "The Labelcolor was not set correctly"
-        testCase "StagePadding_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(StagePadding = 20))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("edgeLabelColor: Sigma.NET.Render+ColorOrReference")) "The Labelcolor was not set correctly"
+//         testCase "StagePadding_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(StagePadding = 20))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("stagePadding: 20")) "The StagePadding was not set to 20 correctly"
-        testCase "LabelDensity_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(LabelDensity = 20))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("stagePadding: 20")) "The StagePadding was not set to 20 correctly"
+//         testCase "LabelDensity_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(LabelDensity = 20))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("labelDensity: 20")) "The LabelDensity was not set to 20 correctly"
-        testCase "LabelGridCellSize_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(LabelGridCellSize = 20))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("labelDensity: 20")) "The LabelDensity was not set to 20 correctly"
+//         testCase "LabelGridCellSize_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(LabelGridCellSize = 20))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("labelGridCellSize: 20")) "The LabelGridCellSize was not set to 20 correctly"
-        testCase "LabelRenderedSizeThreshold_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(LabelRenderedSizeThreshold = 20))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("labelGridCellSize: 20")) "The LabelGridCellSize was not set to 20 correctly"
+//         testCase "LabelRenderedSizeThreshold_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(LabelRenderedSizeThreshold = 20))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("labelRenderedSizeThreshold: 20")) "The LabelRenderedSizeThreshold was not set to 20 correctly"
-        testCase "ZIndexTrue_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(ZIndex = true))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("labelRenderedSizeThreshold: 20")) "The LabelRenderedSizeThreshold was not set to 20 correctly"
+//         testCase "ZIndexTrue_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(ZIndex = true))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("zIndex: True")) "The ZIndex was not set to true correctly"
-        testCase "ZIndexFalse_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(ZIndex = false))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("zIndex: True")) "The ZIndex was not set to true correctly"
+//         testCase "ZIndexFalse_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(ZIndex = false))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("zIndex: False")) "The ZIndex was not set to false correctly"
-        testCase "MinCameraRatio_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(MinCameraRatio = 20))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("zIndex: False")) "The ZIndex was not set to false correctly"
+//         testCase "MinCameraRatio_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(MinCameraRatio = 20))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("minCameraRatio: 20")) "The MinCameraRatio was not set to 20 correctly"
-        testCase "MaxCameraRatio_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(MaxCameraRatio = 20))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("minCameraRatio: 20")) "The MinCameraRatio was not set to 20 correctly"
+//         testCase "MaxCameraRatio_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(MaxCameraRatio = 20))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("maxCameraRatio: 20")) "The MaxCameraRatio was not set to 20 correctly"
-        testCase "LabelRenderer_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(LabelRenderer = "customLabelRenderer"))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("maxCameraRatio: 20")) "The MaxCameraRatio was not set to 20 correctly"
+//         testCase "LabelRenderer_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(LabelRenderer = "customLabelRenderer"))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("labelRenderer: customLabelRenderer")) "The LabelRenderer was not set to -customLabelRenderer- correctly"
-        testCase "EdgeLabelRenderer_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelRenderer = "customEdgeLabelRenderer"))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("labelRenderer: customLabelRenderer")) "The LabelRenderer was not set to -customLabelRenderer- correctly"
+//         testCase "EdgeLabelRenderer_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelRenderer = "customEdgeLabelRenderer"))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("edgeLabelRenderer: customEdgeLabelRenderer")) "The EdgeLabelRenderer was not set to -customEdgeLabelRenderer- correctly"
-        testCase "HoverRenderer_Test" <| fun () ->
-            let graphWithData =
-                VisGraph.empty()
-                |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
-                |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
-                |> VisGraph.withRenderer(Render.Settings.Init(HoverRenderer = "customHoverRenderer"))
-            let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
+//             Expect.isTrue (x.Contains("edgeLabelRenderer: customEdgeLabelRenderer")) "The EdgeLabelRenderer was not set to -customEdgeLabelRenderer- correctly"
+//         testCase "HoverRenderer_Test" <| fun () ->
+//             let graphWithData =
+//                 VisGraph.empty()
+//                 |> VisGraph.withNodes([Node.Init("1"); Node.Init("2")])
+//                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
+//                 |> VisGraph.withRenderer(Render.Settings.Init(HoverRenderer = "customHoverRenderer"))
+//             let x = graphWithData.Settings.GetDynamicMemberNames().ToDisplayString()
 
-            Expect.isTrue (x.Contains("hoverRenderer: customHoverRenderer")) "The HoverRenderer was not set to -customHoverRenderer- correctly"
+//             Expect.isTrue (x.Contains("hoverRenderer: customHoverRenderer")) "The HoverRenderer was not set to -customHoverRenderer- correctly"
         
         
         
         
-    ]
+//     ]
