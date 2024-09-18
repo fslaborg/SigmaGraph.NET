@@ -7,23 +7,21 @@ open Sigma.NET.Interactive
 open Giraffe.ViewEngine
 open Microsoft.DotNet.Interactive.Formatting
 
-//open helperFunctions
+
 
 [<Tests>]
 let nodeTests =
     testList "Nodes" [
+        let node = Node.Init("1", DisplayData.Init())
         testCase "Key_Test" <| fun () ->
-            let node = Node.Init("1")
             
             Expect.isTrue (string(node.TryGetValue("key").Value) = "1") "The initiated node has the wrong/no key"
 
         testCase "Type_Test" <| fun () ->
-            let node = Node.Init("1")
 
             Expect.isTrue (node.GetType() = typeof<Node>) "The initiated node has the wrong type(not type : Node)"
 
         testCase "Displaydata_Test" <| fun () ->
-            let node = Node.Init("1", DisplayData.Init())
             
 
             Expect.isTrue (string(node.TryGetValue("attributes").Value) = "Sigma.NET.DisplayData") "The DisplayData was not added when initializing the node./ The node has no DisplayData."
@@ -32,28 +30,23 @@ let nodeTests =
 [<Tests>]
 let edgeTests =
     testList "Edges" [
+        let nodes = [Node.Init("1");Node.Init("2")]
+        let edge = Edge.Init("1","2","edge1")
         testCase "Source_Test" <| fun () ->
-            let nodes = [Node.Init("1");Node.Init("2")]
-            let edge = Edge.Init("1","2","edge1")
             
             Expect.isTrue (string(edge.TryGetValue("source").Value) = "1") "The source node is wrong"
 
         testCase "Target_Test" <| fun () ->
-            let nodes = [Node.Init("1");Node.Init("2")]
-            let edge = Edge.Init("1","2","edge1")
             
             Expect.isTrue (string(edge.TryGetValue("target").Value) = "2") "The target-Node is wrong."  
 
         testCase "Key_Test" <| fun () ->
-            let nodes = [Node.Init("1");Node.Init("2")]
-            let edge = Edge.Init("1","2","edge1")
             
-            Expect.isTrue (string(edge.TryGetValue("key").Value) = "edge1") "The key of the edge is wrong."  
+            Expect.isTrue (string(edge.TryGetValue("key").Value) = "edge1") "The key of the edge is wrong." 
+
         testCase "DisplayData_Test" <| fun () ->
-            let nodes = [Node.Init("1");Node.Init("2")]
-            let edge = Edge.Init("1","2","edge1", DisplayData.Init())
-            
-            Expect.isTrue (string(edge.TryGetValue("attributes").Value) = "Sigma.NET.DisplayData") "The edge has no Displaydata."    
+            let edge1 = Edge.Init("1" , "2" , "3" , DisplayData.Init(Label = "3"))
+            Expect.isTrue (string(edge1.TryGetValue("attributes").Value) = "Sigma.NET.DisplayData") "The edge has no Displaydata."    
     ]
 [<Tests>]
 let visGraphTests =
@@ -554,4 +547,52 @@ let renderSettingsTest =
         
         
         
+    ]
+
+[<Tests>]
+let displayDataTests =
+    testList "NodeDisplayData" [
+        
+        testCase "Label_Test" <| fun () ->
+            let node = Node.Init("1", DisplayData.Init(Label = "Node1"))
+            
+            Expect.isTrue ((DynObj.format node).Contains("?label: Node1")) "The Label was not added to the Node correctly"
+        testCase "Size_Test" <| fun () ->
+            let node = Node.Init("1", DisplayData.Init(Size = 10))
+            
+            Expect.isTrue ((DynObj.format node).Contains("?size: 10")) "The Size was not set to 10 correctly"
+        testCase "Color_Test" <| fun () ->
+            let node = Node.Init("1", DisplayData.Init(Color = "#0070b8"))
+            
+            Expect.isTrue ((DynObj.format node).Contains("?color: #0070b8")) "The Color was not set correctly"
+        testCase "HiddenTrue_Test" <| fun () ->
+            let node = Node.Init("1", DisplayData.Init(Hidden = true))
+            
+            Expect.isTrue ((DynObj.format node).Contains("?hidden: True")) "The 'Hidden' function was not set to true correctly"
+        testCase "HiddenFalse_Test" <| fun () ->
+            let node = Node.Init("1", DisplayData.Init(Hidden = false))
+            
+            Expect.isTrue ((DynObj.format node).Contains("?hidden: False")) "The 'Hidden' function was not set to false correctly"
+        testCase "ForceLabelTrue_Test" <| fun () ->
+            let node = Node.Init("1", DisplayData.Init(ForceLabel = true))
+            
+            Expect.isTrue ((DynObj.format node).Contains("?forceLabel: True")) "The 'ForceLabel' function was not set to true correctly"
+        testCase "ForceLabelFalse_Test" <| fun () ->
+            let node = Node.Init("1", DisplayData.Init(ForceLabel = false))
+            
+            Expect.isTrue ((DynObj.format node).Contains("?forceLabel: False")) "The 'ForceLabel' function was not set to false correctly"
+        testCase "ZIndex_Test" <| fun () ->
+            let node = Node.Init("1", DisplayData.Init(ZIndex = 10))
+            
+            Expect.isTrue ((DynObj.format node).Contains("?zIndex: 10")) "The ZIndex was not set to 10 correctly"
+        testCase "Styletype_Test" <| fun () ->
+            let node = Node.Init("1", DisplayData.Init(ZIndex = 10))
+            
+            Expect.isTrue ((DynObj.format node).Contains("?zIndex: 10")) "The ZIndex was not set to 10 correctly"
+        
+        
+        
+
+        
+
     ]
