@@ -2,7 +2,6 @@
 
 
 open DynamicObj
-open DynamicObj.Operators
 open System.Runtime.InteropServices
 
 open Giraffe.ViewEngine
