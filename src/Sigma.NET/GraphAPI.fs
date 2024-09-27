@@ -25,10 +25,10 @@ type VisGraphElement() =
     /// </summary>
     /// <param name="Label">Optional label for the node.</param>
     /// <param name="Size">Optional size of the node.</param>
-    /// <param name="Color">Optional color of the node.</param>
+    /// <param name="Color">Optional color of the node.Needs HTML color codes</param>
     /// <param name="Hidden">Optional flag to hide the node.</param>
     /// <param name="ForceLabel">Optional flag to force the label visibility.</param>
-    /// <param name="ZIndex">Optional z-index of the node.</param>
+    /// <param name="ZIndex">Optional z-index of the node(controles the stacking order of overlapping HTML elements, higher index appears in front of lower index).</param>
     /// <param name="StyleType">Optional style type of the node.</param>
     /// <param name="X">Optional X coordinate for the node.</param>
     /// <param name="Y">Optional Y coordinate for the node.</param>
@@ -60,8 +60,8 @@ type VisGraphElement() =
     /// <summary>
     /// Initializes a new edge with the given source and target nodes.
     /// </summary>
-    /// <param name="source">The source node of the edge.</param>
-    /// <param name="target">The target node of the edge.</param>
+    /// <param name="source">The key of the source node of the edge.</param>
+    /// <param name="target">The key of the target node of the edge.</param>
     /// <returns>A new Edge instance connecting the source and target nodes.</returns>
     static member edge source target = Edge.Init(source = source,target = target) 
     
@@ -70,10 +70,10 @@ type VisGraphElement() =
     /// </summary>
     /// <param name="Label">Optional label for the edge.</param>
     /// <param name="Size">Optional size of the edge.</param>
-    /// <param name="Color">Optional color of the edge.</param>
+    /// <param name="Color">Optional color of the edge. Needs HTML color codes.</param>
     /// <param name="Hidden">Optional flag to hide the edge.</param>
     /// <param name="ForceLabel">Optional flag to force the label visibility.</param>
-    /// <param name="ZIndex">Optional z-index of the edge.</param>
+    /// <param name="ZIndex">Optional z-index of the edge(controles the stacking order of overlapping HTML elements, higher index appears in front of lower index).</param>
     /// <param name="StyleType">Optional style type of the edge.</param>
     /// <param name="X">Optional X coordinate for the edge.</param>
     /// <param name="Y">Optional Y coordinate for the edge.</param>
