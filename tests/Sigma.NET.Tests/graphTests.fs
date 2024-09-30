@@ -1,4 +1,4 @@
-module BasicTests
+module GraphTests
 
 open Expecto
 open DynamicObj
@@ -10,72 +10,27 @@ open Microsoft.DotNet.Interactive.Formatting
 
 
 [<Tests>]
-let nodeTests =
-    testList "Nodes" [
-        let node = Node.Init("CorrectKey", DisplayData.Init())
-        testCase "Key_Test" <| fun () ->
-            let keyName = Expect.wantSome (node.TryGetTypedValue<string>("key")) "ErrorMessage"
-            Expect.equal keyName "CorrectKey" $"The Key of the Node was not set correctly. The Key should be called -CorrectKey- but it is {keyName} ."
-
-        testCase "Type_Test" <| fun () ->
-            let nodeType = node.GetType()
-
-            Expect.equal nodeType typeof<Node> $"The type of the node is expected to be -Sigma.NET.Node- but is {nodeType}"
-
-        testCase "DisplayData_Test" <| fun () ->
-            let displayDataType = ((node.TryGetTypedValue<DisplayData>("attributes")).Value).GetType()
-
-            Expect.equal displayDataType typeof<DisplayData> $"There was added either no DisplayData at all or the added DisplayData is not of the type -DisplayData- . The Type that was added is {displayDataType} "
-
-    ]
-[<Tests>]
-let edgeTests =
-    testList "Edges" [
-        let sourceNode = Node.Init("sourceNode")
-        let targetNode = Node.Init("targetNode")
-        let edge = Edge.Init("sourceNode","targetNode","testEdge", DisplayData.Init())
-        testCase "Source_Test" <| fun () ->
-            let sourceNodeKey = Expect.wantSome (sourceNode.TryGetTypedValue<string>("key")) "ErrorMessage"
-            let sourceNodeKeyInEdge = Expect.wantSome (edge.TryGetTypedValue<string>("source")) "ErrorMessage"
-            
-            Expect.equal sourceNodeKeyInEdge sourceNodeKey $"The SourceNode was expected to be {sourceNodeKey} but is {sourceNodeKeyInEdge}"
-        testCase "Target_Test" <| fun () ->
-            let targetNodeKey = Expect.wantSome (targetNode.TryGetTypedValue<string>("key")) "ErrorMessage"
-            let targetNodeKeyInEdge = Expect.wantSome (edge.TryGetTypedValue<string>("target")) "ErrorMessage"
-
-            Expect.equal targetNodeKeyInEdge targetNodeKey $"The target Node was expected to be {targetNodeKey} but is {targetNodeKeyInEdge}" 
-        testCase "Key_Test" <| fun () ->
-            let edgeKey = Expect.wantSome (edge.TryGetTypedValue<string>("key")) "ErrorMessage"
-
-            Expect.equal edgeKey "testEdge" $"The Key of the edge should be -testEdge- but it is {edgeKey}" 
-        testCase "DisplayData_Test" <| fun () ->
-            let edgeDDType = ((edge.TryGetTypedValue<DisplayData>("attributes")).Value).GetType()
-            
-            Expect.equal edgeDDType typeof<DisplayData> $"There was added either no DisplayData at all or the added DisplayData is not of the type -DisplayData- . The Type that was added is {edgeDDType} "
-                                    
-    ]
-[<Tests>]
 let visGraphTests =
     testList "VisGraph" [
-        testCase "Type_Test" <| fun () ->
+        testCase "Type_Test_V" <| fun () ->
             let x = (VisGraph.empty().GetType())
             let y = typeof<SigmaGraph>
 
             Expect.equal x y $"The type of the Visgraph was expected to be {y} but it is {x}"
-        testCase "Empty_Test" <| fun () ->
+        testCase "Empty_Test_V" <| fun () ->
             
             Expect.isTrue ((VisGraph.empty().GraphData.Nodes.Count = 0 && VisGraph.empty().GraphData.Edges.Count = 0)) "The initialized graph should be empty but it isnt."
-        testCase "WithNode_Test" <| fun () ->
+        testCase "WithNode_Test_V" <| fun () ->
             let graph = VisGraph.withNode (Node.Init("1")) (VisGraph.empty())
             let numberOfNodesAdded = graph.GraphData.Nodes.Count
             
             Expect.equal numberOfNodesAdded 1 $"It was expected that 1 Node gets added to the graph but {numberOfNodesAdded} Node/Nodes have been added to the Graph"
-        testCase "WithNodes_Test" <| fun () ->
+        testCase "WithNodes_Test_V" <| fun () ->
             let graph = VisGraph.withNodes ([Node.Init("1");Node.Init("2")]) (VisGraph.empty())
             let numberOfNodesAdded = graph.GraphData.Nodes.Count
 
             Expect.equal numberOfNodesAdded 2 $"It was expected that 2 Nodes are added to the graph but {numberOfNodesAdded} Nodes have been added to the graph"
-        testCase "WithEdge_Test" <| fun () ->
+        testCase "WithEdge_Test_V" <| fun () ->
             let graph =
                 VisGraph.empty()
                 |> VisGraph.withNodes([Node.Init("1");Node.Init("2")])
@@ -83,7 +38,7 @@ let visGraphTests =
             let numberOfEdgesAdded = graph.GraphData.Edges.Count
 
             Expect.equal numberOfEdgesAdded 1 $"1 edge shouldve been added to the graph but {numberOfEdgesAdded} edges were added." 
-        testCase "WithEdges_Test" <| fun () ->
+        testCase "WithEdges_Test_V" <| fun () ->
             let nodes = [1 .. 10] |> List.map (fun key -> Node.Init(string(key),DisplayData.Init()))
             let edges = 
                 let list = List.zip3 [1 .. 2 .. 10] [2 .. 2 .. 10] [1 .. 5]
@@ -95,14 +50,14 @@ let visGraphTests =
             let numberOfEdgesAdded = graph.GraphData.Edges.Count
 
             Expect.equal numberOfEdgesAdded 5 $"5 edges should have been added to the graph but instead {numberOfEdgesAdded} edges have been added." 
-        testCase "WithCircularLayout_Test" <| fun () ->
+        testCase "WithCircularLayout_Test_V" <| fun () ->
             let graph =
                 VisGraph.empty()
                 |> VisGraph.withCircularLayout()
             let layoutType = string(graph.Layout.GetType())
 
             Expect.equal layoutType "Sigma.NET.Layout+Circular" $"The Layout type was expected to be -Sigma.NET.Layout+Circular- but it is {layoutType}"  
-        testCase "WithRandomLayout_Test" <| fun () ->
+        testCase "WithRandomLayout_Test_V" <| fun () ->
             let graph =
                 VisGraph.empty()
                 |> VisGraph.withRandomLayout()
@@ -110,34 +65,34 @@ let visGraphTests =
 
             Expect.equal layoutType  "Sigma.NET.Layout+Random" $"The layout was expected to be -Sigma.NET.Layout+Random- but it is {layoutType}"    
 
-        testCase "WithHoverSelectorTrue_Test" <| fun () ->
+        testCase "WithHoverSelectorTrue_Test_V" <| fun () ->
             let graph =
                 VisGraph.empty()
                 |> VisGraph.withHoverSelector(true)
             let widgedCount = graph.Widgets.Count
             Expect.equal widgedCount 2 $"The Hoverselector was not set to true correctly. If the Hoverselector is set to true the widgedCount should be 2, if it is set to false the widgedCount is 1. The actual widgedcount is {widgedCount} ."
-        testCase "WithHoverSelectorFalse_Test" <| fun () ->
+        testCase "WithHoverSelectorFalse_Test_V" <| fun () ->
             let graph =
                 VisGraph.empty()
                 |> VisGraph.withHoverSelector(false)
             let widgedCount = graph.Widgets.Count
             Expect.equal widgedCount 1 $"The Hoverselector was not set to false correctly.If the Hoverselector is set to true the widgedCount should be 2, if it is set to false the widgedCount is 1. The actual widgedcount is {widgedCount} . "
             
-        testCase "WithForceAtlas2_Test" <| fun () ->
+        testCase "WithForceAtlas2_Test_V" <| fun () ->
             let graph =
                 VisGraph.empty()
                 |> VisGraph.withForceAtlas2(1)
             let appliedLayout = graph.Layout.ToString()
 
             Expect.equal appliedLayout "FA2 Sigma.NET.FA2Options" $"The Layout was expected to be -FA2 Sigma.NET.FA2Options- but is {appliedLayout}"
-        testCase "WithNoverlap_Test" <| fun () ->
+        testCase "WithNoverlap_Test_V" <| fun () ->
             let graph =
                 VisGraph.empty()
                 |> VisGraph.withNoverlap(1)
             let appliedLayout = graph.Layout.ToString()
 
             Expect.equal appliedLayout "Noverlap Sigma.NET.NoverlapOptions" $"The Layout was expected to be -Noverlap Sigma.NET.NoverlapOptions- but it is {appliedLayout}."
-        testCase "WithSize_Test" <| fun () ->
+        testCase "WithSize_Test_V" <| fun () ->
             let graph =
                 VisGraph.empty()
                 |> VisGraph.withSize(CssLength.Percent(80), CssLength.Percent(80))
@@ -149,105 +104,6 @@ let visGraphTests =
 
     ]
 
-
-[<Tests>]
-let nodeDisplayDataTests =
-    testList "NodeDisplayData" [
-        
-        testCase "Label_Test" <| fun () ->
-            let node = Node.Init("1", DisplayData.Init(Label = "Node1"))
-            let nodeasString = DynObj.format node
-
-            Expect.stringContains nodeasString "?label: Node1" $"The Label was not set to -Node1- correctly. {nodeasString}"
-        testCase "Size_Test" <| fun () ->
-            let node = Node.Init("1", DisplayData.Init(Size = 10))
-            let nodeasString = DynObj.format node
-
-            Expect.stringContains nodeasString "?size: 10" $"The Size was not set to 10 correctly. {nodeasString}"
-        testCase "Color_Test" <| fun () ->
-            let node = Node.Init("1", DisplayData.Init(Color = "#0070b8"))
-            let nodeasString = DynObj.format node
-            
-            Expect.stringContains nodeasString "?color: #0070b8" $"The Color was not set to -#0070b8- correctly. {nodeasString}"
-        testCase "HiddenTrue_Test" <| fun () ->
-            let node = Node.Init("1", DisplayData.Init(Hidden = true))
-            let nodeasString = DynObj.format node
-            
-            Expect.stringContains nodeasString "?hidden: True" $"The -Hidden- function was not set to true correctly. {nodeasString}"
-        testCase "HiddenFalse_Test" <| fun () ->
-            let node = Node.Init("1", DisplayData.Init(Hidden = false))
-            let nodeasString = DynObj.format node
-            
-            Expect.stringContains nodeasString "?hidden: False" $"The -Hidden- function was not set to false correctly. {nodeasString}"
-        testCase "ForceLabelTrue_Test" <| fun () ->
-            let node = Node.Init("1", DisplayData.Init(ForceLabel = true))
-            let nodeasString = DynObj.format node
-            
-            Expect.stringContains nodeasString "?forceLabel: True" $"The -ForceLabel- function was not set to true correctly. {nodeasString}"
-        testCase "ForceLabelFalse_Test" <| fun () ->
-            let node = Node.Init("1", DisplayData.Init(ForceLabel = false))
-            let nodeasString = DynObj.format node
-            
-            Expect.stringContains nodeasString "?forceLabel: False" $"The -ForceLabel- function was not set to false correctly. {nodeasString}"
-        testCase "ZIndex_Test" <| fun () ->
-            let node = Node.Init("1", DisplayData.Init(ZIndex = 10))
-            let nodeasString = DynObj.format node
-            
-            Expect.stringContains nodeasString "?zIndex: 10" $"The ZIndex was not set to 10 correctly. {nodeasString}"
-        testCase "Styletype_Test" <| fun () ->
-            let node = Node.Init("1", DisplayData.Init(StyleType = "default"))
-            let nodeasString = DynObj.format node
-
-            Expect.stringContains nodeasString "?type: default" $"The Styletype was not set to default correctly. {nodeasString}"
-                    
-    ]
-
-
-
-[<Tests>]
-let edgeDisplayDataTests =
-    testList "EdgeDisplayData" [
-        let edge = Edge.Init("1", "2", "edgeKey", DisplayData.Init(Label = "edgeLabel",Size = 20,Color = "#1910e3",ZIndex = 20, StyleType = "default",X = 10, Y=30))
-        let edgeAsString = DynObj.format edge
-        let edgeWithBoolsTrue = Edge.Init("3", "4", "key1", DisplayData.Init(Hidden = true, ForceLabel = true))
-        let edgeWithBoolsTrueAsString = DynObj.format edgeWithBoolsTrue
-        let edgeWithBoolsFalse = Edge.Init("5", "6", "key2", DisplayData.Init(Hidden = false, ForceLabel = false))
-        let edgeWithBoolsFalseAsString = DynObj.format edgeWithBoolsFalse
-        testCase "Label_Test" <| fun () ->
-            Expect.stringContains edgeAsString "label:" $"Label was not added as a DisplayOption of the edge. {edgeAsString}"
-            Expect.stringContains edgeAsString "edgeLabel" $"The added Label was expected to be -edgeLabel- but it is {edgeAsString} ."
-        testCase "Size_Test" <| fun () ->
-            Expect.stringContains edgeAsString "size:" $"Size was not added as a DisplayOption of the edge. {edgeAsString}"
-            Expect.stringContains edgeAsString "20" $"The added Size was expected to be -20- but it is {edgeAsString} ."
-        testCase "Color_Test" <| fun () ->
-            Expect.stringContains edgeAsString "color" $"Color was not added as a DisplayOption of the edge. {edgeAsString}"
-            Expect.stringContains edgeAsString "#1910e3" $"The added Color was expected to be -#1910e3- but it is {edgeAsString} ."
-        testCase "ZIndex_Test" <| fun () ->
-            Expect.stringContains edgeAsString "zIndex" $"ZIndex was not added as a DisplayOption of the edge. {edgeAsString}"
-            Expect.stringContains edgeAsString "20" $"The added ZIndex was expected to be -20- but it is {edgeAsString} ."
-        testCase "StyleType_Test" <| fun () ->
-            Expect.stringContains edgeAsString "type" $"StyleType was not added as a DisplayOption of the edge. {edgeAsString}"
-            Expect.stringContains edgeAsString "default" $"The added StyleType was expected to be -default- but it is {edgeAsString} ."
-        testCase "X_Test" <| fun () ->
-            Expect.stringContains edgeAsString "x" $"X was not added as a DisplayOption of the edge. {edgeAsString}"
-            Expect.stringContains edgeAsString "10" $"The added X-value was expected to be -10- but it is {edgeAsString} ."
-        testCase "Y_Test" <| fun () ->
-            Expect.stringContains edgeAsString "y" $"Y was not added as a DisplayOption of the edge. {edgeAsString}"
-            Expect.stringContains edgeAsString "30" $"The added Y-value was expected to be -30- but it is {edgeAsString} ."
-        testCase "HiddenTrue_Test" <| fun () ->
-            Expect.stringContains edgeWithBoolsTrueAsString "hidden" $"Hidden was not added as a DisplayOption of the edge. {edgeWithBoolsTrueAsString}"
-            Expect.stringContains edgeWithBoolsTrueAsString "True" $"Hidden was expected to be true but it is {edgeWithBoolsTrueAsString} ."
-        testCase "ForceLabelTrue_Test" <| fun () ->
-            Expect.stringContains edgeWithBoolsTrueAsString "forceLabel" $"ForceLabel was not added as a DisplayOption of the edge. {edgeWithBoolsTrueAsString}"
-            Expect.stringContains edgeWithBoolsTrueAsString "True" $"ForceLabel was expected to be true but it is {edgeWithBoolsTrueAsString} ."
-        testCase "HiddenFalse_Test" <| fun () ->
-            Expect.stringContains edgeWithBoolsFalseAsString "hidden" $"Hidden was not added as a DisplayOption of the edge. {edgeWithBoolsFalseAsString}"
-            Expect.stringContains edgeWithBoolsFalseAsString "False" $"Hidden was expected to be true but it is {edgeWithBoolsFalseAsString} ."
-        testCase "ForceLabelFalse_Test" <| fun () ->
-            Expect.stringContains edgeWithBoolsFalseAsString "forceLabel" $"ForceLabel was not added as a DisplayOption of the edge. {edgeWithBoolsFalseAsString}"
-            Expect.stringContains edgeWithBoolsFalseAsString "False" $"ForceLabel was expected to be true but it is {edgeWithBoolsFalseAsString} ."
-
-    ]    
 [<Tests>]
 let renderSettingsTest =
     testList "Renderer" [
@@ -258,7 +114,7 @@ let renderSettingsTest =
                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
                 |> VisGraph.withRenderer(Render.Settings.Init(LabelSize = 20))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let valueOfLabelSize = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("labelSize")) "Test_LabelSize"
+            let valueOfLabelSize = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("labelSize")) "The graph does not have a labelsize."
 
             Expect.stringContains dynamicMembers "labelSize:" $"The label size was not set as a Dynamic Member of the Graph.Settings correctly.{dynamicMembers}"
             Expect.equal valueOfLabelSize 20 $"The lablesize was set to the wrong number. The labelsize should be 20 but it is {valueOfLabelSize}."
@@ -269,7 +125,7 @@ let renderSettingsTest =
                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
                 |> VisGraph.withRenderer(Render.Settings.Init(HideEdgesOnMove = true))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("hideEdgesOnMove")) "Test_hideEOnMove"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("hideEdgesOnMove")) "The graph does not have a hideEdgesOnMove value."
 
             Expect.stringContains dynamicMembers "hideEdgesOnMove:" $"HideEdgesOnMove was not set as a dynamic member of Graph.Settings correctly.{dynamicMembers}"    
             Expect.isTrue value $"The HideEdgesOnMove function was not set to true as expected, instead it was set to {value}"
@@ -280,7 +136,7 @@ let renderSettingsTest =
                 |> VisGraph.withEdge(Edge.Init("1", "2", "Edge1"))
                 |> VisGraph.withRenderer(Render.Settings.Init(HideEdgesOnMove = false))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("hideEdgesOnMove")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("hideEdgesOnMove")) "The graph does not have a hideEdgesOnMove value."
             Expect.stringContains dynamicMembers "hideEdgesOnMove:" $"HideEdgesOnMove was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.isFalse value $"The HideEdgesOnMove function was not set to false as expected, instead it was set to {value}"
         testCase "HideLabelsOnMoveTrue_Test" <| fun () ->
@@ -288,7 +144,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(HideLabelsOnMove = true))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("hideLabelsOnMove")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("hideLabelsOnMove")) "The graph does not have a hideLabelsOnMove value."
 
             Expect.stringContains dynamicMembers "hideLabelsOnMove:" $"HideLabelsOnMove was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.isTrue value $"The HideLabelsOnMove function was not set to true as expected, instead it was set to {value}"
@@ -297,7 +153,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(HideLabelsOnMove = false))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("hideLabelsOnMove")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("hideLabelsOnMove")) "The graph does not have a hideLabelsOnMove value."
 
             Expect.stringContains dynamicMembers "hideLabelsOnMove:" $"HideLabelsOnMove was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.isFalse value $"The HideLabelsOnMove function was not set to false as expected, instead it was set to {value}"
@@ -306,7 +162,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(RenderLabels = true))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("renderLabels")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("renderLabels")) "The graph does not have renderLabels value."
 
             Expect.stringContains dynamicMembers "renderLabels:" $"renderLabels was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.isTrue value $"The renderLabels function was not set to true as expected, instead it was set to {value}"
@@ -315,7 +171,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(RenderLabels = false))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("renderLabels")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("renderLabels")) "The graph does not have a renderLabels value."
 
             Expect.stringContains dynamicMembers "renderLabels:" $"renderLabels was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.isFalse value $"The renderLabels function was not set to false as expected, instead it was set to {value}"
@@ -324,7 +180,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(RenderEdgeLabels = true))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("renderEdgeLabels")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("renderEdgeLabels")) "The graph does not have a renderEdgeLabels value."
 
             Expect.stringContains dynamicMembers "renderEdgeLabels:" $"RenderEdgeLabels was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.isTrue value $"The renderEdgeLabels function was not set to true as expected, instead it was set to {value}"
@@ -333,7 +189,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(RenderEdgeLabels = false))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("renderEdgeLabels")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("renderEdgeLabels")) "The graph does not have a renderEdgeLabels value."
 
             Expect.stringContains dynamicMembers "renderEdgeLabels:" $"RenderEdgeLabels was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.isFalse value $"The renderEdgeLabels function was not set to false as expected, instead it was set to {value}"
@@ -342,7 +198,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeClickEvents = true))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeClickEvents")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeClickEvents")) "The graph does not have a enableEdgeClickEvents value."
 
             Expect.isTrue value $"The enableEdgeClickEvents function was not set to true as expected, instead it was set to {value}"
             Expect.stringContains dynamicMembers "enableEdgeClickEvents:" $"EnableEdgeClickEvents was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
@@ -351,7 +207,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeClickEvents = false))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeClickEvents")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeClickEvents")) "The graph does not have a enableEdgeClickEvents value."
 
             Expect.isFalse value $"The enableEdgeClickEvents function was not set to false as expected, instead it was set to {value}"
             Expect.stringContains dynamicMembers "enableEdgeClickEvents:" $"EnableEdgeClickEvents was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"    
@@ -360,7 +216,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeWheelEvents = true))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeWheelEvents")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeWheelEvents")) "The graph does not have a enableEdgeWheelEvents value."
 
             Expect.stringContains dynamicMembers "enableEdgeWheelEvents:" $"EnableEdgeWheelEvents was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"        
             Expect.isTrue value $"The EnableEdgeWheelEvents function was not set to true as expected, instead it was set to {value}"
@@ -369,7 +225,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeWheelEvents = false))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeWheelEvents")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeWheelEvents")) "The graph has no enableEdgeWheelEvents value."
 
             Expect.stringContains dynamicMembers "enableEdgeWheelEvents:" $"EnableEdgeWheelEvents was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"        
             Expect.isFalse value $"The EnableEdgeWheelEvents function was not set to false as expected, instead it was set to {value}"
@@ -378,7 +234,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeHoverEvents = true))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeHoverEvents")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeHoverEvents")) "The graph has no enableEdgeHoverEvents value."
 
             Expect.stringContains dynamicMembers "enableEdgeHoverEvents:" $"EnableEdgeHoverEvents was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"        
             Expect.isTrue value $"The EnableEdgeHoverEvents function was not set to true as expected, instead it was set to {value}"
@@ -387,7 +243,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(EnableEdgeHoverEvents = false))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeHoverEvents")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("enableEdgeHoverEvents")) "The graph has no enableEdgeHoverEvents value."
 
             Expect.stringContains dynamicMembers "enableEdgeHoverEvents:" $"EnableEdgeHoverEvents was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"        
             Expect.isFalse value $"The EnableEdgeHoverEvents function was not set to false as expected, instead it was set to {value}"
@@ -396,7 +252,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(DefaultNodeColor = "#D20103"))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let color = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("defaultNodeColor")) "Test"
+            let color = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("defaultNodeColor")) "The graph has no defaultNodeColor value."
 
             Expect.stringContains dynamicMembers "defaultNodeColor:" $"The defaultNodeColor was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}" 
             Expect.equal color "#D20103" $"The DefaultNodeColor was not set to #D20103 as expected. Instead it was set to {color} ."
@@ -405,16 +261,16 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(DefaultNodeType = StyleParam.NodeType.Circle))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let ricardaLang = Expect.wantSome (graph.Settings.TryGetValue("defaultNodeType")) "Test"
+            let value = Expect.wantSome (graph.Settings.TryGetValue("defaultNodeType")) "The graph has no defaultNodeType value."
 
             Expect.stringContains dynamicMembers "defaultNodeType:" $"The DefaultNodeType was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
-            Expect.equal ricardaLang "circle" $"The defaultNodeType was not set to Circle as expected, instead it was set to {ricardaLang}"
+            Expect.equal value "circle" $"The defaultNodeType was not set to Circle as expected, instead it was set to {value}"
         testCase "DefaultEdgeColor_Test" <| fun () ->
             let graph =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(DefaultEdgeColor = "#D20103"))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let color = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("defaultEdgeColor")) "Test"
+            let color = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("defaultEdgeColor")) "The graph has no defaultEdgeColor value."
 
             Expect.stringContains dynamicMembers "defaultEdgeColor:" $"The defaultNodeColor was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}" 
             Expect.equal color "#D20103" $"The DefaultEdgeColor was not set to #D20103 as expected. Instead it was set to {color} ."
@@ -423,7 +279,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(DefaultEdgeType = StyleParam.EdgeType.Line))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let napoleonsInfanterie = Expect.wantSome (graph.Settings.TryGetValue("defaultEdgeType")) "Test"
+            let napoleonsInfanterie = Expect.wantSome (graph.Settings.TryGetValue("defaultEdgeType")) "The graph has no defaultEdgeType value."
 
             Expect.stringContains dynamicMembers "defaultEdgeType:" $"The DefaultEdgeType was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal napoleonsInfanterie "line" $"The defaultEdgeType was not set to line as expected, instead it was set to {napoleonsInfanterie}"
@@ -432,7 +288,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(DefaultEdgeType = StyleParam.EdgeType.Arrow))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let bowAnd = Expect.wantSome (graph.Settings.TryGetValue("defaultEdgeType")) "Test"
+            let bowAnd = Expect.wantSome (graph.Settings.TryGetValue("defaultEdgeType")) "The graph has no defaultEdgeType value."
 
             Expect.stringContains dynamicMembers "defaultEdgeType:" $"The DefaultEdgeType was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal bowAnd "arrow" $"The defaultEdgeType was not set to arrow as expected, instead it was set to {bowAnd}"
@@ -441,7 +297,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(LabelFont = "Arial"))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let font = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("labelFont")) "Test"
+            let font = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("labelFont")) "The graph has no labelFont value."
 
             Expect.stringContains dynamicMembers "labelFont:" $"The LabelFont was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal font "Arial" $"The Labelfont was not set to Arial as expected. It was set to {font} instead"
@@ -450,7 +306,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelFont = "Arial"))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let font = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("edgeLabelFont")) "Test"
+            let font = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("edgeLabelFont")) "The graph has no edgeLabelFont value."
 
             Expect.stringContains dynamicMembers "edgeLabelFont:" $"The EdgeLabelFont was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal font "Arial" $"The EdgeLabelfont was not set to Arial as expected. It was set to {font} instead"
@@ -459,7 +315,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelSize = 20))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let size = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("edgeLabelSize")) "Test"
+            let size = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("edgeLabelSize")) "The graph has no edgeLabelSize value."
 
             Expect.stringContains dynamicMembers "edgeLabelSize:" $"The EdgeLabelSize was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal size 20 $"The size was not set to 20 as expected instead it was set to {size} ."
@@ -468,7 +324,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(LabelWeight = "Bold"))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let weight = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("labelWeight")) "Test"
+            let weight = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("labelWeight")) "The graph has no labelWeight value."
 
             Expect.stringContains dynamicMembers "labelWeight:" $"The LabelWeight was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal weight "Bold" $"The Labelweight was not set to Bold it was instead set to {weight}. "
@@ -477,7 +333,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelWeight = "Normal"))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let weight = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("edgeLabelWeight")) "Test"
+            let weight = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("edgeLabelWeight")) "The graph has no edgeLabelWeight value."
 
             Expect.stringContains dynamicMembers "edgeLabelWeight" $"The EdgeLabelWeight was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal weight "Normal" $"The EdgeLabelWeight was not set to normal correctly, instead it was set to {weight} ."
@@ -504,7 +360,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(StagePadding = 20))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let paddingValue = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("stagePadding")) "Test"
+            let paddingValue = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("stagePadding")) "The graph has no stagePadding value."
 
             Expect.stringContains dynamicMembers "stagePadding: 20" $"The StagePadding was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal paddingValue 20 $"The stagepadding Value was expected to be 20 but it is {paddingValue} ."
@@ -513,7 +369,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(LabelDensity = 20))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let density = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("labelDensity")) "Test"
+            let density = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("labelDensity")) "The graph has no labelDensity value"
 
             Expect.stringContains dynamicMembers "labelDensity:" $"The LabelDensity was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal density 20 $"The LabelDensity was expected to be 20 but it is {density} ."
@@ -522,7 +378,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(LabelGridCellSize = 20))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let gridSize = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("labelGridCellSize")) "Test"
+            let gridSize = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("labelGridCellSize")) "The graph has no labelGridCellSize value."
 
 
             Expect.stringContains dynamicMembers "labelGridCellSize:" $"The LabelGridCellSize was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
@@ -532,7 +388,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(LabelRenderedSizeThreshold = 20))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let sizeThresh = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("labelRenderedSizeThreshold")) "Test"
+            let sizeThresh = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("labelRenderedSizeThreshold")) "The graph has no labelRenderedSizeThreshold value."
 
             Expect.stringContains dynamicMembers "labelRenderedSizeThreshold:" $"The LabelRenderedSizeThreshold was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal sizeThresh 20 $"The LabelRenderedSizeThreshold was expected to be set to 20 but it was set to {sizeThresh} ."
@@ -541,7 +397,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(ZIndex = true))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let zI = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("zIndex")) "Test"
+            let zI = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("zIndex")) "The graph has no zIndex value."
 
             Expect.stringContains dynamicMembers "zIndex:" $"The ZIndex was not set  as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.isTrue zI $"The Zindex was expected to be set to true but instead it was set to {zI} ."
@@ -550,7 +406,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(ZIndex = false))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let zI = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("zIndex")) "Test"
+            let zI = Expect.wantSome (graph.Settings.TryGetTypedValue<bool>("zIndex")) "The graph has no zIndex value."
 
             Expect.stringContains dynamicMembers "zIndex:" $"The ZIndex was not set  as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.isFalse zI $"The Zindex was expected to be set to false but instead it was set to {zI} ."
@@ -559,7 +415,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(MinCameraRatio = 20))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let ratio = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("minCameraRatio")) "Test"
+            let ratio = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("minCameraRatio")) "The graph has no minCameraRatio value."
 
             Expect.stringContains dynamicMembers "minCameraRatio:" $"The MinCameraRatio was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal ratio 20 $"The MinCameraRatio was expected to be 20 but it is {ratio} ."
@@ -568,7 +424,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(MaxCameraRatio = 20))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let ratio = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("maxCameraRatio")) "Test"
+            let ratio = Expect.wantSome (graph.Settings.TryGetTypedValue<int>("maxCameraRatio")) "Thegraph has no maxCameraRatio value."
 
             Expect.stringContains dynamicMembers "maxCameraRatio:" $"The MaxCameraRatio was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal ratio 20 $"The MaxCameraRatio was expected to be 20 but it is {ratio} ."
@@ -577,7 +433,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(LabelRenderer = "customLabelRenderer"))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let renderer = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("labelRenderer")) "Test"
+            let renderer = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("labelRenderer")) "The graph has no labelRenderer value"
 
             Expect.stringContains dynamicMembers "labelRenderer:" $"The LabelRenderer was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal renderer "customLabelRenderer" $"The LabelRenderer was expected to be set to 'customLabelRenderer' but it was set to {renderer} ."
@@ -586,7 +442,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(EdgeLabelRenderer = "customEdgeLabelRenderer"))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let renderer = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("edgeLabelRenderer")) "Test"
+            let renderer = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("edgeLabelRenderer")) "The graph has no edgeLabelRenderer value."
 
             Expect.stringContains dynamicMembers "edgeLabelRenderer:" $"The EdgeLabelRenderer was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal renderer "customEdgeLabelRenderer" $"The EdgeLabelRenderer was expected to be 'customEdgeLabelRenderer' but it is {renderer} ."
@@ -595,7 +451,7 @@ let renderSettingsTest =
                 VisGraph.empty()
                 |> VisGraph.withRenderer(Render.Settings.Init(HoverRenderer = "customHoverRenderer"))
             let dynamicMembers = graph.Settings.GetDynamicMemberNames().ToDisplayString()
-            let renderer = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("hoverRenderer")) "Test"
+            let renderer = Expect.wantSome (graph.Settings.TryGetTypedValue<string>("hoverRenderer")) "The graph has no hoverRenderer value."
 
             Expect.stringContains dynamicMembers "hoverRenderer:" $"The HoverRenderer was not set as a dynamic member of Graph.Settings correctly. {dynamicMembers}"
             Expect.equal renderer "customHoverRenderer" $"The HoverRenderer is expected to be 'customHoverRenderer' but it is {renderer} ."

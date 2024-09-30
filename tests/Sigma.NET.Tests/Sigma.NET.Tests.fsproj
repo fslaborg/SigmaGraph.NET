@@ -4,7 +4,9 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="basic.fs" />
+    <Compile Include="nodeTests.fs" />
+    <Compile Include="edgeTests.fs" />
+    <Compile Include="graphTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
