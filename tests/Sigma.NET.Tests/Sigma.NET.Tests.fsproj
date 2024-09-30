@@ -5,8 +5,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="nodeTests.fs" />
+    <Compile Include="nodeDisplayDataTests.fs" />
     <Compile Include="edgeTests.fs" />
-    <Compile Include="graphTests.fs" />
+    <Compile Include="edgeDisplayDataTests.fs" />
+    <Compile Include="visGraphTests.fs" />
+    <Compile Include="renderSettingsTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

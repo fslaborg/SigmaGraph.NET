@@ -103,11 +103,14 @@ type VisGraphElement() =
 
 
 // Module to manipulate and sytely a graph
+///<summary>
+/// Module to manipulate and style a graph
+/// </summary>
 type VisGraph() =
     /// <summary>
-    /// Creates an empty SigmaGraph instance.
+    /// Creates an empty SigmaGraph instance
     /// </summary>
-    /// <returns>A new empty SigmaGraph.</returns>
+    /// <returns>A new empty SigmaGraph</returns>
     [<CompiledName("Empty")>]
     static member empty () = SigmaGraph()
 
