@@ -13,9 +13,26 @@ open Newtonsoft.Json
 // scalingRatio ?number 1
 // slowDown ?number 1
 // strongGravityMode ?boolean false
+
+/// <summary>
+/// FA2Settings type for configuring the Force Atlas 2 algorithm settings.
+/// </summary>
 type FA2Settings() =
     inherit DynamicObj ()
 
+    /// <summary>
+    /// Initializes a new instance of FA2Settings with optional parameters.
+    /// </summary>
+    /// <param name="AdjustSizes">Optional boolean to indicate if node sizes should be considered.</param>
+    /// <param name="BarnesHutOptimize">Optional boolean to use Barnes-Hut approximation for repulsion calculation.</param>
+    /// <param name="BarnesHutTheta">Optional float to set the Barnes-Hut approximation theta parameter.</param>
+    /// <param name="EdgeWeightInfluence">Optional integer to specify the influence of edge weights on the layout.</param>
+    /// <param name="Gravity">Optional integer to set the strength of the layout’s gravity.</param>
+    /// <param name="LinLogMode">Optional boolean to use Noack’s LinLog model.</param>
+    /// <param name="OutboundAttractionDistribution">Optional boolean to control outbound attraction distribution.</param>
+    /// <param name="ScalingRatio">Optional integer to set the scaling ratio.</param>
+    /// <param name="SlowDown">Optional integer to set the dampening factor for slowing down node movements.</param>
+    /// <param name="StrongGravityMode">Optional boolean to enable strong gravity mode.</param>
     static member Init 
         (
             ?AdjustSizes : bool,
@@ -45,8 +62,22 @@ type FA2Settings() =
                                     )
 
         // Applies updates to FA2Settings()
+    
+    /// <summary>
+    /// Applies updates to the FA2Settings instance based on the optional parameters.
+    /// </summary>
+    /// <param name="AdjustSizes">Optional boolean to indicate if node sizes should be considered.</param>
+    /// <param name="BarnesHutOptimize">Optional boolean to use Barnes-Hut approximation for repulsion calculation.</param>
+    /// <param name="BarnesHutTheta">Optional float to set the Barnes-Hut approximation theta parameter.</param>
+    /// <param name="EdgeWeightInfluence">Optional integer to specify the influence of edge weights on the layout.</param>
+    /// <param name="Gravity">Optional integer to set the strength of the layout’s gravity.</param>
+    /// <param name="LinLogMode">Optional boolean to use Noack’s LinLog model.</param>
+    /// <param name="OutboundAttractionDistribution">Optional boolean to control outbound attraction distribution.</param>
+    /// <param name="ScalingRatio">Optional integer to set the scaling ratio.</param>
+    /// <param name="SlowDown">Optional integer to set the dampening factor for slowing down node movements.</param>
+    /// <param name="StrongGravityMode">Optional boolean to enable strong gravity mode.</param>
     static member Style
-        (    
+        (  
             ?AdjustSizes,
             ?BarnesHutOptimize,
             ?BarnesHutTheta,
@@ -59,7 +90,7 @@ type FA2Settings() =
             ?StrongGravityMode
         ) =
             (fun (opt:FA2Settings) -> 
-
+            
                 AdjustSizes        |> DynObj.setValueOpt opt "adjustSizes"
                 BarnesHutOptimize  |> DynObj.setValueOpt opt "barnesHutOptimize"
                 BarnesHutTheta     |> DynObj.setValueOpt opt "barnesHutTheta"
@@ -81,9 +112,21 @@ type FA2Settings() =
 //expansion ?number 1.1: percentage of current space that nodes could attempt to move outside of.
 //ratio ?number 1.0: ratio scaling node sizes.
 //speed ?number 3: dampening factor that will slow down node movements to ease the overall process.
+
+/// <summary>
+/// NoverlapSettings type for configuring the Noverlap algorithm settings.
+/// </summary>
 type NoverlapSettings() =
     inherit DynamicObj ()
 
+    /// <summary>
+    /// Initializes a new instance of NoverlapSettings with optional parameters.
+    /// </summary>
+    /// <param name="GridSize">Optional integer specifying the number of grid cells horizontally and vertically.</param>
+    /// <param name="Margin">Optional integer to set the margin between nodes.</param>
+    /// <param name="Expansion">Optional float to specify the percentage of space nodes could move outside of.</param>
+    /// <param name="Ratio">Optional float to set the scaling ratio for node sizes.</param>
+    /// <param name="Speed">Optional integer to set the dampening factor for slowing down node movements.</param>
     static member Init 
         (
             ?GridSize : int,
@@ -103,6 +146,16 @@ type NoverlapSettings() =
                 )
 
         // Applies updates to NoverlapSettings()
+    
+    
+    /// <summary>
+    /// Applies updates to the NoverlapSettings instance based on the optional parameters.
+    /// </summary>
+    /// <param name="GridSize">Optional integer specifying the number of grid cells horizontally and vertically.</param>
+    /// <param name="Margin">Optional integer to set the margin between nodes.</param>
+    /// <param name="Expansion">Optional float to specify the percentage of space nodes could move outside of.</param>
+    /// <param name="Ratio">Optional float to set the scaling ratio for node sizes.</param>
+    /// <param name="Speed">Optional integer to set the dampening factor for slowing down node movements.</param>
     static member Style
         (    
             ?GridSize,
@@ -127,9 +180,19 @@ type NoverlapSettings() =
 //iterations number: number of iterations to perform.
 //getEdgeWeight ?string|function weight: name of the edge weight attribute or getter function. Defaults to weight.
 //settings ?object: the layout’s settings (see #settings).
+
+/// <summary>
+/// FA2Options type for configuring the Force Atlas 2 layout options.
+/// </summary>
 type FA2Options() =
     inherit DynamicObj ()
 
+    /// <summary>
+    /// Initializes a new instance of FA2Options with optional parameters.
+    /// </summary>
+    /// <param name="Iterations">Optional integer to specify the number of iterations to perform.</param>
+    /// <param name="GetEdgeWeight">Optional string specifying the edge weight attribute or a getter function.</param>
+    /// <param name="Settings">Optional FA2Settings to configure the Force Atlas 2 algorithm settings.</param>
     static member Init 
         (
             ?Iterations : int,
@@ -145,6 +208,13 @@ type FA2Options() =
                 )
 
         // Applies updates to FA2Options()
+
+    /// <summary>
+    /// Applies updates to the FA2Options instance based on the optional parameters.
+    /// </summary>
+    /// <param name="Iterations">Optional integer to specify the number of iterations to perform.</param>
+    /// <param name="GetEdgeWeight">Optional string specifying the edge weight attribute or a getter function.</param>
+    /// <param name="Settings">Optional FA2Settings to configure the Force Atlas 2 algorithm settings.</param>
     static member Style
         (    
             ?Iterations,
@@ -166,9 +236,20 @@ type FA2Options() =
 //inputReducer ?function: a function reducing each node attributes. This can be useful if the rendered positions/sizes of your graph are stored outside of the graph’s data. This is the case when using sigma.js for instance.
 //outputReducer ?function: a function reducing node positions as computed by the layout algorithm. This can be useful to map back to a previous coordinates system. This is the case when using sigma.js for instance.
 //settings ?object: the layout’s settings (see #settings).
+
+/// <summary>
+/// NoverlapOptions type for configuring the Noverlap layout options.
+/// </summary>
 type NoverlapOptions() =
     inherit DynamicObj ()
 
+    /// <summary>
+    /// Initializes a new instance of NoverlapOptions with optional parameters.
+    /// </summary>
+    /// <param name="MaxIterations">Optional integer to specify the maximum number of iterations before stopping.</param>
+    /// <param name="InputReducer">Optional string specifying the function to reduce each node’s attributes.</param>
+    /// <param name="OutputReducer">Optional string specifying the function to reduce node positions as computed by the layout algorithm.</param>
+    /// <param name="Settings">Optional NoverlapSettings to configure the Noverlap algorithm settings.</param>
     static member Init 
         (
             ?MaxIterations : int,
@@ -186,6 +267,13 @@ type NoverlapOptions() =
                 )
 
         // Applies updates to NoverlapOptions()
+    /// <summary>  
+    /// Applies updates to the NoverlapOptions instance based on the optional parameters.
+    /// </summary>
+    /// <param name="MaxIterations">Optional integer to specify the maximum number of iterations before stopping.</param>
+    /// <param name="InputReducer">Optional string specifying the function to reduce each node’s attributes.</param>
+    /// <param name="OutputReducer">Optional string specifying the function to reduce node positions as computed by the layout algorithm.</param>
+    /// <param name="Settings">Optional NoverlapSettings to configure the Noverlap algorithm settings.</param>
     static member Style
         (    
             ?MaxIterations,
@@ -207,9 +295,19 @@ type NoverlapOptions() =
 //dimensions ?array [‘x’, ‘y’]: dimensions of the layout. Cannot work with dimensions != 2.
 //center ?number 0.5: center of the layout.
 //scale ?number 1: scale of the layout.
+
+/// <summary>
+/// CircularOptions type for configuring the Circular layout options
+/// </summary>
 type CircularOptions() =
     inherit DynamicObj ()
 
+    /// <summary>
+    /// Initializes a new instance of CircularOptions with optional parameters.
+    /// </summary>
+    /// <param name="Dimensions">Optional string array specifying the dimensions of the layout.</param>
+    /// <param name="Center">Optional float to set the center of the layout.</param>
+    /// <param name="Scale">Optional float to set the scale of the layout.</param>
     static member Init 
         (
             ?Dimensions : string,
@@ -225,6 +323,12 @@ type CircularOptions() =
                 )
 
         // Applies updates to CircularOptions()
+    ///<summary>    
+    /// Applies updates to the CircularOptions instance based on the optional parameters.
+    /// </summary>
+    /// <param name="Dimensions">Optional string array specifying the dimensions of the layout.</param>
+    /// <param name="Center">Optional float to set the center of the layout.</param>
+    /// <param name="Scale">Optional float to set the scale of the layout.</param>
     static member Style
         (    
             ?Dimensions,
@@ -244,9 +348,19 @@ type CircularOptions() =
 //center ?number 0.5: center of the layout.
 //rng ?function Math.random: custom RNG function to use.
 //scale ?number 1: scale of the layout.
+
+/// <summary>
+/// RandomOptions type for configuring the Random layout options
+/// </summary>
 type RandomOptions() =
     inherit DynamicObj ()
 
+    /// <summary>
+    /// Initializes a new instance of RandomOptions with optional parameters.
+    /// </summary>
+    /// <param name="Dimensions">Optional string array specifying the dimensions of the layout.</param>
+    /// <param name="Center">Optional float to set the center of the layout.</param>
+    /// <param name="Scale">Optional integer to set the scale of the layout.</param>
     static member Init 
         (
             ?Dimensions : string,
@@ -262,6 +376,13 @@ type RandomOptions() =
                 )
 
         // Applies updates to RandomOptions()
+
+    /// <summary>    
+    /// Applies updates to the RandomOptions instance based on the optional parameters.
+    /// </summary>
+    /// <param name="Dimensions">Optional string array specifying the dimensions of the layout.</param>
+    /// <param name="Center">Optional float to set the center of the layout.</param>
+    /// <param name="Scale">Optional integer to set the scale of the layout.</param>
     static member Style
         (    
             ?Dimensions,
@@ -281,9 +402,19 @@ type RandomOptions() =
 //dimensions ?array [‘x’, ‘y’]: dimensions to use for the rotation. Cannot work with dimensions != 2.
 //degrees ?boolean false: whether the given angle is in degrees.
 //centeredOnZero ?boolean false: whether to rotate the graph around 0, rather than the graph’s center.
+
+/// <summary>
+/// RotationOptions contains options for configuring a Rotation layout algorithm.
+///</summary>
 type RotationOptions() =
     inherit DynamicObj ()
 
+    /// <summary>
+    /// Initializes a new instance of RotationOptions with optional parameters.
+    /// </summary>
+    /// <param name="Dimensions">Optional string array specifying the dimensions for rotation.</param>
+    /// <param name="Degrees">Optional boolean to indicate if the angle is in degrees.</param>
+    /// <param name="CenteredOnZero">Optional boolean to rotate the graph around 0 instead of the graph’s center.</param>
     static member Init 
         (
             ?Dimensions : string,
@@ -299,6 +430,12 @@ type RotationOptions() =
                 )
 
         // Applies updates to RotationOptions()
+    /// <summary>
+    /// Applies updates to the RotationOptions instance based on the optional parameters.
+    /// </summary>
+    /// <param name="Dimensions">Optional string array specifying the dimensions for rotation.</param>
+    /// <param name="Degrees">Optional boolean to indicate if the angle is in degrees.</param>
+    /// <param name="CenteredOnZero">Optional boolean to rotate the graph around 0 instead of the graph’s center.</param>
     static member Style
         (    
             ?Dimensions,
@@ -326,13 +463,24 @@ type RotationOptions() =
 
 
 // LayoutAlgorithmName
+
+/// <summary>
+/// Layout defines different layout algorithms for a graph and serializes them into JavaScript commands.
+/// </summary>
 type Layout =
     | FA2 of FA2Options
     | Noverlap of NoverlapOptions
     | Circular of CircularOptions
     | Random of RandomOptions
     | Rotation of RotationOptions
-    with static member serialize (layout:Layout) =
+    with 
+        
+        /// <summary>
+        /// Serializes the selected layout into a JavaScript command string.
+        /// </summary>
+        /// <param name="layout">The Layout instance to serialize.</param>
+        /// <returns>A string representing the JavaScript command to apply the layout.</returns>
+        static member serialize (layout:Layout) =
             match layout with
             | FA2 opt ->
                 let stringOpt = opt |> JsonConvert.SerializeObject 

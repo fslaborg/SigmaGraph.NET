@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="nodeTests.fs" />
+    <Compile Include="nodeDisplayDataTests.fs" />
+    <Compile Include="edgeTests.fs" />
+    <Compile Include="edgeDisplayDataTests.fs" />
+    <Compile Include="visGraphTests.fs" />
+    <Compile Include="renderSettingsTests.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Expecto" Version="9.*" />
+    <PackageReference Include="YoloDev.Expecto.TestSdk" Version="0.*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Sigma.NET\Sigma.NET.fsproj" />
+    <ProjectReference Include="..\..\src\Sigma.NET.Interactive\Sigma.NET.Interactive.fsproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-root="http://localhost:8901/">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Timo Mühlhaus, fslab contributors" name="author">
+    <!-- Opengraph properties (https://ogp.me/) -->
+    <meta property="og:site_name" content="Sigma.NET">
+    <meta property="og:title" content="Basic Usage
+" />
+    <meta property="og:url" content="http://localhost:8901/script.html">
+    <meta property="og:type" content="website" />
+    <!-- Twitter cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="http://localhost:8901/">
+    <meta name="twitter:title" content="Basic Usage
+">
+    
+    <title>Basic Usage
+ | Sigma.NET</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="http://localhost:8901/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+    <script type="application/javascript" src="http://localhost:8901/content/fsdocs-theme-set-dark.js"></script>
+    <link href="http://localhost:8901/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
+    <link href="http://localhost:8901/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
+    
+    
+<script type="text/javascript">
+    var wsUri = "ws://localhost:8901/websocket";
+    function init()
+    {
+        websocket = new WebSocket(wsUri);
+        websocket.onmessage = function(evt) {
+            const data = evt.data;
+            if (data.endsWith(".css")) {
+                console.log(`Trying to reload ${data}`);
+                const link = document.querySelector(`link[href*='${data}']`);
+                if (link) {
+                    const href = new URL(link.href);
+                    const ticks = new Date().getTime();
+                    href.searchParams.set("v", ticks);
+                    link.href = href.toString();
+                }
+            }
+            else {
+                console.log('closing');
+                websocket.close();
+                document.location.reload();
+            }
+        }
+    }
+    window.addEventListener("load", init, false);
+</script>
+
+</head>
+<body class="content">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"></iconify-icon>
+            <input type="checkbox" name="mobile-menu" />
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+                    Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+                    Repository</a></li>
+                <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/1_Introduction.html">
+    Introduction
+
+  </a>
+</li>             
+<li class="nav-item active">
+  <a class="nav-link" href="http://localhost:8901/2_Basic_Usage.html">
+    Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/3_Advanced_Usage.html">
+    Advanced Usage
+
+  </a>
+</li>
+                <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="http://localhost:8901/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+            </ul>
+        </div>
+        <a href="https://fslab.org/Sigma.NET/">
+            <img alt="Header menu logo" src="http://localhost:8901/img/logo.png">
+            <strong>Sigma.NET</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="https://github.com/fslaborg/Sigma.NET/" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
+        <fsdocs-theme-toggle></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                                href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+            Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+            Repository</a></li>
+        <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/1_Introduction.html">
+    Introduction
+
+  </a>
+</li>             
+<li class="nav-item active">
+  <a class="nav-link" href="http://localhost:8901/2_Basic_Usage.html">
+    Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/3_Advanced_Usage.html">
+    Advanced Usage
+
+  </a>
+</li>
+        <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="http://localhost:8901/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        <h1><a name="Basic-Usage" class="anchor" href="#Basic-Usage">Basic Usage</a></h1>
+<h2><a name="Installation-using-NuGet" class="anchor" href="#Installation-using-NuGet">Installation using NuGet</a></h2>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//Sigma.NET and Sigma.NET.Interactive</span>
+<span class="pn">#</span> <span class="s">&quot;nuget: C:/Users/lukas/Documents/GitHub/Project/Sigma.NET/pkg&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Sigma.NET, 0.0.0-dev&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Sigma.NET.Interactive, 0.0.0-dev&quot;</span>
+<span class="c">//Additional Librarys</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: DynamicObj&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Newtonsoft.Json&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Giraffe.ViewEngine&quot;</span>
+
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">Sigma</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">NET</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="id">Sigma</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs2', 4)" onmouseover="showTip(event, 'fs2', 4)" class="id">NET</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs3', 5)" onmouseover="showTip(event, 'fs3', 5)" class="id">Interactive</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="id">System</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="id">DynamicObj</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs6', 8)" onmouseover="showTip(event, 'fs6', 8)" class="id">Newtonsoft</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs7', 9)" onmouseover="showTip(event, 'fs7', 9)" class="id">Json</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs8', 10)" onmouseover="showTip(event, 'fs8', 10)" class="id">Giraffe</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs9', 11)" onmouseover="showTip(event, 'fs9', 11)" class="id">ViewEngine</span>
+</code></pre>
+<h2><a name="Creating-a-simple-Graph" class="anchor" href="#Creating-a-simple-Graph">Creating a simple Graph :</a></h2>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Initiate a new Graph</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="id">newGraph</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 13)" onmouseover="showTip(event, 'fs11', 13)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 14)" onmouseover="showTip(event, 'fs12', 14)" class="id">empty</span><span class="pn">(</span><span class="pn">)</span>
+
+<span class="c">// Initiate new Nodes </span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 15)" onmouseover="showTip(event, 'fs13', 15)" class="id">node1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 16)" onmouseover="showTip(event, 'fs14', 16)" class="rt">Node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 17)" onmouseover="showTip(event, 'fs15', 17)" class="id">Init</span><span class="pn">(</span><span class="s">&quot;1&quot;</span><span class="pn">)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 18)" onmouseover="showTip(event, 'fs16', 18)" class="id">node2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="rt">Node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 20)" onmouseover="showTip(event, 'fs15', 20)" class="id">Init</span><span class="pn">(</span><span class="s">&quot;2&quot;</span><span class="pn">)</span>
+
+<span class="c">//Initiate new Edge similar to how you initiate new Nodes</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 21)" onmouseover="showTip(event, 'fs17', 21)" class="id">edge1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs18', 22)" onmouseover="showTip(event, 'fs18', 22)" class="rt">Edge</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs19', 23)" onmouseover="showTip(event, 'fs19', 23)" class="id">Init</span><span class="pn">(</span><span class="s">&quot;1&quot;</span><span class="pn">,</span><span class="s">&quot;2&quot;</span><span class="pn">)</span>
+
+<span class="c">//Add Nodes and Edges to the Graph </span>
+<span onmouseout="hideTip(event, 'fs10', 24)" onmouseover="showTip(event, 'fs10', 24)" class="id">newGraph</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 25)" onmouseover="showTip(event, 'fs11', 25)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 26)" onmouseover="showTip(event, 'fs20', 26)" class="id">withNodes</span><span class="pn">(</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs13', 27)" onmouseover="showTip(event, 'fs13', 27)" class="id">node1</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs16', 28)" onmouseover="showTip(event, 'fs16', 28)" class="id">node2</span><span class="pn">]</span><span class="pn">)</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 29)" onmouseover="showTip(event, 'fs11', 29)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 30)" onmouseover="showTip(event, 'fs21', 30)" class="id">withEdge</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs17', 31)" onmouseover="showTip(event, 'fs17', 31)" class="id">edge1</span><span class="pn">)</span>
+</code></pre>
+<p><img src="img\basicUsageGraph1.png" alt="image info" /></p>
+<h2><a name="Customizing-nodes-and-edges" class="anchor" href="#Customizing-nodes-and-edges">Customizing nodes and edges:</a></h2>
+<h3><a name="Basic-Customization" class="anchor" href="#Basic-Customization">Basic Customization</a></h3>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//create Nodes with DisplayData</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs22', 32)" onmouseover="showTip(event, 'fs22', 32)" class="id">styledNode1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 33)" onmouseover="showTip(event, 'fs14', 33)" class="rt">Node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 34)" onmouseover="showTip(event, 'fs15', 34)" class="id">Init</span><span class="pn">(</span><span class="fn">key</span><span class="o">=</span><span class="s">&quot;s1&quot;</span> <span class="pn">,</span> <span onmouseout="hideTip(event, 'fs23', 35)" onmouseover="showTip(event, 'fs23', 35)" class="fn">DisplayData</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs23', 36)" onmouseover="showTip(event, 'fs23', 36)" class="rt">DisplayData</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 37)" onmouseover="showTip(event, 'fs24', 37)" class="id">Init</span><span class="pn">(</span><span class="fn">Size</span> <span class="o">=</span> <span class="n">10</span> <span class="pn">,</span> <span class="fn">Label</span> <span class="o">=</span> <span class="s">&quot;Node 1&quot;</span><span class="pn">)</span><span class="pn">)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs25', 38)" onmouseover="showTip(event, 'fs25', 38)" class="id">styledNode2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 39)" onmouseover="showTip(event, 'fs14', 39)" class="rt">Node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 40)" onmouseover="showTip(event, 'fs15', 40)" class="id">Init</span><span class="pn">(</span><span class="fn">key</span> <span class="o">=</span> <span class="s">&quot;s2&quot;</span> <span class="pn">,</span> <span onmouseout="hideTip(event, 'fs23', 41)" onmouseover="showTip(event, 'fs23', 41)" class="fn">DisplayData</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs23', 42)" onmouseover="showTip(event, 'fs23', 42)" class="rt">DisplayData</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 43)" onmouseover="showTip(event, 'fs24', 43)" class="id">Init</span><span class="pn">(</span><span class="fn">Size</span> <span class="o">=</span> <span class="n">10</span> <span class="pn">,</span> <span class="fn">Label</span> <span class="o">=</span> <span class="s">&quot;Node 2&quot;</span><span class="pn">)</span><span class="pn">)</span>
+
+<span class="c">//create edges with DisplayData</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs26', 44)" onmouseover="showTip(event, 'fs26', 44)" class="id">styledEdge</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs18', 45)" onmouseover="showTip(event, 'fs18', 45)" class="rt">Edge</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs19', 46)" onmouseover="showTip(event, 'fs19', 46)" class="id">Init</span><span class="pn">(</span><span class="s">&quot;s1&quot;</span> <span class="pn">,</span> <span class="s">&quot;s2&quot;</span> <span class="pn">,</span> <span onmouseout="hideTip(event, 'fs23', 47)" onmouseover="showTip(event, 'fs23', 47)" class="fn">DisplayData</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs23', 48)" onmouseover="showTip(event, 'fs23', 48)" class="rt">DisplayData</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 49)" onmouseover="showTip(event, 'fs24', 49)" class="id">Init</span><span class="pn">(</span><span class="fn">Size</span> <span class="o">=</span> <span class="n">10</span><span class="pn">)</span><span class="pn">)</span>
+
+<span onmouseout="hideTip(event, 'fs11', 50)" onmouseover="showTip(event, 'fs11', 50)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 51)" onmouseover="showTip(event, 'fs12', 51)" class="id">empty</span><span class="pn">(</span><span class="pn">)</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 52)" onmouseover="showTip(event, 'fs11', 52)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 53)" onmouseover="showTip(event, 'fs20', 53)" class="id">withNodes</span><span class="pn">(</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs22', 54)" onmouseover="showTip(event, 'fs22', 54)" class="id">styledNode1</span> <span class="pn">;</span> <span onmouseout="hideTip(event, 'fs25', 55)" onmouseover="showTip(event, 'fs25', 55)" class="id">styledNode2</span><span class="pn">]</span><span class="pn">)</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 56)" onmouseover="showTip(event, 'fs11', 56)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 57)" onmouseover="showTip(event, 'fs21', 57)" class="id">withEdge</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs26', 58)" onmouseover="showTip(event, 'fs26', 58)" class="id">styledEdge</span><span class="pn">)</span>
+</code></pre>
+<p><img src="img\basicUsageGraph2.png" alt="image info" /></p>
+<h3><a name="Color-options" class="anchor" href="#Color-options">Color options</a></h3>
+<p>You can adjust the colors of nodes and edges using html-color-codes. <a href="https://html-color.codes/">https://html-color.codes/</a></p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Create colored Nodes</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs27', 59)" onmouseover="showTip(event, 'fs27', 59)" class="id">redNode</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 60)" onmouseover="showTip(event, 'fs14', 60)" class="rt">Node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 61)" onmouseover="showTip(event, 'fs15', 61)" class="id">Init</span><span class="pn">(</span><span class="s">&quot;r&quot;</span> <span class="pn">,</span> <span onmouseout="hideTip(event, 'fs23', 62)" onmouseover="showTip(event, 'fs23', 62)" class="rt">DisplayData</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 63)" onmouseover="showTip(event, 'fs24', 63)" class="id">Init</span><span class="pn">(</span><span class="fn">Size</span> <span class="o">=</span> <span class="n">10</span> <span class="pn">,</span> <span class="fn">Color</span> <span class="o">=</span> <span class="s">&quot;#ff0000&quot;</span><span class="pn">)</span><span class="pn">)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs28', 64)" onmouseover="showTip(event, 'fs28', 64)" class="id">greenNode</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 65)" onmouseover="showTip(event, 'fs14', 65)" class="rt">Node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 66)" onmouseover="showTip(event, 'fs15', 66)" class="id">Init</span><span class="pn">(</span><span class="s">&quot;g&quot;</span> <span class="pn">,</span> <span onmouseout="hideTip(event, 'fs23', 67)" onmouseover="showTip(event, 'fs23', 67)" class="rt">DisplayData</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 68)" onmouseover="showTip(event, 'fs24', 68)" class="id">Init</span><span class="pn">(</span><span class="fn">Size</span> <span class="o">=</span> <span class="n">10</span> <span class="pn">,</span> <span class="fn">Color</span> <span class="o">=</span> <span class="s">&quot;#008000&quot;</span><span class="pn">)</span><span class="pn">)</span>
+
+<span class="c">//Create colored Edge</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs29', 69)" onmouseover="showTip(event, 'fs29', 69)" class="id">yellowEdge</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs18', 70)" onmouseover="showTip(event, 'fs18', 70)" class="rt">Edge</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs19', 71)" onmouseover="showTip(event, 'fs19', 71)" class="id">Init</span><span class="pn">(</span><span class="s">&quot;r&quot;</span> <span class="pn">,</span> <span class="s">&quot;g&quot;</span> <span class="pn">,</span> <span class="s">&quot;y&quot;</span> <span class="pn">,</span> <span onmouseout="hideTip(event, 'fs23', 72)" onmouseover="showTip(event, 'fs23', 72)" class="rt">DisplayData</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 73)" onmouseover="showTip(event, 'fs24', 73)" class="id">Init</span><span class="pn">(</span><span class="fn">Size</span> <span class="o">=</span> <span class="n">10</span> <span class="pn">,</span> <span class="fn">Color</span> <span class="o">=</span> <span class="s">&quot;#ffff00&quot;</span><span class="pn">)</span><span class="pn">)</span>
+
+<span onmouseout="hideTip(event, 'fs11', 74)" onmouseover="showTip(event, 'fs11', 74)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 75)" onmouseover="showTip(event, 'fs12', 75)" class="id">empty</span><span class="pn">(</span><span class="pn">)</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 76)" onmouseover="showTip(event, 'fs11', 76)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 77)" onmouseover="showTip(event, 'fs20', 77)" class="id">withNodes</span><span class="pn">(</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs27', 78)" onmouseover="showTip(event, 'fs27', 78)" class="id">redNode</span> <span class="pn">;</span> <span onmouseout="hideTip(event, 'fs28', 79)" onmouseover="showTip(event, 'fs28', 79)" class="id">greenNode</span><span class="pn">]</span><span class="pn">)</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 80)" onmouseover="showTip(event, 'fs11', 80)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 81)" onmouseover="showTip(event, 'fs21', 81)" class="id">withEdge</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs29', 82)" onmouseover="showTip(event, 'fs29', 82)" class="id">yellowEdge</span><span class="pn">)</span>
+</code></pre>
+<p><img src="img\basicUsageGraph3.png" alt="image info" /></p>
+<h3><a name="Visualization" class="anchor" href="#Visualization">Visualization</a></h3>
+<p>To view the graph, you can either use the <code>Sigma.Net.Interactive</code> library or display the graph as an HTML file.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs30', 83)" onmouseover="showTip(event, 'fs30', 83)" class="id">exampleGraph</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs11', 84)" onmouseover="showTip(event, 'fs11', 84)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 85)" onmouseover="showTip(event, 'fs12', 85)" class="id">empty</span><span class="pn">(</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 86)" onmouseover="showTip(event, 'fs11', 86)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 87)" onmouseover="showTip(event, 'fs20', 87)" class="id">withNodes</span><span class="pn">(</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs27', 88)" onmouseover="showTip(event, 'fs27', 88)" class="id">redNode</span> <span class="pn">;</span> <span onmouseout="hideTip(event, 'fs28', 89)" onmouseover="showTip(event, 'fs28', 89)" class="id">greenNode</span><span class="pn">]</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 90)" onmouseover="showTip(event, 'fs11', 90)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 91)" onmouseover="showTip(event, 'fs21', 91)" class="id">withEdge</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs29', 92)" onmouseover="showTip(event, 'fs29', 92)" class="id">yellowEdge</span><span class="pn">)</span>
+
+<span onmouseout="hideTip(event, 'fs30', 93)" onmouseover="showTip(event, 'fs30', 93)" class="id">exampleGraph</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 94)" onmouseover="showTip(event, 'fs11', 94)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs31', 95)" onmouseover="showTip(event, 'fs31', 95)" class="id">show</span><span class="pn">(</span><span class="pn">)</span>
+</code></pre>
+
+        <div class="fsdocs-tip" id="fs1">namespace Sigma</div>
+<div class="fsdocs-tip" id="fs2">namespace Sigma.NET</div>
+<div class="fsdocs-tip" id="fs3">namespace Sigma.NET.Interactive</div>
+<div class="fsdocs-tip" id="fs4">namespace System</div>
+<div class="fsdocs-tip" id="fs5">namespace DynamicObj</div>
+<div class="fsdocs-tip" id="fs6">namespace Newtonsoft</div>
+<div class="fsdocs-tip" id="fs7">namespace Newtonsoft.Json</div>
+<div class="fsdocs-tip" id="fs8">namespace Giraffe</div>
+<div class="fsdocs-tip" id="fs9">namespace Giraffe.ViewEngine</div>
+<div class="fsdocs-tip" id="fs10">val newGraph: SigmaGraph</div>
+<div class="fsdocs-tip" id="fs11">Multiple items<br />type VisGraph =
+  new: unit -&gt; VisGraph
+  static member empty: unit -&gt; SigmaGraph
+  static member show: unit -&gt; graph: SigmaGraph -&gt; unit
+  static member withCircularLayout: [&lt;Optional; DefaultParameterValue ((null :&gt; obj))&gt;] ?Scale: float * [&lt;Optional; DefaultParameterValue ((null :&gt; obj))&gt;] ?Center: float -&gt; (SigmaGraph -&gt; SigmaGraph)
+  static member withEdge: edge: Edge -&gt; graph: SigmaGraph -&gt; SigmaGraph
+  static member withEdges: edges: Edge seq -&gt; graph: SigmaGraph -&gt; SigmaGraph
+  static member withForceAtlas2: [&lt;Optional; DefaultParameterValue ((null :&gt; obj))&gt;] ?Iterations: int * [&lt;Optional; DefaultParameterValue ((null :&gt; obj))&gt;] ?Settings: FA2Settings * [&lt;Optional; DefaultParameterValue ((null :&gt; obj))&gt;] ?GetEdgeWeight: string -&gt; (SigmaGraph -&gt; SigmaGraph)
+  static member withHoverSelector: ?enable: bool -&gt; (SigmaGraph -&gt; SigmaGraph)
+  static member withNode: node: Node -&gt; graph: SigmaGraph -&gt; SigmaGraph
+  static member withNodes: nodes: Node seq -&gt; graph: SigmaGraph -&gt; SigmaGraph
+  ...<br /><br />--------------------<br />new: unit -&gt; VisGraph</div>
+<div class="fsdocs-tip" id="fs12">static member VisGraph.empty: unit -&gt; SigmaGraph</div>
+<div class="fsdocs-tip" id="fs13">val node1: Node</div>
+<div class="fsdocs-tip" id="fs14">Multiple items<br />type Node =
+  inherit DynamicObj
+  new: unit -&gt; Node
+  static member Init: key: string * ?DisplayData: DisplayData -&gt; Node
+  static member Style: key: string * ?DisplayData: DisplayData -&gt; (Node -&gt; Node)<br /><br />--------------------<br />new: unit -&gt; Node</div>
+<div class="fsdocs-tip" id="fs15">static member Node.Init: key: string * ?DisplayData: DisplayData -&gt; Node</div>
+<div class="fsdocs-tip" id="fs16">val node2: Node</div>
+<div class="fsdocs-tip" id="fs17">val edge1: Edge</div>
+<div class="fsdocs-tip" id="fs18">Multiple items<br />type Edge =
+  inherit DynamicObj
+  new: unit -&gt; Edge
+  static member Init: source: string * target: string * ?Key: string * ?DisplayData: DisplayData -&gt; Edge
+  static member Style: source: string * target: string * ?Key: string * ?DisplayData: DisplayData -&gt; (Edge -&gt; Edge)<br /><br />--------------------<br />new: unit -&gt; Edge</div>
+<div class="fsdocs-tip" id="fs19">static member Edge.Init: source: string * target: string * ?Key: string * ?DisplayData: DisplayData -&gt; Edge</div>
+<div class="fsdocs-tip" id="fs20">static member VisGraph.withNodes: nodes: Node seq -&gt; graph: SigmaGraph -&gt; SigmaGraph</div>
+<div class="fsdocs-tip" id="fs21">static member VisGraph.withEdge: edge: Edge -&gt; graph: SigmaGraph -&gt; SigmaGraph</div>
+<div class="fsdocs-tip" id="fs22">val styledNode1: Node</div>
+<div class="fsdocs-tip" id="fs23">Multiple items<br />type DisplayData =
+  inherit DynamicObj
+  new: unit -&gt; DisplayData
+  static member Init: ?Label: string * ?Size: #IConvertible * ?Color: string * ?Hidden: bool * ?ForceLabel: bool * ?ZIndex: int * ?StyleType: string * ?X: #IConvertible * ?Y: #IConvertible -&gt; DisplayData
+  static member Style: ?Label: string * ?Size: #IConvertible * ?Color: string * ?Hidden: bool * ?ForceLabel: bool * ?ZIndex: int * ?StyleType: string * ?X: #IConvertible * ?Y: #IConvertible -&gt; (DisplayData -&gt; DisplayData)<br /><br />--------------------<br />new: unit -&gt; DisplayData</div>
+<div class="fsdocs-tip" id="fs24">static member DisplayData.Init: ?Label: string * ?Size: #IConvertible * ?Color: string * ?Hidden: bool * ?ForceLabel: bool * ?ZIndex: int * ?StyleType: string * ?X: #IConvertible * ?Y: #IConvertible -&gt; DisplayData</div>
+<div class="fsdocs-tip" id="fs25">val styledNode2: Node</div>
+<div class="fsdocs-tip" id="fs26">val styledEdge: Edge</div>
+<div class="fsdocs-tip" id="fs27">val redNode: Node</div>
+<div class="fsdocs-tip" id="fs28">val greenNode: Node</div>
+<div class="fsdocs-tip" id="fs29">val yellowEdge: Edge</div>
+<div class="fsdocs-tip" id="fs30">val exampleGraph: SigmaGraph</div>
+<div class="fsdocs-tip" id="fs31">static member VisGraph.show: unit -&gt; graph: SigmaGraph -&gt; unit</div>
+
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <ul>
+  <li class="level-1">
+    <a href="#Basic-Usage">
+      Basic Usage
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Installation-using-NuGet">
+      Installation using NuGet
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Creating-a-simple-Graph">
+      Creating a simple Graph :
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Customizing-nodes-and-edges">
+      Customizing nodes and edges:
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#Basic-Customization">
+      Basic Customization
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#Color-options">
+      Color options
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#Visualization">
+      Visualization
+    </a>
+  </li>
+</ul>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs" />
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="http://localhost:8901/content/fsdocs-tips.js"></script>
+<script type="module" src="http://localhost:8901/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="http://localhost:8901/content/fsdocs-theme.js"></script>
+<script type="module" src="http://localhost:8901/content/fsdocs-search.js"></script>
+
+</body>
+</html>

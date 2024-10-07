@@ -6,7 +6,7 @@ let project = "Sigma.NET"
 
 let testProjects = 
     [
-        //"tests/Sigma.NET.Tests"
+        "tests/Sigma.NET.Tests"
     ]
 
 let solutionFile  = $"{project}.sln"

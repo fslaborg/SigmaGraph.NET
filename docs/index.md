@@ -1,4 +1,3 @@
-(**
 ---
 title: Getting Started
 category: sigmaNET 
@@ -38,4 +37,3 @@ redistribution for both commercial and non-commercial purposes. For more informa
   [issues]: https://github.com/fslaborg/sigmaNET/issues
   [readme]: https://github.com/fslaborg/sigmaNET/blob/main/README.md
   [license]: https://github.com/fslaborg/sigmaNET/blob/main/LICENSE
-*)

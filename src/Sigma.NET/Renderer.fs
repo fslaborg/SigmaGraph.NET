@@ -7,20 +7,35 @@ open System
 open Newtonsoft.Json
 
 // CssLength Units
+
+/// <summary>
+/// Represents CSS length units, either in pixels (PX) or percentage (Percent)
+///</summary>
 type CssLength =
+
+/// <summary>Represents a length in pixels.</summary>
 | PX of int
+
+/// <summary>Represents a length as a percentage of the containing element.</summary>
 | Percent of int 
-with static member serialize (v:CssLength) =
+with 
+    /// <summary>Serializes a CssLength value to its string representation.</summary>
+    /// <param name= "v">The CssLength value to serialize.</param>
+    /// <returns>A string representing the CssLength value in pixels or percentage.</returns>
+    static member serialize (v:CssLength) =
         match v with
         | PX px -> sprintf "%ipx" px
         | Percent p -> sprintf "%i%%" p
 
 
-
+/// <summary>Module for rendering-related types and methods</summary>
 module Render =
 
+    /// <summary>A type representing either a color or a reference to a color</summary>
     type ColorOrReference() =
         inherit DynamicObj ()
+
+        /// <summary>Initializes a new instance of ColorOrReference with optional color and reference</summary>
         static member Init 
             ( 
                 ?Color : string,
@@ -32,6 +47,8 @@ module Render =
                         ?Color = Color,
                         ?Reference = Reference
                     )
+
+        /// <summary>Applies the provided color and reference to the ColorOrReference object</summary>            
         static member Style
             ( 
                 ?Color,
@@ -44,9 +61,11 @@ module Render =
                     colorOrReference
                 )
 
+    /// <summary>A type representing various settings for rendering</summary>
     type Settings() =
         inherit DynamicObj ()
-   
+
+        /// <summary>Initializes a new instance of Settings with optional rendering settings</summary>
         static member Init(
             ?HideEdgesOnMove : bool,
             ?HideLabelsOnMove : bool,
@@ -115,6 +134,8 @@ module Render =
                     ?HoverRenderer = HoverRenderer,
                     ?EdgeLabelRenderer = EdgeLabelRenderer
                 )
+
+        /// <summary>Applies the provided styling options to the Settings object</summary>
         static member Style
             ( 
                 ?HideEdgesOnMove,

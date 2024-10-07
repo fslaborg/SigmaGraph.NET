@@ -10,10 +10,22 @@ open System.Runtime.InteropServices
 open Giraffe.ViewEngine
 
 
-/// HTML template for Cytoscape
+/// <summary>
+/// Provides methods to generate HTML content for visualizing graphs with Sigma.
+/// </summary>
 type HTML =
  
 
+    /// <summary>
+    /// Creates a script to render a graph with Sigma.js.
+    /// </summary>
+    /// <param name="graphData">JSON representation of the graph.</param>
+    /// <param name="layout">Layout configuration for the graph.</param>
+    /// <param name="settings">Settings configuration for the graph.</param>
+    /// <param name="containerId">ID of the HTML container for the graph.</param>
+    /// <param name="widgets">Widgets to include in the graph.</param>
+    /// <param name="sigmaJSRef">Reference to Sigma.js libraries.</param>
+    /// <returns>An HTML script element for embedding Sigma.js graph.</returns>
     static member CreateGraphScript
         (
             graphData: string,
@@ -57,7 +69,13 @@ type HTML =
                     )
                 ]
 
-
+    /// <summary>
+    /// Generates a complete HTML document including the graph and Sigma.js references.
+    /// </summary>
+    /// <param name="graphHTML">List of XML nodes representing the graph HTML.</param>
+    /// <param name="sigmaJSRef">Reference to Sigma.js libraries.</param>
+    /// <param name="AdditionalHeadTags">Optional additional tags to include in the &lt;head&gt; section.</param>
+    /// <returns>An HTML document with the embedded graph.</returns>
     static member Doc(
         graphHTML: XmlNode list, 
         sigmaJSRef: JSlibReference,
@@ -105,6 +123,18 @@ type HTML =
                 body [] [ yield! graphHTML]
             ]
 
+    /// <summary>
+    /// Creates HTML content for a graph with Sigma.js embedded in a specified container.
+    /// </summary>
+    /// <param name="graphData">JSON representation of the graph.</param>
+    /// <param name="layout">Layout configuration for the graph.</param>
+    /// <param name="settings">Settings configuration for the graph.</param>
+    /// <param name="divId">ID of the HTML container for the graph.</param>
+    /// <param name="widgets">Widgets to include in the graph.</param>
+    /// <param name="sigmaJSRef">Reference to Sigma.js libraries.</param>
+    /// <param name="Width">Optional width of the graph container.</param>
+    /// <param name="Height">Optional height of the graph container.</param>
+    /// <returns>A list of HTML nodes for rendering the graph.</returns>
     static member CreateGraphHTML
         (
             graphData: string,
@@ -144,7 +174,11 @@ type HTML =
                 ]
         ]
 
-    /// Converts a CyGraph to it HTML representation. The div layer has a default size of 600 if not specified otherwise.
+    /// <summary>
+    /// Converts a CyGraph to its HTML representation, with optional display options.
+    /// </summary>
+    /// <param name="DisplayOpts">Optional display options for the graph.</param>
+    /// <returns>A function that takes a SigmaGraph and returns HTML nodes.</returns>
     static member toGraphHTMLNodes (
         ?DisplayOpts: DisplayOptions
     ) =
@@ -177,6 +211,11 @@ type HTML =
                 Height = graph.Height
             )
 
+    /// <summary>
+    /// Converts a SigmaGraph to its HTML representation as a string.
+    /// </summary>
+    /// <param name="DisplayOpts">Optional display options for the graph.</param>
+    /// <returns>A function that takes a SigmaGraph and returns HTML as a string.</returns>
     static member toGraphHTML(
         ?DisplayOpts: DisplayOptions
     ) =
@@ -185,7 +224,11 @@ type HTML =
             |> HTML.toGraphHTMLNodes(?DisplayOpts = DisplayOpts)
             |> RenderView.AsString.htmlNodes
 
-    /// Converts a Graph to it HTML representation and embeds it into a html page.
+    /// <summary>
+    /// Converts a SigmaGraph to its HTML representation and embeds it into a full HTML page.
+    /// </summary>
+    /// <param name="DisplayOpts">Optional display options for the graph.</param>
+    /// <returns>A function that takes a SigmaGraph and returns a complete HTML document as a string.</returns>
     static member toEmbeddedHTML (
         ?DisplayOpts: DisplayOptions
     ) =
@@ -199,7 +242,10 @@ type HTML =
             |> RenderView.AsString.htmlDocument
 
 
-    ///Choose process to open plots with depending on OS. Thanks to @zyzhu for hinting at a solution (https://github.com/plotly/Plotly.NET/issues/31)
+    /// <summary>
+    /// Chooses the process to open plots with depending on the OS. Thanks to @zyzhu for hinting at a solution (https://github.com/plotly/Plotly.NET/issues/31)
+    /// </summary>
+    /// <param name="path">Path to the file to be opened.</param>
     static member internal openOsSpecificFile path =
         if RuntimeInformation.IsOSPlatform(OSPlatform.Windows) then
             let psi = System.Diagnostics.ProcessStartInfo(FileName = path, UseShellExecute = true)
@@ -211,7 +257,12 @@ type HTML =
         else
             invalidOp "Not supported OS platform"
 
-
+    /// <summary>
+    /// Shows a SigmaGraph in the default web browser by creating an HTML file and opening it.
+    /// </summary>
+    /// <param name="graph">The SigmaGraph to display.</param>
+    /// <param name="DisplayOpts">Optional display options for the graph.</param>
+    /// <returns>The path to the temporary HTML file.</returns>
     static member show (graph:SigmaGraph, ?DisplayOpts: DisplayOptions) = 
         let guid = Guid.NewGuid().ToString()
         let html = HTML.toEmbeddedHTML(?DisplayOpts = DisplayOpts) graph

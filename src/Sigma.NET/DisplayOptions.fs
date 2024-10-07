@@ -6,18 +6,45 @@ open Giraffe.ViewEngine
 
 // adapted from Plotly.NET (https://github.com/plotly/Plotly.NET/blob/dev/src/Plotly.NET/DisplayOptions/DisplayOptions.fs)
 
-///Sets how the javascript library is referenced in the head of html docs.
+/// <summary>
+/// Represents how the JavaScript library is included in the HTML document's head section.
+/// </summary>
 type JSlibReference =
+    
+    /// <summary>
+    /// A local reference to the JavaScript library.
+    /// </summary>
+    /// <param name="InternalUtils.JSRefGroup">The internal group of JavaScript references.</param>
     | Local of InternalUtils.JSRefGroup 
-    /// The url for a script tag that references the javascript library CDN
+    
+    /// <summary>
+    /// The URL for a script tag that references the JavaScript library CDN.
+    /// </summary>
+    /// <param name="InternalUtils.JSRefGroup">The internal group of JavaScript references.</param>
     | CDN of InternalUtils.JSRefGroup
-    /// Full javascript library source code (~100KB) is included in the output. HTML files generated with this option are fully self-contained and can be used offline
+    
+    /// <summary>
+    /// The full JavaScript library source code (~100KB) is included in the output. 
+    /// HTML files generated with this option are fully self-contained and can be used offline.
+    /// </summary>
+    /// <param name="InternalUtils.JSRefGroup">The internal group of JavaScript references.</param>
     | Full of InternalUtils.JSRefGroup
-    ///// Use requirejs to reference javascript library from a url
+    
+    /// <summary>
+    /// Uses RequireJS to reference the JavaScript library from a URL.
+    /// </summary>
+    /// <param name="InternalUtils.JSRefGroup">The internal group of JavaScript references.</param>
     | Require of InternalUtils.JSRefGroup
-    //include no javascript library script at all. This can be helpfull when embedding the output into a document that already references the javascript library.
+    
+    /// <summary>
+    /// Includes no JavaScript library script at all. 
+    /// This can be helpful when embedding the output into a document that already references the JavaScript library.
+    /// </summary>
     | NoReference
 
+/// <summary>
+/// I am displayotion.
+/// </summary>
 type DisplayOptions() =
     inherit DynamicObj()
 
@@ -95,17 +122,37 @@ type DisplayOptions() =
                 ]
         )
 
+    /// <summary>
+    /// Sets additional head tags for the display options.
+    /// </summary>
+    /// <param name="additionalHeadTags">A list of XML nodes representing the additional head tags to set.</param>
+    /// <returns>A function that sets the additional head tags in the display options.</returns>
     static member setAdditionalHeadTags(additionalHeadTags: XmlNode list) =
         (fun (displayOpts: DisplayOptions) ->
             additionalHeadTags |> DynObj.setValue displayOpts "AdditionalHeadTags"
             displayOpts)
 
+    /// <summary>
+    /// Tries to get the additional head tags from the display options.
+    /// </summary>
+    /// <param name="displayOpts">The display options object.</param>
+    /// <returns>An option containing a list of XML nodes if the additional head tags exist, or None.</returns>
     static member tryGetAdditionalHeadTags(displayOpts: DisplayOptions) =
         displayOpts.TryGetTypedValue<XmlNode list>("AdditionalHeadTags")
 
+    /// <summary>
+    /// Gets the additional head tags from the display options.
+    /// </summary>
+    /// <param name="displayOpts">The display options object.</param>
+    /// <returns>A list of XML nodes representing the additional head tags, or an empty list if not found.</returns>
     static member getAdditionalHeadTags(displayOpts: DisplayOptions) =
         displayOpts |> DisplayOptions.tryGetAdditionalHeadTags |> Option.defaultValue []
 
+    /// <summary>
+    /// Adds additional head tags to the display options.
+    /// </summary>
+    /// <param name="additionalHeadTags">A list of XML nodes representing the additional head tags to add.</param>
+    /// <returns>A function that adds the additional head tags to the existing ones in the display options.</returns>
     static member addAdditionalHeadTags(additionalHeadTags: XmlNode list) =
         (fun (displayOpts: DisplayOptions) ->
             displayOpts
@@ -113,31 +160,65 @@ type DisplayOptions() =
                 List.append (DisplayOptions.getAdditionalHeadTags displayOpts) additionalHeadTags
             ))
 
+    /// <summary>
+    /// Sets a description for the display options.
+    /// </summary>
+    /// <param name="description">A list of XML nodes representing the description to set.</param>
+    /// <returns>A function that sets the description in the display options.</returns>
     static member setDescription(description: XmlNode list) =
         (fun (displayOpts: DisplayOptions) ->
             description |> DynObj.setValue displayOpts "Description"
             displayOpts)
 
+    /// <summary>
+    /// Tries to get the description from the display options.
+    /// </summary>
+    /// <param name="displayOpts">The display options object.</param>
+    /// <returns>An option containing a list of XML nodes if the description exists, or None.</returns>
     static member tryGetDescription(displayOpts: DisplayOptions) =
         displayOpts.TryGetTypedValue<XmlNode list>("Description")
 
+    /// <summary>
+    /// Gets the description from the display options.
+    /// </summary>
+    /// <param name="displayOpts">The display options object.</param>
+    /// <returns>A list of XML nodes representing the description, or an empty list if not found.</returns>
     static member getDescription(displayOpts: DisplayOptions) =
         displayOpts |> DisplayOptions.tryGetDescription |> Option.defaultValue []
 
+    /// <summary>
+    /// Adds a description to the display options.
+    /// </summary>
+    /// <param name="description">A list of XML nodes representing the description to add.</param>
+    /// <returns>A function that adds the description to the existing one in the display options.</returns>
     static member addDescription(description: XmlNode list) =
         (fun (displayOpts: DisplayOptions) ->
             displayOpts
             |> DisplayOptions.setDescription (List.append (DisplayOptions.getDescription displayOpts) description))
 
+    /// <summary>
+    /// Sets the Sigma.js reference for the display options.
+    /// </summary>
+    /// <param name="sigmaJSReference">The JavaScript library reference to set for Sigma.js.</param>
+    /// <returns>A function that sets the Sigma.js reference in the display options.</returns>
     static member setSigmaReference(sigmaJSReference: JSlibReference) =
         (fun (displayOpts: DisplayOptions) ->
             sigmaJSReference |> DynObj.setValue displayOpts "SigmaJSRef"
             displayOpts)
 
+    /// <summary>
+    /// Tries to get the Sigma.js reference from the display options.
+    /// </summary>
+    /// <param name="displayOpts">The display options object.</param>
+    /// <returns>An option containing the JavaScript library reference for Sigma.js, or None.</returns>
     static member tryGetSigmaReference(displayOpts: DisplayOptions) =
         displayOpts.TryGetTypedValue<JSlibReference>("SigmaJSRef")
 
-
+    /// <summary>
+    /// Gets the Sigma.js reference from the display options.
+    /// </summary>
+    /// <param name="displayOpts">The display options object.</param>
+    /// <returns>The JavaScript library reference for Sigma.js, or NoReference if not found.</returns>
     static member getSigmaReference(displayOpts: DisplayOptions) =
         displayOpts |> DisplayOptions.tryGetSigmaReference |> Option.defaultValue (JSlibReference.NoReference)
 
