@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" data-root="https://fslab.org/Sigma.NET/">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Timo Mühlhaus, fslab contributors" name="author">
+    <!-- Opengraph properties (https://ogp.me/) -->
+    <meta property="og:site_name" content="Sigma.NET">
+    <meta property="og:title" content="Render Settings
+" />
+    <meta property="og:url" content="https://fslab.org/Sigma.NET/script.html">
+    <meta property="og:type" content="website" />
+    <!-- Twitter cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="https://fslab.org/Sigma.NET/">
+    <meta name="twitter:title" content="Render Settings
+">
+    
+    <title>Render Settings
+ | Sigma.NET</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fslab.org/Sigma.NET/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+    <script type="application/javascript" src="https://fslab.org/Sigma.NET/content/fsdocs-theme-set-dark.js"></script>
+    <link href="https://fslab.org/Sigma.NET/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fslab.org/Sigma.NET/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
+    
+    
+</head>
+<body class="content">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"></iconify-icon>
+            <input type="checkbox" name="mobile-menu" />
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+                    Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+                    Repository</a></li>
+                <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/2_Basic_Usage.html">
+    Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/3_Advanced_Usage.html">
+    Advanced Usage
+
+  </a>
+</li>             
+<li class="nav-item active">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/4_Render_Settings.html">
+    Render Settings
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/1_Introduction.html">
+    Introduction
+
+  </a>
+</li>
+                <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+            </ul>
+        </div>
+        <a href="https://fslab.org/Sigma.NET/">
+            <img alt="Header menu logo" src="https://fslab.org/Sigma.NET/img/logo.png">
+            <strong>Sigma.NET</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="https://github.com/fslaborg/Sigma.NET/" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
+        <fsdocs-theme-toggle></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                                href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+            Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+            Repository</a></li>
+        <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/2_Basic_Usage.html">
+    Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/3_Advanced_Usage.html">
+    Advanced Usage
+
+  </a>
+</li>             
+<li class="nav-item active">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/4_Render_Settings.html">
+    Render Settings
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/1_Introduction.html">
+    Introduction
+
+  </a>
+</li>
+        <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        <h1><a name="Render-Settings" class="anchor" href="#Render-Settings">Render Settings</a></h1>
+<p>The render settings in the graph visualization library allow for customizing various aspects of graph rendering, including node appearance, edge appearance, label rendering, and event handling. Below are descriptions and examples for each setting, grouped by functionality.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//Sigma.NET and Sigma.NET.Interactive</span>
+<span class="pn">#</span> <span class="s">&quot;nuget: C:/Users/lukas/Documents/GitHub/Project/Sigma.NET/pkg&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Sigma.NET, 0.0.0-dev&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Sigma.NET.Interactive, 0.0.0-dev&quot;</span>
+<span class="c">//Additional Librarys</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: DynamicObj, 2.0.0&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Newtonsoft.Json&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Giraffe.ViewEngine, 1.4.0&quot;</span>
+
+
+<span class="k">open</span> <span class="id">Sigma</span><span class="pn">.</span><span class="id">NET</span>
+<span class="k">open</span> <span class="id">Sigma</span><span class="pn">.</span><span class="id">NET</span><span class="pn">.</span><span class="id">Interactive</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">System</span>
+<span class="k">open</span> <span class="id">DynamicObj</span>
+<span class="k">open</span> <span class="id">Newtonsoft</span><span class="pn">.</span><span class="id">Json</span>
+<span class="k">open</span> <span class="id">Giraffe</span><span class="pn">.</span><span class="id">ViewEngine</span>
+</code></pre>
+<p>In this example, the nodes [1; 2; 3; 4; 5] are created and labeled with their respective numbers. The edges connect specific node pairs, such as (1, 3) and (2, 4). The graph is then constructed by adding the nodes and edges to an empty graph.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">renderExampleGraph</span> <span class="o">=</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="fn">nodes</span> <span class="o">=</span> <span class="pn">[</span><span class="n">1</span><span class="pn">;</span><span class="n">2</span><span class="pn">;</span><span class="n">3</span><span class="pn">;</span><span class="n">4</span><span class="pn">;</span><span class="n">5</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="fn">x</span> <span class="k">-&gt;</span> <span class="id">Node</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="id">string</span> <span onmouseout="hideTip(event, 'fs6', 8)" onmouseover="showTip(event, 'fs6', 8)" class="id">x</span><span class="pn">,</span><span class="id">DisplayData</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">Label</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs7', 9)" onmouseover="showTip(event, 'fs7', 9)" class="id">string</span> <span onmouseout="hideTip(event, 'fs6', 10)" onmouseover="showTip(event, 'fs6', 10)" class="id">x</span><span class="pn">,</span> <span class="id">Size</span><span class="o">=</span> <span class="n">15</span><span class="pn">)</span><span class="pn">)</span><span class="pn">)</span> <span class="c">//Initiation Nodes</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs8', 11)" onmouseover="showTip(event, 'fs8', 11)" class="fn">edges</span> <span class="o">=</span> <span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">3</span><span class="pn">;</span><span class="n">1</span><span class="pn">,</span><span class="n">5</span><span class="pn">;</span><span class="n">3</span><span class="pn">,</span><span class="n">5</span><span class="pn">;</span><span class="n">2</span><span class="pn">,</span><span class="n">4</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 12)" onmouseover="showTip(event, 'fs4', 12)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs5', 13)" onmouseover="showTip(event, 'fs5', 13)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs6', 14)" onmouseover="showTip(event, 'fs6', 14)" class="fn">x</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs9', 15)" onmouseover="showTip(event, 'fs9', 15)" class="fn">y</span><span class="pn">)</span> <span class="k">-&gt;</span> <span class="id">Edge</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs7', 16)" onmouseover="showTip(event, 'fs7', 16)" class="id">string</span> <span onmouseout="hideTip(event, 'fs6', 17)" onmouseover="showTip(event, 'fs6', 17)" class="id">x</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs7', 18)" onmouseover="showTip(event, 'fs7', 18)" class="id">string</span> <span onmouseout="hideTip(event, 'fs9', 19)" onmouseover="showTip(event, 'fs9', 19)" class="id">y</span><span class="pn">,</span> <span class="id">DisplayData</span><span class="o">=</span><span class="id">DisplayData</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">Label</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs10', 20)" onmouseover="showTip(event, 'fs10', 20)" class="id">String</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs11', 21)" onmouseover="showTip(event, 'fs11', 21)" class="id">concat</span> <span class="s">&quot;-&quot;</span> <span class="pn">[</span><span onmouseout="hideTip(event, 'fs7', 22)" onmouseover="showTip(event, 'fs7', 22)" class="id">string</span> <span onmouseout="hideTip(event, 'fs6', 23)" onmouseover="showTip(event, 'fs6', 23)" class="id">x</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs7', 24)" onmouseover="showTip(event, 'fs7', 24)" class="id">string</span> <span onmouseout="hideTip(event, 'fs9', 25)" onmouseover="showTip(event, 'fs9', 25)" class="id">y</span><span class="pn">]</span><span class="pn">)</span><span class="pn">)</span><span class="pn">)</span> <span class="c">//Initiating Edges</span>
+    <span class="id">VisGraph</span><span class="pn">.</span><span class="id">empty</span><span class="pn">(</span><span class="pn">)</span> <span class="c">//Creating a new instance of VisGraph</span>
+    <span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span> <span class="id">withNodes</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs3', 26)" onmouseover="showTip(event, 'fs3', 26)" class="id">nodes</span><span class="pn">)</span> <span class="c">//adding Nodes to the empty Visgraph</span>
+    <span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withEdges</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs8', 27)" onmouseover="showTip(event, 'fs8', 27)" class="id">edges</span><span class="pn">)</span> <span class="c">// Adding Edges to the Graph</span>
+<span onmouseout="hideTip(event, 'fs2', 28)" onmouseover="showTip(event, 'fs2', 28)" class="id">renderExampleGraph</span>
+</code></pre>
+<h2><a name="Nodes" class="anchor" href="#Nodes">Nodes</a></h2>
+<p>These settings affect the rendering of nodes in the graph.</p>
+<h3><a name="DefaultNodeColor" class="anchor" href="#DefaultNodeColor">'DefaultNodeColor'</a></h3>
+<p>Sets the default color of nodes.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 29)" onmouseover="showTip(event, 'fs2', 29)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">DefaultNodeColor</span> <span class="o">=</span> <span class="s">&quot;#FF5733&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="DefaultNodeType" class="anchor" href="#DefaultNodeType">'DefaultNodeType'</a></h3>
+<p>Defines the default type of nodes (e.g., -Circle-)</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 30)" onmouseover="showTip(event, 'fs2', 30)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">DefaultNodeType</span> <span class="o">=</span> <span class="id">StyleParam</span><span class="pn">.</span><span class="id">NodeType</span><span class="pn">.</span><span class="id">Circle</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="NodeReducer" class="anchor" href="#NodeReducer">'NodeReducer'</a></h3>
+<p>Applies a custom node reducer function for advanced node rendering.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Node reducer wollt ich noch ein issue auf github machen</span>
+<span onmouseout="hideTip(event, 'fs2', 31)" onmouseover="showTip(event, 'fs2', 31)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">NodeReducer</span> <span class="o">=</span> <span class="s">&quot;customNodeReducer&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h2><a name="Edges" class="anchor" href="#Edges">Edges</a></h2>
+<p>These settings control the rendering of edges between nodes.</p>
+<h3><a name="DefaultEdgeColor" class="anchor" href="#DefaultEdgeColor">'DefaultEdgeColor'</a></h3>
+<p>Sets the default color of edges.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 32)" onmouseover="showTip(event, 'fs2', 32)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">DefaultEdgeColor</span> <span class="o">=</span> <span class="s">&quot;#33FF57&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="DefaultEdgeType" class="anchor" href="#DefaultEdgeType">'DefaultEdgeType'</a></h3>
+<p>Specifies the default type of edges (e.g., Line, Arrow, etc.).</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 33)" onmouseover="showTip(event, 'fs2', 33)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">DefaultEdgeType</span> <span class="o">=</span> <span class="id">StyleParam</span><span class="pn">.</span><span class="id">EdgeType</span><span class="pn">.</span><span class="id">Arrow</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="EdgeReducer" class="anchor" href="#EdgeReducer">'EdgeReducer'</a></h3>
+<p>Applies a custom edge reducer function for advanced edge rendering.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//hier wahrscheinlich auch ein issue machen weil ka ob der reducer funktioniert</span>
+<span onmouseout="hideTip(event, 'fs2', 34)" onmouseover="showTip(event, 'fs2', 34)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">EdgeReducer</span> <span class="o">=</span> <span class="s">&quot;customEdgeReducer&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h2><a name="Labels" class="anchor" href="#Labels">Labels</a></h2>
+<p>These settings control the appearance and behavior of labels associated with nodes and edges.</p>
+<h3><a name="RenderLabels" class="anchor" href="#RenderLabels">'RenderLabels'</a></h3>
+<p>Determines whether node labels should be rendered.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 35)" onmouseover="showTip(event, 'fs2', 35)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">RenderLabels</span> <span class="o">=</span> <span class="k">true</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="RenderEdgeLabels" class="anchor" href="#RenderEdgeLabels">'RenderEdgeLabels'</a></h3>
+<p>Determines whether edge labels should be rendered.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 36)" onmouseover="showTip(event, 'fs2', 36)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">RenderEdgeLabels</span> <span class="o">=</span> <span class="k">true</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="LabelFont" class="anchor" href="#LabelFont">'LabelFont'</a></h3>
+<p>Specifies the font used for node labels.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 37)" onmouseover="showTip(event, 'fs2', 37)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">LabelFont</span> <span class="o">=</span> <span class="s">&quot;Arial&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="LabelSize" class="anchor" href="#LabelSize">'LabelSize'</a></h3>
+<p>Sets the font size for node labels.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 38)" onmouseover="showTip(event, 'fs2', 38)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">LabelSize</span> <span class="o">=</span> <span class="n">30</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="LabelWeight" class="anchor" href="#LabelWeight">'LabelWeight'</a></h3>
+<p>Defines the font weight (e.g., Normal, Bold) for node labels.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 39)" onmouseover="showTip(event, 'fs2', 39)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">LabelWeight</span> <span class="o">=</span> <span class="s">&quot;Bold&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="LabelColor" class="anchor" href="#LabelColor">'LabelColor'</a></h3>
+<p>Sets the color of node labels. You can use either a specific color or a reference.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 40)" onmouseover="showTip(event, 'fs2', 40)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">LabelColor</span> <span class="o">=</span> <span class="id">Render</span><span class="pn">.</span><span class="id">ColorOrReference</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="s">&quot;#ffd700&quot;</span><span class="pn">)</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="EdgeLabelFont" class="anchor" href="#EdgeLabelFont">'EdgeLabelFont'</a></h3>
+<p>Specifies the font used for edge labels.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 41)" onmouseover="showTip(event, 'fs2', 41)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">EdgeLabelFont</span> <span class="o">=</span> <span class="s">&quot;Courier New&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="EdgeLabelSize" class="anchor" href="#EdgeLabelSize">'EdgeLabelSize'</a></h3>
+<p>Sets the font size for edge labels.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 42)" onmouseover="showTip(event, 'fs2', 42)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">EdgeLabelSize</span> <span class="o">=</span> <span class="n">30</span><span class="pn">,</span> <span class="id">RenderEdgeLabels</span> <span class="o">=</span> <span class="k">true</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="EdgeLabelWeight" class="anchor" href="#EdgeLabelWeight">'EdgeLabelWeight'</a></h3>
+<p>Defines the font weight for edge labels.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 43)" onmouseover="showTip(event, 'fs2', 43)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">EdgeLabelWeight</span> <span class="o">=</span> <span class="s">&quot;Normal&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="EdgeLabelColor" class="anchor" href="#EdgeLabelColor">'EdgeLabelColor'</a></h3>
+<p>Sets the color of edge labels.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 44)" onmouseover="showTip(event, 'fs2', 44)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">EdgeLabelColor</span> <span class="o">=</span> <span class="id">Render</span><span class="pn">.</span><span class="id">ColorOrReference</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="s">&quot;#008b8b&quot;</span><span class="pn">)</span><span class="pn">,</span> <span class="id">RenderEdgeLabels</span> <span class="o">=</span> <span class="k">true</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="LabelDensity" class="anchor" href="#LabelDensity">'LabelDensity'</a></h3>
+<p>Controls the density of label rendering, impacting how many labels appear based on zoom and space.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 45)" onmouseover="showTip(event, 'fs2', 45)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">LabelDensity</span> <span class="o">=</span> <span class="n">80</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="LabelGridCellSize" class="anchor" href="#LabelGridCellSize">'LabelGridCellSize'</a></h3>
+<p>Sets the size of the grid cells used for label placement, which can help avoid label overlaps.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 46)" onmouseover="showTip(event, 'fs2', 46)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">LabelGridCellSize</span> <span class="o">=</span> <span class="n">10</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="LabelRenderedSizeThreshold" class="anchor" href="#LabelRenderedSizeThreshold">'LabelRenderedSizeThreshold'</a></h3>
+<p>Defines the minimum size threshold at which labels are rendered.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 47)" onmouseover="showTip(event, 'fs2', 47)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">LabelRenderedSizeThreshold</span> <span class="o">=</span> <span class="n">5</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h2><a name="Interactivity" class="anchor" href="#Interactivity">Interactivity</a></h2>
+<p>These settings control the interactive behavior of the graph, including events triggered by user actions.</p>
+<h3><a name="EnableEdgeClickEvents" class="anchor" href="#EnableEdgeClickEvents">'EnableEdgeClickEvents'</a></h3>
+<p>Enables or disables click events on edges.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 48)" onmouseover="showTip(event, 'fs2', 48)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">EnableEdgeClickEvents</span> <span class="o">=</span> <span class="k">true</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="EnableEdgeWheelEvents" class="anchor" href="#EnableEdgeWheelEvents">'EnableEdgeWheelEvents'</a></h3>
+<p>Enables or disables wheel events (e.g., scrolling) on edges.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 49)" onmouseover="showTip(event, 'fs2', 49)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">EnableEdgeWheelEvents</span> <span class="o">=</span> <span class="k">true</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="EnableEdgeHoverEvents" class="anchor" href="#EnableEdgeHoverEvents">'EnableEdgeHoverEvents'</a></h3>
+<p>Enables or disables hover events on edges.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 50)" onmouseover="showTip(event, 'fs2', 50)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">EnableEdgeHoverEvents</span> <span class="o">=</span> <span class="k">true</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h2><a name="Performance-and-Rendering" class="anchor" href="#Performance-and-Rendering">Performance and Rendering</a></h2>
+<p>These settings affect the performance and overall rendering behavior of the graph.</p>
+<h3><a name="HideEdgesOnMove" class="anchor" href="#HideEdgesOnMove">'HideEdgesOnMove'</a></h3>
+<p>Temporarily hides edges when moving the graph for performance improvements.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 51)" onmouseover="showTip(event, 'fs2', 51)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">HideEdgesOnMove</span> <span class="o">=</span> <span class="k">true</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="HideLabelsOnMove" class="anchor" href="#HideLabelsOnMove">'HideLabelsOnMove'</a></h3>
+<p>Temporarily hides labels when moving the graph to improve performance.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 52)" onmouseover="showTip(event, 'fs2', 52)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">HideLabelsOnMove</span> <span class="o">=</span> <span class="k">true</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="ZIndex" class="anchor" href="#ZIndex">'ZIndex'</a></h3>
+<p>Enables or disables the usage of Z-index to control layering of nodes and edges</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 53)" onmouseover="showTip(event, 'fs2', 53)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">ZIndex</span> <span class="o">=</span> <span class="k">true</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="StagePadding" class="anchor" href="#StagePadding">'StagePadding'</a></h3>
+<p>Sets the padding around the rendering stage (i.e., the area where the graph is rendered).</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 54)" onmouseover="showTip(event, 'fs2', 54)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">StagePadding</span> <span class="o">=</span> <span class="n">20</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h2><a name="Camera" class="anchor" href="#Camera">Camera</a></h2>
+<p>These settings control the camera's behavior, including zoom limits.</p>
+<h3><a name="MinCameraRatio" class="anchor" href="#MinCameraRatio">'MinCameraRatio'</a></h3>
+<p>Defines the minimum zoom level for the camera.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 55)" onmouseover="showTip(event, 'fs2', 55)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">MinCameraRatio</span> <span class="o">=</span> <span class="n">1</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="MaxCameraRatio" class="anchor" href="#MaxCameraRatio">'MaxCameraRatio'</a></h3>
+<p>Defines the maximum zoom level for the camera.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 56)" onmouseover="showTip(event, 'fs2', 56)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">MaxCameraRatio</span> <span class="o">=</span> <span class="n">2</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h2><a name="Custom-Renderers" class="anchor" href="#Custom-Renderers">Custom Renderers</a></h2>
+<p>These settings allow for the use of custom renderers for different graph components.</p>
+<h3><a name="LabelRenderer" class="anchor" href="#LabelRenderer">'LabelRenderer'</a></h3>
+<p>Specifies a custom renderer for node labels.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 57)" onmouseover="showTip(event, 'fs2', 57)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">LabelRenderer</span> <span class="o">=</span> <span class="s">&quot;customLabelRenderer&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="HoverRenderer" class="anchor" href="#HoverRenderer">'HoverRenderer'</a></h3>
+<p>Specifies a custom renderer for hover effects.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 58)" onmouseover="showTip(event, 'fs2', 58)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">HoverRenderer</span> <span class="o">=</span> <span class="s">&quot;customHoverRenderer&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+<h3><a name="EdgeLabelRenderer" class="anchor" href="#EdgeLabelRenderer">'EdgeLabelRenderer'</a></h3>
+<p>Specifies a custom renderer for edge labels.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs2', 59)" onmouseover="showTip(event, 'fs2', 59)" class="id">renderExampleGraph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">EdgeLabelRenderer</span> <span class="o">=</span> <span class="s">&quot;customEdgeLabelRenderer&quot;</span><span class="pn">)</span><span class="pn">)</span>
+</code></pre>
+
+        <div class="fsdocs-tip" id="fs1">namespace System</div>
+<div class="fsdocs-tip" id="fs2">val renderExampleGraph: obj</div>
+<div class="fsdocs-tip" id="fs3">val nodes: obj list</div>
+<div class="fsdocs-tip" id="fs4">Multiple items<br />module List
+
+from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =
+  | op_Nil
+  | op_ColonColon of Head: &#39;T * Tail: &#39;T list
+  interface IReadOnlyList&lt;&#39;T&gt;
+  interface IReadOnlyCollection&lt;&#39;T&gt;
+  interface IEnumerable
+  interface IEnumerable&lt;&#39;T&gt;
+  member GetReverseIndex: rank: int * offset: int -&gt; int
+  member GetSlice: startIndex: int option * endIndex: int option -&gt; &#39;T list
+  static member Cons: head: &#39;T * tail: &#39;T list -&gt; &#39;T list
+  member Head: &#39;T
+  member IsEmpty: bool
+  member Item: index: int -&gt; &#39;T with get
+  ...</div>
+<div class="fsdocs-tip" id="fs5">val map: mapping: (&#39;T -&gt; &#39;U) -&gt; list: &#39;T list -&gt; &#39;U list</div>
+<div class="fsdocs-tip" id="fs6">val x: int</div>
+<div class="fsdocs-tip" id="fs7">Multiple items<br />val string: value: &#39;T -&gt; string<br /><br />--------------------<br />type string = String</div>
+<div class="fsdocs-tip" id="fs8">val edges: obj list</div>
+<div class="fsdocs-tip" id="fs9">val y: int</div>
+<div class="fsdocs-tip" id="fs10">Multiple items<br />type String =
+  interface IEnumerable&lt;char&gt;
+  interface IEnumerable
+  interface ICloneable
+  interface IComparable
+  interface IComparable&lt;string&gt;
+  interface IConvertible
+  interface IEquatable&lt;string&gt;
+  interface IParsable&lt;string&gt;
+  interface ISpanParsable&lt;string&gt;
+  new: value: nativeptr&lt;char&gt; -&gt; unit + 8 overloads
+  ...<br /><em>&lt;summary&gt;Represents text as a sequence of UTF-16 code units.&lt;/summary&gt;</em><br /><br />--------------------<br />String(value: nativeptr&lt;char&gt;) : String<br />String(value: char array) : String<br />String(value: ReadOnlySpan&lt;char&gt;) : String<br />String(value: nativeptr&lt;sbyte&gt;) : String<br />String(c: char, count: int) : String<br />String(value: nativeptr&lt;char&gt;, startIndex: int, length: int) : String<br />String(value: char array, startIndex: int, length: int) : String<br />String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int) : String<br />String(value: nativeptr&lt;sbyte&gt;, startIndex: int, length: int, enc: Text.Encoding) : String</div>
+<div class="fsdocs-tip" id="fs11">val concat: sep: string -&gt; strings: string seq -&gt; string</div>
+
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <ul>
+  <li class="level-1">
+    <a href="#Render-Settings">
+      Render Settings
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Nodes">
+      Nodes
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#DefaultNodeColor">
+      'DefaultNodeColor'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#DefaultNodeType">
+      'DefaultNodeType'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#NodeReducer">
+      'NodeReducer'
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Edges">
+      Edges
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#DefaultEdgeColor">
+      'DefaultEdgeColor'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#DefaultEdgeType">
+      'DefaultEdgeType'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#EdgeReducer">
+      'EdgeReducer'
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Labels">
+      Labels
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#RenderLabels">
+      'RenderLabels'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#RenderEdgeLabels">
+      'RenderEdgeLabels'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#LabelFont">
+      'LabelFont'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#LabelSize">
+      'LabelSize'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#LabelWeight">
+      'LabelWeight'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#LabelColor">
+      'LabelColor'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#EdgeLabelFont">
+      'EdgeLabelFont'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#EdgeLabelSize">
+      'EdgeLabelSize'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#EdgeLabelWeight">
+      'EdgeLabelWeight'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#EdgeLabelColor">
+      'EdgeLabelColor'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#LabelDensity">
+      'LabelDensity'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#LabelGridCellSize">
+      'LabelGridCellSize'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#LabelRenderedSizeThreshold">
+      'LabelRenderedSizeThreshold'
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Interactivity">
+      Interactivity
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#EnableEdgeClickEvents">
+      'EnableEdgeClickEvents'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#EnableEdgeWheelEvents">
+      'EnableEdgeWheelEvents'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#EnableEdgeHoverEvents">
+      'EnableEdgeHoverEvents'
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Performance-and-Rendering">
+      Performance and Rendering
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#HideEdgesOnMove">
+      'HideEdgesOnMove'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#HideLabelsOnMove">
+      'HideLabelsOnMove'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#ZIndex">
+      'ZIndex'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#StagePadding">
+      'StagePadding'
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Camera">
+      Camera
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#MinCameraRatio">
+      'MinCameraRatio'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#MaxCameraRatio">
+      'MaxCameraRatio'
+    </a>
+  </li>
+  <li class="level-2">
+    <a href="#Custom-Renderers">
+      Custom Renderers
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#LabelRenderer">
+      'LabelRenderer'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#HoverRenderer">
+      'HoverRenderer'
+    </a>
+  </li>
+  <li class="level-3">
+    <a href="#EdgeLabelRenderer">
+      'EdgeLabelRenderer'
+    </a>
+  </li>
+</ul>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs" />
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-tips.js"></script>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-theme.js"></script>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en" data-root="https://fslab.org/Sigma.NET/">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Timo Mühlhaus, fslab contributors" name="author">
+    <!-- Opengraph properties (https://ogp.me/) -->
+    <meta property="og:site_name" content="Sigma.NET">
+    <meta property="og:title" content="VisGraph (Sigma.NET)" />
+    <meta property="og:url" content="https://fslab.org/Sigma.NET/{{fsdocs-source-basename}}.html">
+    <meta property="og:type" content="website" />
+    <!-- Twitter cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="https://fslab.org/Sigma.NET/">
+    <meta name="twitter:title" content="VisGraph (Sigma.NET)">
+    
+    <title>VisGraph (Sigma.NET) | Sigma.NET</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fslab.org/Sigma.NET/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+    <script type="application/javascript" src="https://fslab.org/Sigma.NET/content/fsdocs-theme-set-dark.js"></script>
+    <link href="https://fslab.org/Sigma.NET/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fslab.org/Sigma.NET/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
+    
+    
+</head>
+<body class="api-docs">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"></iconify-icon>
+            <input type="checkbox" name="mobile-menu" />
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+                    Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+                    Repository</a></li>
+                <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/2_Basic_Usage.html">
+    Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/3_Advanced_Usage.html">
+    Advanced Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/4_Render_Settings.html">
+    Render Settings
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/1_Introduction.html">
+    Introduction
+
+  </a>
+</li>
+                <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+            </ul>
+        </div>
+        <a href="https://fslab.org/Sigma.NET/">
+            <img alt="Header menu logo" src="https://fslab.org/Sigma.NET/img/logo.png">
+            <strong>Sigma.NET</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="https://github.com/fslaborg/Sigma.NET/" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
+        <fsdocs-theme-toggle></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                                href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+            Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+            Repository</a></li>
+        <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/2_Basic_Usage.html">
+    Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/3_Advanced_Usage.html">
+    Advanced Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/4_Render_Settings.html">
+    Render Settings
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/1_Introduction.html">
+    Introduction
+
+  </a>
+</li>
+        <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        <div>
+  <h2>
+    VisGraph Type
+  </h2>
+  <dl class="fsdocs-metadata">
+    <dt>
+      Namespace: 
+      <a href="https://fslab.org/Sigma.NET/reference/sigma-net.html">
+        Sigma.NET
+      </a>
+    </dt>
+    <dt>
+      Assembly: Sigma.NET.dll
+    </dt>
+    <dt>
+      Base Type: 
+      <code>obj</code>
+    </dt>
+  </dl>
+  <div class="fsdocs-xmldoc">
+    <div>
+      <p class="fsdocs-summary">
+         Module to manipulate and style a graph
+      </p>
+    </div>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div>
+    <h3>
+      Constructors
+    </h3>
+    <table class="table outer-list fsdocs-member-list">
+      <thead>
+        <tr>
+          <td class="fsdocs-member-list-header">
+            Constructor
+          </td>
+          <td class="fsdocs-member-list-header">
+            Description
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '117', 117)" onmouseover="showTip(event, '117', 117)">
+                <p>
+                  <a id="``.ctor``">
+                    <a href="#``.ctor``">
+                      <code><span>VisGraph<span>()</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="117">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph<span>()</span></span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-visgraph.html">VisGraph</a></code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <dl class="fsdocs-returns">
+              <dt>
+                <span class="fsdocs-return-name">
+                  Returns: 
+                </span>
+                <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-visgraph.html">VisGraph</a></code>
+              </dt>
+              <dd class="fsdocs-return-docs"></dd>
+            </dl>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div></div>
+  <div>
+    <h3>
+      Static members
+    </h3>
+    <table class="table outer-list fsdocs-member-list">
+      <thead>
+        <tr>
+          <td class="fsdocs-member-list-header">
+            Static member
+          </td>
+          <td class="fsdocs-member-list-header">
+            Description
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '118', 118)" onmouseover="showTip(event, '118', 118)">
+                <p>
+                  <a id="empty">
+                    <a href="#empty">
+                      <code><span>VisGraph.empty&#32;<span>()</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="118">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.empty&#32;<span>()</span></span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                  </span>
+                  A new empty SigmaGraph
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.Empty`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.Empty\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L115-115" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Creates an empty SigmaGraph instance
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    A new empty SigmaGraph
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '119', 119)" onmouseover="showTip(event, '119', 119)">
+                <p>
+                  <a id="show">
+                    <a href="#show">
+                      <code><span>VisGraph.show&#32;<span>()&#32;graph</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="119">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.show&#32;<span>()&#32;graph</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        ()
+                      </b>
+                      :
+                      <code>unit</code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        graph
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                       - 
+                      The SigmaGraph to display.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.Show`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.Show\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L274-274" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Shows the SigmaGraph as an HTML document.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ()
+                  </span>
+                  :
+                  <code>unit</code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    graph
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The SigmaGraph to display.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '120', 120)" onmouseover="showTip(event, '120', 120)">
+                <p>
+                  <a id="withCircularLayout">
+                    <a href="#withCircularLayout">
+                      <code><span>VisGraph.withCircularLayout&#32;<span><span>(<span>?Scale,&#32;?Center</span>)</span></span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="120">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withCircularLayout&#32;<span><span>(<span>?Scale,&#32;?Center</span>)</span></span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        ?Scale
+                      </b>
+                      :
+                      <code>float</code>
+                       - 
+                      Optional scale for the circular layout.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?Center
+                      </b>
+                      :
+                      <code>float</code>
+                       - 
+                      Optional center for the circular layout.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                  </span>
+                  The updated SigmaGraph with the circular layout.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithCircularLayout`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithCircularLayout\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L185-185" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Assigns a circular layout to a SigmaGraph.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Scale
+                  </span>
+                  :
+                  <code>float</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional scale for the circular layout.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Center
+                  </span>
+                  :
+                  <code>float</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional center for the circular layout.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the circular layout.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '121', 121)" onmouseover="showTip(event, '121', 121)">
+                <p>
+                  <a id="withEdge">
+                    <a href="#withEdge">
+                      <code><span>VisGraph.withEdge&#32;<span>edge&#32;graph</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="121">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withEdge&#32;<span>edge&#32;graph</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        edge
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-edge.html">Edge</a></code>
+                       - 
+                      The edge to add.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        graph
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                       - 
+                      The SigmaGraph to which the edge will be added.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                  </span>
+                  The updated SigmaGraph with the added edge.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithEdge`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithEdge\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L146-146" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Adds a single edge to a SigmaGraph.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    edge
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-edge.html">Edge</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The edge to add.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    graph
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The SigmaGraph to which the edge will be added.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the added edge.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '122', 122)" onmouseover="showTip(event, '122', 122)">
+                <p>
+                  <a id="withEdges">
+                    <a href="#withEdges">
+                      <code><span>VisGraph.withEdges&#32;<span>edges&#32;graph</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="122">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withEdges&#32;<span>edges&#32;graph</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        edges
+                      </b>
+                      :
+                      <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-edge.html">Edge</a>&#32;seq</span></code>
+                       - 
+                      The sequence of edges to add.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        graph
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                       - 
+                      The SigmaGraph to which the edges will be added.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                  </span>
+                  The updated SigmaGraph with the added edges.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithEdges`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithEdges\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L157-157" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Adds a sequence of edges to a SigmaGraph.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    edges
+                  </span>
+                  :
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-edge.html">Edge</a>&#32;seq</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The sequence of edges to add.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    graph
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The SigmaGraph to which the edges will be added.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the added edges.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '123', 123)" onmouseover="showTip(event, '123', 123)">
+                <p>
+                  <a id="withForceAtlas2">
+                    <a href="#withForceAtlas2">
+                      <code><span>VisGraph.withForceAtlas2&#32;<span><span>(<span>?Iterations,&#32;?Settings,&#32;?GetEdgeWeight</span>)</span></span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="123">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withForceAtlas2&#32;<span><span>(<span>?Iterations,&#32;?Settings,&#32;?GetEdgeWeight</span>)</span></span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        ?Iterations
+                      </b>
+                      :
+                      <code>int</code>
+                       - 
+                      Optional number of iterations for the layout algorithm.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?Settings
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-fa2settings.html">FA2Settings</a></code>
+                       - 
+                      Optional settings for the layout algorithm.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?GetEdgeWeight
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      Optional function to get edge weight.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                  </span>
+                  The updated SigmaGraph with the ForceAtlas2 layout.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithForceAtlas2`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithForceAtlas2\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L202-202" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Assigns a ForceAtlas2 layout to a SigmaGraph.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Iterations
+                  </span>
+                  :
+                  <code>int</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional number of iterations for the layout algorithm.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Settings
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-fa2settings.html">FA2Settings</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional settings for the layout algorithm.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?GetEdgeWeight
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional function to get edge weight.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the ForceAtlas2 layout.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '124', 124)" onmouseover="showTip(event, '124', 124)">
+                <p>
+                  <a id="withHoverSelector">
+                    <a href="#withHoverSelector">
+                      <code><span>VisGraph.withHoverSelector&#32;<span>?enable</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="124">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withHoverSelector&#32;<span>?enable</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        ?enable
+                      </b>
+                      :
+                      <code>bool</code>
+                       - 
+                      Optional flag to enable or disable the hover selector (default is true).
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                  </span>
+                  The updated SigmaGraph with the hover selector widget.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithHoverSelector`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithHoverSelector\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L261-261" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Adds a hover selector widget to the SigmaGraph.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?enable
+                  </span>
+                  :
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional flag to enable or disable the hover selector (default is true).
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the hover selector widget.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '125', 125)" onmouseover="showTip(event, '125', 125)">
+                <p>
+                  <a id="withNode">
+                    <a href="#withNode">
+                      <code><span>VisGraph.withNode&#32;<span>node&#32;graph</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="125">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withNode&#32;<span>node&#32;graph</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        node
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-node.html">Node</a></code>
+                       - 
+                      The node to add.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        graph
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                       - 
+                      The SigmaGraph to which the node will be added.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                  </span>
+                  The updated SigmaGraph with the added node.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithNode`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithNode\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L124-124" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Adds a single node to a SigmaGraph.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    node
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-node.html">Node</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The node to add.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    graph
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The SigmaGraph to which the node will be added.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the added node.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '126', 126)" onmouseover="showTip(event, '126', 126)">
+                <p>
+                  <a id="withNodes">
+                    <a href="#withNodes">
+                      <code><span>VisGraph.withNodes&#32;<span>nodes&#32;graph</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="126">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withNodes&#32;<span>nodes&#32;graph</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        nodes
+                      </b>
+                      :
+                      <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-node.html">Node</a>&#32;seq</span></code>
+                       - 
+                      The sequence of nodes to add.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        graph
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                       - 
+                      The SigmaGraph to which the nodes will be added.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                  </span>
+                  The updated SigmaGraph with the added nodes.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithNodes`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithNodes\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L135-135" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Adds a sequence of nodes to a SigmaGraph.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    nodes
+                  </span>
+                  :
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-node.html">Node</a>&#32;seq</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The sequence of nodes to add.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    graph
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The SigmaGraph to which the nodes will be added.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the added nodes.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '127', 127)" onmouseover="showTip(event, '127', 127)">
+                <p>
+                  <a id="withNoverlap">
+                    <a href="#withNoverlap">
+                      <code><span>VisGraph.withNoverlap&#32;<span><span>(<span>?MaxIterations,&#32;?Settings</span>)</span></span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="127">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withNoverlap&#32;<span><span>(<span>?MaxIterations,&#32;?Settings</span>)</span></span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        ?MaxIterations
+                      </b>
+                      :
+                      <code>int</code>
+                       - 
+                      Optional maximum number of iterations for the layout algorithm.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?Settings
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-noverlapsettings.html">NoverlapSettings</a></code>
+                       - 
+                      Optional settings for the layout algorithm.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                  </span>
+                  The updated SigmaGraph with the no-overlap layout.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithNoverlap`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithNoverlap\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L216-216" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Assigns a no-overlap layout to a SigmaGraph.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?MaxIterations
+                  </span>
+                  :
+                  <code>int</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional maximum number of iterations for the layout algorithm.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Settings
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-noverlapsettings.html">NoverlapSettings</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional settings for the layout algorithm.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the no-overlap layout.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '128', 128)" onmouseover="showTip(event, '128', 128)">
+                <p>
+                  <a id="withRandomLayout">
+                    <a href="#withRandomLayout">
+                      <code><span>VisGraph.withRandomLayout&#32;<span><span>(<span>?Scale,&#32;?Center,&#32;?Dimensions</span>)</span></span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="128">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withRandomLayout&#32;<span><span>(<span>?Scale,&#32;?Center,&#32;?Dimensions</span>)</span></span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        ?Scale
+                      </b>
+                      :
+                      <code>int</code>
+                       - 
+                      Optional scale for the random layout.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?Center
+                      </b>
+                      :
+                      <code>float</code>
+                       - 
+                      Optional center for the random layout.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?Dimensions
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      Optional dimensions for the random layout.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                  </span>
+                  The updated SigmaGraph with the random layout.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithRandomLayout`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithRandomLayout\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L169-169" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Assigns a random layout to a SigmaGraph.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Scale
+                  </span>
+                  :
+                  <code>int</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional scale for the random layout.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Center
+                  </span>
+                  :
+                  <code>float</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional center for the random layout.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Dimensions
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional dimensions for the random layout.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the random layout.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '129', 129)" onmouseover="showTip(event, '129', 129)">
+                <p>
+                  <a id="withRenderer">
+                    <a href="#withRenderer">
+                      <code><span>VisGraph.withRenderer&#32;<span>settings</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="129">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withRenderer&#32;<span>settings</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        settings
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-render-settings.html">Settings</a></code>
+                       - 
+                      The renderer settings to apply.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                  </span>
+                  The updated SigmaGraph with the specified renderer settings.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithRenderer`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithRenderer\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L250-250" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Sets the renderer settings for the SigmaGraph.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    settings
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-render-settings.html">Settings</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The renderer settings to apply.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the specified renderer settings.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '130', 130)" onmouseover="showTip(event, '130', 130)">
+                <p>
+                  <a id="withSize">
+                    <a href="#withSize">
+                      <code><span>VisGraph.withSize&#32;<span><span>(<span>?Width,&#32;?Height</span>)</span></span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="130">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>VisGraph.withSize&#32;<span><span>(<span>?Width,&#32;?Height</span>)</span></span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        ?Width
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-csslength.html">CssLength</a></code>
+                       - 
+                      Optional width of the canvas.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?Height
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-csslength.html">CssLength</a></code>
+                       - 
+                      Optional height of the canvas.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                  </span>
+                  The updated SigmaGraph with the specified canvas size.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.VisGraph.WithSize`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.VisGraph.WithSize\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/GraphAPI.fs#L232-232" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Sets the size of the SigmaGraph canvas.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Width
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-csslength.html">CssLength</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional width of the canvas.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Height
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-csslength.html">CssLength</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional height of the canvas.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    The updated SigmaGraph with the specified canvas size.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+        
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <div class="empty"></div>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs" />
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-tips.js"></script>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-theme.js"></script>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-search.js"></script>
+
+</body>
+</html>

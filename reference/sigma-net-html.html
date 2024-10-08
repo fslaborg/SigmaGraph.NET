@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en" data-root="https://fslab.org/Sigma.NET/">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Timo Mühlhaus, fslab contributors" name="author">
+    <!-- Opengraph properties (https://ogp.me/) -->
+    <meta property="og:site_name" content="Sigma.NET">
+    <meta property="og:title" content="HTML (Sigma.NET)" />
+    <meta property="og:url" content="https://fslab.org/Sigma.NET/{{fsdocs-source-basename}}.html">
+    <meta property="og:type" content="website" />
+    <!-- Twitter cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="https://fslab.org/Sigma.NET/">
+    <meta name="twitter:title" content="HTML (Sigma.NET)">
+    
+    <title>HTML (Sigma.NET) | Sigma.NET</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fslab.org/Sigma.NET/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+    <script type="application/javascript" src="https://fslab.org/Sigma.NET/content/fsdocs-theme-set-dark.js"></script>
+    <link href="https://fslab.org/Sigma.NET/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fslab.org/Sigma.NET/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
+    
+    
+</head>
+<body class="api-docs">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"></iconify-icon>
+            <input type="checkbox" name="mobile-menu" />
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+                    Notes</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+                    Repository</a></li>
+                <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/2_Basic_Usage.html">
+    Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/3_Advanced_Usage.html">
+    Advanced Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/4_Render_Settings.html">
+    Render Settings
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/1_Introduction.html">
+    Introduction
+
+  </a>
+</li>
+                <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+            </ul>
+        </div>
+        <a href="https://fslab.org/Sigma.NET/">
+            <img alt="Header menu logo" src="https://fslab.org/Sigma.NET/img/logo.png">
+            <strong>Sigma.NET</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="https://github.com/fslaborg/Sigma.NET/" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
+        <fsdocs-theme-toggle></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+        </li>
+        <li class="nav-item"><a class="nav-link"
+                                href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+            Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+            Repository</a></li>
+        <li class="nav-header">
+  Documentation
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/2_Basic_Usage.html">
+    Basic Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/3_Advanced_Usage.html">
+    Advanced Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/4_Render_Settings.html">
+    Render Settings
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/1_Introduction.html">
+    Introduction
+
+  </a>
+</li>
+        <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="https://fslab.org/Sigma.NET/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        <div>
+  <h2>
+    HTML Type
+  </h2>
+  <dl class="fsdocs-metadata">
+    <dt>
+      Namespace: 
+      <a href="https://fslab.org/Sigma.NET/reference/sigma-net.html">
+        Sigma.NET
+      </a>
+    </dt>
+    <dt>
+      Assembly: Sigma.NET.dll
+    </dt>
+    <dt>
+      Base Type: 
+      <code>obj</code>
+    </dt>
+  </dl>
+  <div class="fsdocs-xmldoc">
+    <div>
+      <p class="fsdocs-summary">
+         Provides methods to generate HTML content for visualizing graphs with Sigma.
+      </p>
+    </div>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div>
+    <h3>
+      Static members
+    </h3>
+    <table class="table outer-list fsdocs-member-list">
+      <thead>
+        <tr>
+          <td class="fsdocs-member-list-header">
+            Static member
+          </td>
+          <td class="fsdocs-member-list-header">
+            Description
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '71', 71)" onmouseover="showTip(event, '71', 71)">
+                <p>
+                  <a id="CreateGraphHTML">
+                    <a href="#CreateGraphHTML">
+                      <code><span>HTML.CreateGraphHTML<span><span>(<span>graphData,&#32;layout,&#32;settings,&#32;divId,&#32;widgets,&#32;sigmaJSRef,&#32;?Width,&#32;?Height</span>)</span></span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="71">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>HTML.CreateGraphHTML<span><span>(<span>graphData,&#32;layout,&#32;settings,&#32;divId,&#32;widgets,&#32;sigmaJSRef,&#32;?Width,&#32;?Height</span>)</span></span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        graphData
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      JSON representation of the graph.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        layout
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      Layout configuration for the graph.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        settings
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      Settings configuration for the graph.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        divId
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      ID of the HTML container for the graph.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        widgets
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      Widgets to include in the graph.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        sigmaJSRef
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-jslibreference.html">JSlibReference</a></code>
+                       - 
+                      Reference to Sigma.js libraries.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?Width
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-csslength.html">CssLength</a></code>
+                       - 
+                      Optional width of the graph container.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?Height
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-csslength.html">CssLength</a></code>
+                       - 
+                      Optional height of the graph container.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a>&#32;list</span></code>
+                  </span>
+                  A list of HTML nodes for rendering the graph.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.HTML.CreateGraphHTML`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.HTML.CreateGraphHTML\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Html.fs#L138-138" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Creates HTML content for a graph with Sigma.js embedded in a specified container.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    graphData
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    JSON representation of the graph.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    layout
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Layout configuration for the graph.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    settings
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Settings configuration for the graph.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    divId
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    ID of the HTML container for the graph.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    widgets
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Widgets to include in the graph.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    sigmaJSRef
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-jslibreference.html">JSlibReference</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Reference to Sigma.js libraries.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Width
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-csslength.html">CssLength</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional width of the graph container.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?Height
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-csslength.html">CssLength</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional height of the graph container.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a>&#32;list</span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    A list of HTML nodes for rendering the graph.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '72', 72)" onmouseover="showTip(event, '72', 72)">
+                <p>
+                  <a id="CreateGraphScript">
+                    <a href="#CreateGraphScript">
+                      <code><span>HTML.CreateGraphScript<span><span>(<span>graphData,&#32;layout,&#32;settings,&#32;containerId,&#32;widgets,&#32;sigmaJSRef</span>)</span></span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="72">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>HTML.CreateGraphScript<span><span>(<span>graphData,&#32;layout,&#32;settings,&#32;containerId,&#32;widgets,&#32;sigmaJSRef</span>)</span></span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        graphData
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      JSON representation of the graph.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        layout
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      Layout configuration for the graph.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        settings
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      Settings configuration for the graph.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        containerId
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      ID of the HTML container for the graph.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        widgets
+                      </b>
+                      :
+                      <code>string</code>
+                       - 
+                      Widgets to include in the graph.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        sigmaJSRef
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-jslibreference.html">JSlibReference</a></code>
+                       - 
+                      Reference to Sigma.js libraries.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a></code>
+                  </span>
+                  An HTML script element for embedding Sigma.js graph.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.HTML.CreateGraphScript`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.HTML.CreateGraphScript\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Html.fs#L29-29" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Creates a script to render a graph with Sigma.js.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    graphData
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    JSON representation of the graph.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    layout
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Layout configuration for the graph.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    settings
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Settings configuration for the graph.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    containerId
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    ID of the HTML container for the graph.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    widgets
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Widgets to include in the graph.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    sigmaJSRef
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-jslibreference.html">JSlibReference</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Reference to Sigma.js libraries.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    An HTML script element for embedding Sigma.js graph.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '73', 73)" onmouseover="showTip(event, '73', 73)">
+                <p>
+                  <a id="Doc">
+                    <a href="#Doc">
+                      <code><span>HTML.Doc<span><span>(<span>graphHTML,&#32;sigmaJSRef,&#32;?AdditionalHeadTags</span>)</span></span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="73">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>HTML.Doc<span><span>(<span>graphHTML,&#32;sigmaJSRef,&#32;?AdditionalHeadTags</span>)</span></span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        graphHTML
+                      </b>
+                      :
+                      <code><span><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a>&#32;list</span></code>
+                       - 
+                      List of XML nodes representing the graph HTML.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        sigmaJSRef
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-jslibreference.html">JSlibReference</a></code>
+                       - 
+                      Reference to Sigma.js libraries.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?AdditionalHeadTags
+                      </b>
+                      :
+                      <code><span><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a>&#32;list</span></code>
+                       - 
+                      Optional additional tags to include in the <head> section.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a></code>
+                  </span>
+                  An HTML document with the embedded graph.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.HTML.Doc`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.HTML.Doc\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Html.fs#L79-79" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Generates a complete HTML document including the graph and Sigma.js references.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    graphHTML
+                  </span>
+                  :
+                  <code><span><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a>&#32;list</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    List of XML nodes representing the graph HTML.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    sigmaJSRef
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-jslibreference.html">JSlibReference</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Reference to Sigma.js libraries.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?AdditionalHeadTags
+                  </span>
+                  :
+                  <code><span><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a>&#32;list</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional additional tags to include in the <head> section.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    An HTML document with the embedded graph.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '74', 74)" onmouseover="showTip(event, '74', 74)">
+                <p>
+                  <a id="show">
+                    <a href="#show">
+                      <code><span>HTML.show&#32;<span><span>(<span>graph,&#32;?DisplayOpts</span>)</span></span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="74">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>HTML.show&#32;<span><span>(<span>graph,&#32;?DisplayOpts</span>)</span></span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        graph
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                       - 
+                      The SigmaGraph to display.
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        ?DisplayOpts
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-displayoptions.html">DisplayOptions</a></code>
+                       - 
+                      Optional display options for the graph.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.HTML.show`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.HTML.show\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Html.fs#L266-266" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Shows a SigmaGraph in the default web browser by creating an HTML file and opening it.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    graph
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    The SigmaGraph to display.
+                  </p>
+                </dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?DisplayOpts
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-displayoptions.html">DisplayOptions</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional display options for the graph.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '75', 75)" onmouseover="showTip(event, '75', 75)">
+                <p>
+                  <a id="toEmbeddedHTML">
+                    <a href="#toEmbeddedHTML">
+                      <code><span>HTML.toEmbeddedHTML&#32;<span>?DisplayOpts</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="75">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>HTML.toEmbeddedHTML&#32;<span>?DisplayOpts</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        ?DisplayOpts
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-displayoptions.html">DisplayOptions</a></code>
+                       - 
+                      Optional display options for the graph.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;string</span></code>
+                  </span>
+                  A function that takes a SigmaGraph and returns a complete HTML document as a string.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.HTML.toEmbeddedHTML`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.HTML.toEmbeddedHTML\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Html.fs#L232-232" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Converts a SigmaGraph to its HTML representation and embeds it into a full HTML page.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?DisplayOpts
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-displayoptions.html">DisplayOptions</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional display options for the graph.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;string</span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    A function that takes a SigmaGraph and returns a complete HTML document as a string.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '76', 76)" onmouseover="showTip(event, '76', 76)">
+                <p>
+                  <a id="toGraphHTML">
+                    <a href="#toGraphHTML">
+                      <code><span>HTML.toGraphHTML&#32;<span>?DisplayOpts</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="76">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>HTML.toGraphHTML&#32;<span>?DisplayOpts</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        ?DisplayOpts
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-displayoptions.html">DisplayOptions</a></code>
+                       - 
+                      Optional display options for the graph.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;string</span></code>
+                  </span>
+                  A function that takes a SigmaGraph and returns HTML as a string.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.HTML.toGraphHTML`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.HTML.toGraphHTML\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Html.fs#L219-219" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Converts a SigmaGraph to its HTML representation as a string.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?DisplayOpts
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-displayoptions.html">DisplayOptions</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional display options for the graph.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;string</span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    A function that takes a SigmaGraph and returns HTML as a string.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code onmouseout="hideTip(event, '77', 77)" onmouseover="showTip(event, '77', 77)">
+                <p>
+                  <a id="toGraphHTMLNodes">
+                    <a href="#toGraphHTMLNodes">
+                      <code><span>HTML.toGraphHTMLNodes&#32;<span>?DisplayOpts</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div class="fsdocs-tip" id="77">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>HTML.toGraphHTMLNodes&#32;<span>?DisplayOpts</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        ?DisplayOpts
+                      </b>
+                      :
+                      <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-displayoptions.html">DisplayOptions</a></code>
+                       - 
+                      Optional display options for the graph.
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<span><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a>&#32;list</span></span></code>
+                  </span>
+                  A function that takes a SigmaGraph and returns HTML nodes.
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <details>
+              <summary>
+                <div class="fsdocs-summary">
+                  <div class="fsdocs-source-link" title="Copy signature (Markdown)" onclick="Clipboard_CopyTo('`cref:M:Sigma.NET.HTML.toGraphHTMLNodes`')">
+                    <iconify-icon icon="bi:filetype-md" height="24" width="24"></iconify-icon>
+                  </div>
+                  <div class="fsdocs-source-link" title="Copy signature (XML)" onclick="Clipboard_CopyTo('<see cref=\'M:Sigma.NET.HTML.toGraphHTMLNodes\'/>')">
+                    <iconify-icon icon="bi:filetype-xml" height="24" width="24"></iconify-icon>
+                  </div>
+                  <a href="https://github.com/fslaborg/Sigma.NET/tree/master/src/Sigma.NET/Html.fs#L182-182" class="fsdocs-source-link" title="Source on GitHub">
+                    <iconify-icon icon="ri:github-fill" height="24" width="24"></iconify-icon>
+                  </a>
+                  <p class="fsdocs-summary">
+                    
+ Converts a CyGraph to its HTML representation, with optional display options.
+ 
+                  </p>
+                </div>
+              </summary>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    ?DisplayOpts
+                  </span>
+                  :
+                  <code><a href="https://fslab.org/Sigma.NET/reference/sigma-net-displayoptions.html">DisplayOptions</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs">
+                  <p>
+                    Optional display options for the graph.
+                  </p>
+                </dd>
+              </dl>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code><span><a href="https://fslab.org/Sigma.NET/reference/sigma-net-sigmagraph.html">SigmaGraph</a>&#32;->&#32;<span><a href="https://learn.microsoft.com/dotnet/api/giraffe.viewengine.htmlelements.xmlnode">XmlNode</a>&#32;list</span></span></code>
+                </dt>
+                <dd class="fsdocs-return-docs">
+                  <p>
+                    A function that takes a SigmaGraph and returns HTML nodes.
+                  </p>
+                </dd>
+              </dl>
+            </details>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+        
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <div class="empty"></div>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs" />
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-tips.js"></script>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-theme.js"></script>
+<script type="module" src="https://fslab.org/Sigma.NET/content/fsdocs-search.js"></script>
+
+</body>
+</html>
