@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Timo Mühlhaus, fslab contributors" name="author">
     <!-- Opengraph properties (https://ogp.me/) -->
-    <meta property="og:site_name" content="Sigma.NET">
+    <meta property="og:site_name" content="SigmaGraph.NET">
     <meta property="og:title" content="Advanced Usage
 " />
     <meta property="og:url" content="http://localhost:8901/script.html">
@@ -18,7 +18,7 @@
 ">
     
     <title>Advanced Usage
- | Sigma.NET</title>
+ | SigmaGraph.NET</title>
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
@@ -66,21 +66,15 @@
             <input type="checkbox" name="mobile-menu" />
             <ul class="menu">
                 <li class="nav-header">Links</li>
-                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/SigmaGraph.NET/blob/master/LICENSE">License</a>
                 </li>
                 <li class="nav-item"><a class="nav-link"
-                                        href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+                                        href="https://github.com/fslaborg/SigmaGraph.NET/blob/master/RELEASE_NOTES.md">Release
                     Notes</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+                <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/SigmaGraph.NET/">Source
                     Repository</a></li>
                 <li class="nav-header">
   Documentation
-</li>             
-<li class="nav-item ">
-  <a class="nav-link" href="http://localhost:8901/1_Introduction.html">
-    Introduction
-
-  </a>
 </li>             
 <li class="nav-item ">
   <a class="nav-link" href="http://localhost:8901/2_Basic_Usage.html">
@@ -91,6 +85,18 @@
 <li class="nav-item active">
   <a class="nav-link" href="http://localhost:8901/3_Advanced_Usage.html">
     Advanced Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/4_Render_Settings.html">
+    Render Settings
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/1_Introduction.html">
+    Introduction
 
   </a>
 </li>
@@ -104,13 +110,13 @@
 </li>
             </ul>
         </div>
-        <a href="https://fslab.org/Sigma.NET/">
+        <a href="https://fslab.org/SigmaGraph.NET/">
             <img alt="Header menu logo" src="http://localhost:8901/img/logo.png">
-            <strong>Sigma.NET</strong>
+            <strong>SigmaGraph.NET</strong>
         </a>
     </div>
     <div class="end">
-        <a href="https://github.com/fslaborg/Sigma.NET/" target="_blank">
+        <a href="https://github.com/fslaborg/SigmaGraph.NET/" target="_blank">
             <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
         </a>
         <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
@@ -120,21 +126,15 @@
 <aside id="fsdocs-main-menu">
     <ul class="menu">
         <li class="nav-header">Links</li>
-        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/blob/master/LICENSE">License</a>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/SigmaGraph.NET/blob/master/LICENSE">License</a>
         </li>
         <li class="nav-item"><a class="nav-link"
-                                href="https://github.com/fslaborg/Sigma.NET/blob/master/RELEASE_NOTES.md">Release
+                                href="https://github.com/fslaborg/SigmaGraph.NET/blob/master/RELEASE_NOTES.md">Release
             Notes</a></li>
-        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/Sigma.NET/">Source
+        <li class="nav-item"><a class="nav-link" href="https://github.com/fslaborg/SigmaGraph.NET/">Source
             Repository</a></li>
         <li class="nav-header">
   Documentation
-</li>             
-<li class="nav-item ">
-  <a class="nav-link" href="http://localhost:8901/1_Introduction.html">
-    Introduction
-
-  </a>
 </li>             
 <li class="nav-item ">
   <a class="nav-link" href="http://localhost:8901/2_Basic_Usage.html">
@@ -145,6 +145,18 @@
 <li class="nav-item active">
   <a class="nav-link" href="http://localhost:8901/3_Advanced_Usage.html">
     Advanced Usage
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/4_Render_Settings.html">
+    Render Settings
+
+  </a>
+</li>             
+<li class="nav-item ">
+  <a class="nav-link" href="http://localhost:8901/1_Introduction.html">
+    Introduction
 
   </a>
 </li>
@@ -162,107 +174,109 @@
     <div id="content">
         <h1><a name="Advanced-Usage" class="anchor" href="#Advanced-Usage">Advanced Usage</a></h1>
 <h2><a name="Installing-the-required-Librarys" class="anchor" href="#Installing-the-required-Librarys">Installing the required Librarys</a></h2>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//Sigma.NET and Sigma.NET.Interactive</span>
-<span class="pn">#</span> <span class="s">&quot;nuget: C:/Users/lukas/Documents/GitHub/Project/Sigma.NET/pkg&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: Sigma.NET, 0.0.0-dev&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: Sigma.NET.Interactive, 0.0.0-dev&quot;</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//SigmaGraph.NET and SigmaGraph.NET.Interactive</span>
+<span class="pn">#</span> <span class="s">&quot;nuget: C:/Users/lukas/Documents/GitHub/Project/SigmaGraph.NET/pkg&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: SigmaGraph.NET, 0.0.0-dev&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: SigmaGraph.NET.Interactive, 0.0.0-dev&quot;</span>
 <span class="c">//Additional Librarys</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: DynamicObj&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: DynamicObj, 2.0.0&quot;</span>
 <span class="pp">#r</span> <span class="s">&quot;nuget: Newtonsoft.Json&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: Giraffe.ViewEngine&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Giraffe.ViewEngine, 1.4.0&quot;</span>
 
 
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">Sigma</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">NET</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="id">Sigma</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs2', 4)" onmouseover="showTip(event, 'fs2', 4)" class="id">NET</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs3', 5)" onmouseover="showTip(event, 'fs3', 5)" class="id">Interactive</span>
+<span class="k">open</span> <span class="id">SigmaGraph</span><span class="pn">.</span><span class="id">NET</span>
+<span class="k">open</span> <span class="id">SigmaGraph</span><span class="pn">.</span><span class="id">NET</span><span class="pn">.</span><span class="id">Interactive</span>
 
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="id">System</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="id">DynamicObj</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs6', 8)" onmouseover="showTip(event, 'fs6', 8)" class="id">Newtonsoft</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs7', 9)" onmouseover="showTip(event, 'fs7', 9)" class="id">Json</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs8', 10)" onmouseover="showTip(event, 'fs8', 10)" class="id">Giraffe</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs9', 11)" onmouseover="showTip(event, 'fs9', 11)" class="id">ViewEngine</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">System</span>
+<span class="k">open</span> <span class="id">DynamicObj</span>
+<span class="k">open</span> <span class="id">Newtonsoft</span><span class="pn">.</span><span class="id">Json</span>
+<span class="k">open</span> <span class="id">Giraffe</span><span class="pn">.</span><span class="id">ViewEngine</span>
 </code></pre>
 <h2><a name="Adding-multiple-nodes-at-once" class="anchor" href="#Adding-multiple-nodes-at-once">Adding multiple nodes at once</a></h2>
+<p>This code cell demonstrates how to create a graph with a sequence of nodes and edges. First, a sequence of nodes is generated, each initialized with a unique identifier and display attributes such as label and size. Similarly, a sequence of edges is created to connect specified pairs of nodes.</p>
+<p>An empty graph is initialized with VisGraph.empty(). The sequences of nodes and edges are added to the graph using VisGraph.withNodes and VisGraph.withEdges, respectively. Additionally, a circular layout is applied to the graph using VisGraph.withCircularLayout to arrange the nodes in a circular fashion.</p>
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//Create a Node-Sequence, in this case a list but you can also use other sequence types like arrays or just a sequence</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="id">nodesToAdd</span> <span class="o">=</span> <span class="pn">[</span><span class="n">1..</span><span class="n">10</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 13)" onmouseover="showTip(event, 'fs11', 13)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 14)" onmouseover="showTip(event, 'fs12', 14)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs13', 15)" onmouseover="showTip(event, 'fs13', 15)" class="fn">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs14', 16)" onmouseover="showTip(event, 'fs14', 16)" class="rt">Node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 17)" onmouseover="showTip(event, 'fs15', 17)" class="id">Init</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs16', 18)" onmouseover="showTip(event, 'fs16', 18)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs13', 19)" onmouseover="showTip(event, 'fs13', 19)" class="fn">x</span><span class="pn">,</span> <span onmouseout="hideTip(event, 'fs17', 20)" onmouseover="showTip(event, 'fs17', 20)" class="rt">DisplayData</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs18', 21)" onmouseover="showTip(event, 'fs18', 21)" class="id">Init</span><span class="pn">(</span><span class="fn">Label</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs16', 22)" onmouseover="showTip(event, 'fs16', 22)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs13', 23)" onmouseover="showTip(event, 'fs13', 23)" class="fn">x</span><span class="pn">,</span> <span class="fn">Size</span><span class="o">=</span> <span class="n">15</span><span class="pn">)</span><span class="pn">)</span><span class="pn">)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">nodesToAdd</span> <span class="o">=</span> <span class="pn">[</span><span class="n">1..</span><span class="n">10</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="fn">x</span> <span class="k">-&gt;</span> <span class="id">Node</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="id">string</span> <span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="id">x</span><span class="pn">,</span> <span class="id">DisplayData</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">Label</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs6', 8)" onmouseover="showTip(event, 'fs6', 8)" class="id">string</span> <span onmouseout="hideTip(event, 'fs5', 9)" onmouseover="showTip(event, 'fs5', 9)" class="id">x</span><span class="pn">,</span> <span class="id">Size</span><span class="o">=</span> <span class="n">15</span><span class="pn">)</span><span class="pn">)</span><span class="pn">)</span>
 
 <span class="c">// Creating an Edge Sequence</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs19', 24)" onmouseover="showTip(event, 'fs19', 24)" class="id">edgesToAdd</span> <span class="o">=</span> <span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">2</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">5</span><span class="pn">;</span> <span class="n">7</span><span class="pn">,</span><span class="n">3</span><span class="pn">;</span> <span class="n">1</span><span class="pn">,</span><span class="n">4</span><span class="pn">;</span> <span class="n">8</span><span class="pn">,</span><span class="n">6</span><span class="pn">;</span> <span class="n">4</span><span class="pn">,</span><span class="n">1</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 25)" onmouseover="showTip(event, 'fs11', 25)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 26)" onmouseover="showTip(event, 'fs12', 26)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs13', 27)" onmouseover="showTip(event, 'fs13', 27)" class="fn">x</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs20', 28)" onmouseover="showTip(event, 'fs20', 28)" class="fn">y</span><span class="pn">)</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs21', 29)" onmouseover="showTip(event, 'fs21', 29)" class="rt">Edge</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 30)" onmouseover="showTip(event, 'fs22', 30)" class="id">Init</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs16', 31)" onmouseover="showTip(event, 'fs16', 31)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs13', 32)" onmouseover="showTip(event, 'fs13', 32)" class="fn">x</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs16', 33)" onmouseover="showTip(event, 'fs16', 33)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs20', 34)" onmouseover="showTip(event, 'fs20', 34)" class="fn">y</span><span class="pn">)</span><span class="pn">)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 10)" onmouseover="showTip(event, 'fs7', 10)" class="id">edgesToAdd</span> <span class="o">=</span> <span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">2</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">5</span><span class="pn">;</span> <span class="n">7</span><span class="pn">,</span><span class="n">3</span><span class="pn">;</span> <span class="n">1</span><span class="pn">,</span><span class="n">4</span><span class="pn">;</span> <span class="n">8</span><span class="pn">,</span><span class="n">6</span><span class="pn">;</span> <span class="n">4</span><span class="pn">,</span><span class="n">1</span><span class="pn">]</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs3', 11)" onmouseover="showTip(event, 'fs3', 11)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs4', 12)" onmouseover="showTip(event, 'fs4', 12)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs5', 13)" onmouseover="showTip(event, 'fs5', 13)" class="fn">x</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs8', 14)" onmouseover="showTip(event, 'fs8', 14)" class="fn">y</span><span class="pn">)</span> <span class="k">-&gt;</span> <span class="id">Edge</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs6', 15)" onmouseover="showTip(event, 'fs6', 15)" class="id">string</span> <span onmouseout="hideTip(event, 'fs5', 16)" onmouseover="showTip(event, 'fs5', 16)" class="id">x</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs6', 17)" onmouseover="showTip(event, 'fs6', 17)" class="id">string</span> <span onmouseout="hideTip(event, 'fs8', 18)" onmouseover="showTip(event, 'fs8', 18)" class="id">y</span><span class="pn">)</span><span class="pn">)</span>
 
 <span class="c">// Add the nodesequence and  edgesequence to an empty graph </span>
-<span onmouseout="hideTip(event, 'fs23', 35)" onmouseover="showTip(event, 'fs23', 35)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 36)" onmouseover="showTip(event, 'fs24', 36)" class="id">empty</span><span class="pn">(</span><span class="pn">)</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 37)" onmouseover="showTip(event, 'fs23', 37)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs25', 38)" onmouseover="showTip(event, 'fs25', 38)" class="id">withNodes</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs10', 39)" onmouseover="showTip(event, 'fs10', 39)" class="id">nodesToAdd</span><span class="pn">)</span> <span class="c">// add the node sequence</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 40)" onmouseover="showTip(event, 'fs23', 40)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs26', 41)" onmouseover="showTip(event, 'fs26', 41)" class="id">withEdges</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs19', 42)" onmouseover="showTip(event, 'fs19', 42)" class="id">edgesToAdd</span><span class="pn">)</span> <span class="c">// add the edge sequence</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 43)" onmouseover="showTip(event, 'fs23', 43)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs27', 44)" onmouseover="showTip(event, 'fs27', 44)" class="id">withCircularLayout</span><span class="pn">(</span><span class="pn">)</span>  <span class="c">// choosing the desired Layout</span>
+<span class="id">VisGraph</span><span class="pn">.</span><span class="id">empty</span><span class="pn">(</span><span class="pn">)</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withNodes</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs2', 19)" onmouseover="showTip(event, 'fs2', 19)" class="id">nodesToAdd</span><span class="pn">)</span> <span class="c">// add the node sequence</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withEdges</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs7', 20)" onmouseover="showTip(event, 'fs7', 20)" class="id">edgesToAdd</span><span class="pn">)</span> <span class="c">// add the edge sequence</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withCircularLayout</span><span class="pn">(</span><span class="pn">)</span>  <span class="c">// choosing the desired Layout</span>
 </code></pre>
-<p><img src="img\advancedUsageGraph1.png" alt="image info" /></p>
-<h2><a name="Creating-complex-Networks-and-using-other-Librarys-together-with-Sigma-NET" class="anchor" href="#Creating-complex-Networks-and-using-other-Librarys-together-with-Sigma-NET">Creating complex Networks and using other Librarys together with Sigma.NET</a></h2>
+<p><img src="img/advancedUsageGraph1.png" alt="image info" /></p>
+<h2><a name="Creating-complex-Networks-and-using-other-Librarys-together-with-SigmaGraph-NET" class="anchor" href="#Creating-complex-Networks-and-using-other-Librarys-together-with-SigmaGraph-NET">Creating complex Networks and using other Librarys together with SigmaGraph.NET</a></h2>
+<p>This code cell demonstrates how to create a graph using the Graphoscope and SigmaGraph.NET package and visualize it.</p>
+<p>First, the Graphoscope package is referenced and imported. Various parameters are defined, including a set of colors for node display and randomization settings. A random graph is then generated using the Bollobas-Riordan model with specified parameters.</p>
+<p>An empty graph is initialized with VisGraph.empty(). Nodes are added to the graph, each node being assigned a random size, color, and label based on the random graph generated. Similarly, edges are added, each edge connecting nodes with a randomly determined size.</p>
+<p>The result is exampleVisGRaph, a graph populated with randomly generated nodes and edges, ready for visualization.</p>
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Reference the Graphoscope package</span>
 <span class="pp">#r</span> <span class="s">&quot;nuget: Graphoscope, 0.4.0&quot;</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs28', 45)" onmouseover="showTip(event, 'fs28', 45)" class="id">Graphoscope</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs28', 46)" onmouseover="showTip(event, 'fs28', 46)" class="id">Graphoscope</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs29', 47)" onmouseover="showTip(event, 'fs29', 47)" class="id">RandomModels</span>
+<span class="k">open</span> <span class="id">Graphoscope</span>
+<span class="k">open</span> <span class="id">Graphoscope</span><span class="pn">.</span><span class="id">RandomModels</span>
 
 <span class="c">// Define colors for nodes</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs30', 48)" onmouseover="showTip(event, 'fs30', 48)" class="id">colors</span> <span class="o">=</span> <span class="pn">[|</span><span class="s">&quot;#F2FFE9&quot;</span><span class="pn">;</span><span class="s">&quot;#A6CF98&quot;</span><span class="pn">;</span><span class="s">&quot;#557C55&quot;</span><span class="pn">;</span><span class="s">&quot;#FA7070&quot;</span><span class="pn">|]</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs9', 21)" onmouseover="showTip(event, 'fs9', 21)" class="id">colors</span> <span class="o">=</span> <span class="pn">[|</span><span class="s">&quot;#F2FFE9&quot;</span><span class="pn">;</span><span class="s">&quot;#A6CF98&quot;</span><span class="pn">;</span><span class="s">&quot;#557C55&quot;</span><span class="pn">;</span><span class="s">&quot;#FA7070&quot;</span><span class="pn">|]</span>
 
 <span class="c">// Initialize parameters for the graph model</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs31', 49)" onmouseover="showTip(event, 'fs31', 49)" class="id">N</span> <span class="o">=</span> <span class="n">50</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs32', 50)" onmouseover="showTip(event, 'fs32', 50)" class="id">rnd</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs33', 51)" onmouseover="showTip(event, 'fs33', 51)" class="rt">Random</span><span class="pn">(</span><span class="pn">)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 22)" onmouseover="showTip(event, 'fs10', 22)" class="id">N</span> <span class="o">=</span> <span class="n">50</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 23)" onmouseover="showTip(event, 'fs11', 23)" class="id">rnd</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs12', 24)" onmouseover="showTip(event, 'fs12', 24)" class="rt">Random</span><span class="pn">(</span><span class="pn">)</span>
 
 <span class="c">// Create a random graph using the BollobasRiordan model</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs34', 52)" onmouseover="showTip(event, 'fs34', 52)" class="id">myBollobasRiordan</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs29', 53)" onmouseover="showTip(event, 'fs29', 53)" class="id">RandomModels</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs35', 54)" onmouseover="showTip(event, 'fs35', 54)" class="rt">BollobasRiordan</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs36', 55)" onmouseover="showTip(event, 'fs36', 55)" class="id">initDirectedFGraph</span> <span onmouseout="hideTip(event, 'fs31', 56)" onmouseover="showTip(event, 'fs31', 56)" class="id">N</span> <span class="n">0.5</span> <span class="n">0.1</span> <span class="n">0.4</span> <span class="n">0.6</span> <span class="n">0.4</span> <span onmouseout="hideTip(event, 'fs37', 57)" onmouseover="showTip(event, 'fs37', 57)" class="m">FGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs38', 58)" onmouseover="showTip(event, 'fs38', 58)" class="id">empty</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 25)" onmouseover="showTip(event, 'fs13', 25)" class="id">myBollobasRiordan</span> <span class="o">=</span> <span class="id">RandomModels</span><span class="pn">.</span><span class="id">BollobasRiordan</span><span class="pn">.</span><span class="id">initDirectedFGraph</span> <span onmouseout="hideTip(event, 'fs10', 26)" onmouseover="showTip(event, 'fs10', 26)" class="id">N</span> <span class="n">0.5</span> <span class="n">0.1</span> <span class="n">0.4</span> <span class="n">0.6</span> <span class="n">0.4</span> <span class="id">FGraph</span><span class="pn">.</span><span class="id">empty</span>
 
 <span class="c">// Add nodes</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 59)" onmouseover="showTip(event, 'fs39', 59)" class="id">exampleVisGRaph</span> <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs23', 60)" onmouseover="showTip(event, 'fs23', 60)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 61)" onmouseover="showTip(event, 'fs24', 61)" class="id">empty</span><span class="pn">(</span><span class="pn">)</span>
-    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 62)" onmouseover="showTip(event, 'fs23', 62)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs25', 63)" onmouseover="showTip(event, 'fs25', 63)" class="id">withNodes</span><span class="pn">[</span>
-        <span class="k">for</span> <span onmouseout="hideTip(event, 'fs40', 64)" onmouseover="showTip(event, 'fs40', 64)" class="fn">node</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs34', 65)" onmouseover="showTip(event, 'fs34', 65)" class="id">myBollobasRiordan</span> <span class="k">do</span>                                      
-            <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs14', 66)" onmouseover="showTip(event, 'fs14', 66)" class="rt">Node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 67)" onmouseover="showTip(event, 'fs15', 67)" class="id">Init</span><span class="pn">(</span><span class="fn">key</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs16', 68)" onmouseover="showTip(event, 'fs16', 68)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs40', 69)" onmouseover="showTip(event, 'fs40', 69)" class="fn">node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs41', 70)" onmouseover="showTip(event, 'fs41', 70)" class="id">Key</span><span class="pn">,</span> <span onmouseout="hideTip(event, 'fs17', 71)" onmouseover="showTip(event, 'fs17', 71)" class="fn">DisplayData</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs17', 72)" onmouseover="showTip(event, 'fs17', 72)" class="rt">DisplayData</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs18', 73)" onmouseover="showTip(event, 'fs18', 73)" class="id">Init</span><span class="pn">(</span><span class="fn">Size</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs32', 74)" onmouseover="showTip(event, 'fs32', 74)" class="id">rnd</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs42', 75)" onmouseover="showTip(event, 'fs42', 75)" class="id">Next</span><span class="pn">(</span><span class="n">1</span><span class="pn">,</span> <span class="n">18</span><span class="pn">)</span><span class="pn">,</span> <span class="fn">Color</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs30', 76)" onmouseover="showTip(event, 'fs30', 76)" class="id">colors</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs32', 77)" onmouseover="showTip(event, 'fs32', 77)" class="id">rnd</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs42', 78)" onmouseover="showTip(event, 'fs42', 78)" class="id">Next</span><span class="pn">(</span><span class="n">0</span><span class="pn">,</span> <span class="n">4</span><span class="pn">)</span><span class="pn">]</span><span class="pn">,</span> <span class="fn">Label</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs16', 79)" onmouseover="showTip(event, 'fs16', 79)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs40', 80)" onmouseover="showTip(event, 'fs40', 80)" class="fn">node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs41', 81)" onmouseover="showTip(event, 'fs41', 81)" class="id">Key</span><span class="pn">)</span><span class="pn">)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 27)" onmouseover="showTip(event, 'fs14', 27)" class="id">exampleVisGRaph</span> <span class="o">=</span>
+    <span class="id">VisGraph</span><span class="pn">.</span><span class="id">empty</span><span class="pn">(</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withNodes</span><span class="pn">[</span>
+        <span class="k">for</span> <span class="id">node</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs13', 28)" onmouseover="showTip(event, 'fs13', 28)" class="id">myBollobasRiordan</span> <span class="k">do</span>                                      
+            <span class="k">yield</span> <span class="id">Node</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">key</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs6', 29)" onmouseover="showTip(event, 'fs6', 29)" class="id">string</span> <span class="id">node</span><span class="pn">.</span><span class="id">Key</span><span class="pn">,</span> <span class="id">DisplayData</span><span class="o">=</span><span class="id">DisplayData</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">Size</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs11', 30)" onmouseover="showTip(event, 'fs11', 30)" class="id">rnd</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 31)" onmouseover="showTip(event, 'fs15', 31)" class="id">Next</span><span class="pn">(</span><span class="n">1</span><span class="pn">,</span> <span class="n">18</span><span class="pn">)</span><span class="pn">,</span> <span class="id">Color</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs9', 32)" onmouseover="showTip(event, 'fs9', 32)" class="id">colors</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs11', 33)" onmouseover="showTip(event, 'fs11', 33)" class="id">rnd</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 34)" onmouseover="showTip(event, 'fs15', 34)" class="id">Next</span><span class="pn">(</span><span class="n">0</span><span class="pn">,</span> <span class="n">4</span><span class="pn">)</span><span class="pn">]</span><span class="pn">,</span> <span class="id">Label</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs6', 35)" onmouseover="showTip(event, 'fs6', 35)" class="id">string</span> <span class="id">node</span><span class="pn">.</span><span class="id">Key</span><span class="pn">)</span><span class="pn">)</span>
     <span class="pn">]</span>
 <span class="c">//Add edges</span>
-    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 82)" onmouseover="showTip(event, 'fs23', 82)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs26', 83)" onmouseover="showTip(event, 'fs26', 83)" class="id">withEdges</span><span class="pn">[</span>
-        <span class="k">for</span> <span onmouseout="hideTip(event, 'fs40', 84)" onmouseover="showTip(event, 'fs40', 84)" class="fn">node</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs34', 85)" onmouseover="showTip(event, 'fs34', 85)" class="id">myBollobasRiordan</span> <span class="k">do</span>
-            <span class="k">let</span> <span onmouseout="hideTip(event, 'fs43', 86)" onmouseover="showTip(event, 'fs43', 86)" class="fn">pred</span><span class="pn">,</span> <span onmouseout="hideTip(event, 'fs44', 87)" onmouseover="showTip(event, 'fs44', 87)" class="fn">t</span><span class="pn">,</span> <span class="id">_</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs40', 88)" onmouseover="showTip(event, 'fs40', 88)" class="fn">node</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs45', 89)" onmouseover="showTip(event, 'fs45', 89)" class="id">Value</span>
-            <span class="k">for</span> <span onmouseout="hideTip(event, 'fs46', 90)" onmouseover="showTip(event, 'fs46', 90)" class="fn">kv</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs43', 91)" onmouseover="showTip(event, 'fs43', 91)" class="fn">pred</span> <span class="k">do</span>
-                <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs21', 92)" onmouseover="showTip(event, 'fs21', 92)" class="rt">Edge</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 93)" onmouseover="showTip(event, 'fs22', 93)" class="id">Init</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs47', 94)" onmouseover="showTip(event, 'fs47', 94)" class="fn">source</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs16', 95)" onmouseover="showTip(event, 'fs16', 95)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs46', 96)" onmouseover="showTip(event, 'fs46', 96)" class="fn">kv</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs41', 97)" onmouseover="showTip(event, 'fs41', 97)" class="id">Key</span><span class="pn">,</span> <span class="fn">target</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs16', 98)" onmouseover="showTip(event, 'fs16', 98)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs44', 99)" onmouseover="showTip(event, 'fs44', 99)" class="fn">t</span><span class="pn">,</span> <span onmouseout="hideTip(event, 'fs17', 100)" onmouseover="showTip(event, 'fs17', 100)" class="fn">DisplayData</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs17', 101)" onmouseover="showTip(event, 'fs17', 101)" class="rt">DisplayData</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs18', 102)" onmouseover="showTip(event, 'fs18', 102)" class="id">Init</span><span class="pn">(</span><span class="fn">Size</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs32', 103)" onmouseover="showTip(event, 'fs32', 103)" class="id">rnd</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs42', 104)" onmouseover="showTip(event, 'fs42', 104)" class="id">Next</span><span class="pn">(</span><span class="n">1</span><span class="pn">,</span> <span class="n">3</span><span class="pn">)</span><span class="pn">)</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withEdges</span><span class="pn">[</span>
+        <span class="k">for</span> <span class="id">node</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs13', 36)" onmouseover="showTip(event, 'fs13', 36)" class="id">myBollobasRiordan</span> <span class="k">do</span>
+            <span class="k">let</span> <span class="id">pred</span><span class="pn">,</span> <span class="id">t</span><span class="pn">,</span> <span class="id">_</span> <span class="o">=</span> <span class="id">node</span><span class="pn">.</span><span class="id">Value</span>
+            <span class="k">for</span> <span class="id">kv</span> <span class="k">in</span> <span class="id">pred</span> <span class="k">do</span>
+                <span class="k">yield</span> <span class="id">Edge</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">source</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs6', 37)" onmouseover="showTip(event, 'fs6', 37)" class="id">string</span> <span class="id">kv</span><span class="pn">.</span><span class="id">Key</span><span class="pn">,</span> <span class="id">target</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs6', 38)" onmouseover="showTip(event, 'fs6', 38)" class="id">string</span> <span class="id">t</span><span class="pn">,</span> <span class="id">DisplayData</span><span class="o">=</span><span class="id">DisplayData</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">Size</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs11', 39)" onmouseover="showTip(event, 'fs11', 39)" class="id">rnd</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 40)" onmouseover="showTip(event, 'fs15', 40)" class="id">Next</span><span class="pn">(</span><span class="n">1</span><span class="pn">,</span> <span class="n">3</span><span class="pn">)</span><span class="pn">)</span><span class="pn">)</span>
     <span class="pn">]</span>
-<span onmouseout="hideTip(event, 'fs39', 105)" onmouseover="showTip(event, 'fs39', 105)" class="id">exampleVisGRaph</span>
+<span onmouseout="hideTip(event, 'fs14', 41)" onmouseover="showTip(event, 'fs14', 41)" class="id">exampleVisGRaph</span>
 </code></pre>
-<p><img src="img\advancedUsageGraph2.png" alt="image info" /></p>
+<p><img src="img/advancedUsageGraph2.png" alt="image info" /></p>
 <h2><a name="Layouts" class="anchor" href="#Layouts">Layouts</a></h2>
 <h3><a name="Random-Layout" class="anchor" href="#Random-Layout">Random Layout</a></h3>
-<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs39', 106)" onmouseover="showTip(event, 'fs39', 106)" class="id">exampleVisGRaph</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 107)" onmouseover="showTip(event, 'fs23', 107)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs48', 108)" onmouseover="showTip(event, 'fs48', 108)" class="id">withRandomLayout</span><span class="pn">(</span><span class="pn">)</span>
+<p>This code applies a random layout to the exampleVisGRaph, arranging the nodes in a random configuration for visualization.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs14', 42)" onmouseover="showTip(event, 'fs14', 42)" class="id">exampleVisGRaph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRandomLayout</span><span class="pn">(</span><span class="pn">)</span>
 </code></pre>
-<p><img src="img\advancedUsageGraph3.png" alt="image info" /></p>
+<p><img src="img/advancedUsageGraph3.png" alt="image info" /></p>
 <h3><a name="Circular-Layout" class="anchor" href="#Circular-Layout">Circular Layout</a></h3>
-<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs39', 109)" onmouseover="showTip(event, 'fs39', 109)" class="id">exampleVisGRaph</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 110)" onmouseover="showTip(event, 'fs23', 110)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs27', 111)" onmouseover="showTip(event, 'fs27', 111)" class="id">withCircularLayout</span><span class="pn">(</span><span class="pn">)</span>
+<p>This code applies a circular layout to the exampleVisGRaph, arranging the nodes in a circular pattern for visualization.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs14', 43)" onmouseover="showTip(event, 'fs14', 43)" class="id">exampleVisGRaph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withCircularLayout</span><span class="pn">(</span><span class="pn">)</span>
 </code></pre>
-<p><img src="img\advancedUsageGraph4.png" alt="image info" /></p>
+<p><img src="img/advancedUsageGraph4.png" alt="image info" /></p>
 <h2><a name="Render-settings" class="anchor" href="#Render-settings">Render settings</a></h2>
-<p>There are many differend render settings you can choose from. You can use this to define a set of render settings before visualizing your graphs to have a homogenous outcome if you are visuallizing multiple graphs.</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs39', 112)" onmouseover="showTip(event, 'fs39', 112)" class="id">exampleVisGRaph</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 113)" onmouseover="showTip(event, 'fs23', 113)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs49', 114)" onmouseover="showTip(event, 'fs49', 114)" class="id">withRenderer</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs50', 115)" onmouseover="showTip(event, 'fs50', 115)" class="m">Render</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs51', 116)" onmouseover="showTip(event, 'fs51', 116)" class="rt">Settings</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs52', 117)" onmouseover="showTip(event, 'fs52', 117)" class="id">Init</span><span class="pn">(</span><span class="fn">LabelSize</span> <span class="o">=</span> <span class="n">20</span><span class="pn">,</span> <span class="fn">LabelColor</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs50', 118)" onmouseover="showTip(event, 'fs50', 118)" class="m">Render</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs53', 119)" onmouseover="showTip(event, 'fs53', 119)" class="rt">ColorOrReference</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs54', 120)" onmouseover="showTip(event, 'fs54', 120)" class="id">Init</span><span class="pn">(</span><span class="fn">Color</span><span class="o">=</span><span class="s">&quot;#FA7070&quot;</span><span class="pn">)</span><span class="pn">)</span><span class="pn">)</span>
+<p>There are many differend render settings you can choose from. You can use this to define a set of render settings before visualizing your graphs to have a homogenous outcome if you are visuallizing multiple graphs. More on render settings can be found in the section "Render settings".</p>
+<p>This code configures the exampleVisGRaph with a custom renderer, setting the label size to 20 and the label color to #FA7070 for visualization.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs14', 44)" onmouseover="showTip(event, 'fs14', 44)" class="id">exampleVisGRaph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withRenderer</span><span class="pn">(</span><span class="id">Render</span><span class="pn">.</span><span class="id">Settings</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">LabelSize</span> <span class="o">=</span> <span class="n">20</span><span class="pn">,</span> <span class="id">LabelColor</span><span class="o">=</span><span class="id">Render</span><span class="pn">.</span><span class="id">ColorOrReference</span><span class="pn">.</span><span class="id">Init</span><span class="pn">(</span><span class="id">Color</span><span class="o">=</span><span class="s">&quot;#FA7070&quot;</span><span class="pn">)</span><span class="pn">)</span><span class="pn">)</span>
 </code></pre>
-<p><img src="img\advancedUsageGraph5.png" alt="image info" /></p>
+<p><img src="img/advancedUsageGraph5.png" alt="image info" /></p>
 <h2><a name="Hover-selector" class="anchor" href="#Hover-selector">Hover selector</a></h2>
-<p>The hoverselector is a powerfull tool that allows you to keep an overview over big graphs as it lets you hover over each node and see the edges it is part of.</p>
+<p>The hoverselector is a powerfull tool that allows you to keep an overview over big graphs as it lets you hover over each node and see the edges it is part of.
+This code adds a hover selector to the exampleVisGRaph, enabling interactive hover effects for nodes and edges during visualization.</p>
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//Adding the HoverSelector option to our graph</span>
-<span onmouseout="hideTip(event, 'fs39', 121)" onmouseover="showTip(event, 'fs39', 121)" class="id">exampleVisGRaph</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 122)" onmouseover="showTip(event, 'fs23', 122)" class="rt">VisGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs55', 123)" onmouseover="showTip(event, 'fs55', 123)" class="id">withHoverSelector</span><span class="pn">(</span><span class="pn">)</span>
+<span onmouseout="hideTip(event, 'fs14', 45)" onmouseover="showTip(event, 'fs14', 45)" class="id">exampleVisGRaph</span>
+<span class="o">|&gt;</span> <span class="id">VisGraph</span><span class="pn">.</span><span class="id">withHoverSelector</span><span class="pn">(</span><span class="pn">)</span>
 </code></pre>
-<p><img src="img\advancedUsageGraph6.png" alt="image info" /></p>
+<p><img src="img/advancedUsageGraph6.png" alt="image info" /></p>
 
-        <div class="fsdocs-tip" id="fs1">namespace Sigma</div>
-<div class="fsdocs-tip" id="fs2">namespace Sigma.NET</div>
-<div class="fsdocs-tip" id="fs3">namespace Sigma.NET.Interactive</div>
-<div class="fsdocs-tip" id="fs4">namespace System</div>
-<div class="fsdocs-tip" id="fs5">namespace DynamicObj</div>
-<div class="fsdocs-tip" id="fs6">namespace Newtonsoft</div>
-<div class="fsdocs-tip" id="fs7">namespace Newtonsoft.Json</div>
-<div class="fsdocs-tip" id="fs8">namespace Giraffe</div>
-<div class="fsdocs-tip" id="fs9">namespace Giraffe.ViewEngine</div>
-<div class="fsdocs-tip" id="fs10">val nodesToAdd: Node list</div>
-<div class="fsdocs-tip" id="fs11">Multiple items<br />module List
+        <div class="fsdocs-tip" id="fs1">namespace System</div>
+<div class="fsdocs-tip" id="fs2">val nodesToAdd: obj list</div>
+<div class="fsdocs-tip" id="fs3">Multiple items<br />module List
 
 from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =
   | op_Nil
@@ -278,51 +292,15 @@ from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List
   member IsEmpty: bool
   member Item: index: int -&gt; &#39;T with get
   ...</div>
-<div class="fsdocs-tip" id="fs12">val map: mapping: (&#39;T -&gt; &#39;U) -&gt; list: &#39;T list -&gt; &#39;U list</div>
-<div class="fsdocs-tip" id="fs13">val x: int</div>
-<div class="fsdocs-tip" id="fs14">Multiple items<br />type Node =
-  inherit DynamicObj
-  new: unit -&gt; Node
-  static member Init: key: string * ?DisplayData: DisplayData -&gt; Node
-  static member Style: key: string * ?DisplayData: DisplayData -&gt; (Node -&gt; Node)<br /><br />--------------------<br />new: unit -&gt; Node</div>
-<div class="fsdocs-tip" id="fs15">static member Node.Init: key: string * ?DisplayData: DisplayData -&gt; Node</div>
-<div class="fsdocs-tip" id="fs16">Multiple items<br />val string: value: &#39;T -&gt; string<br /><br />--------------------<br />type string = String</div>
-<div class="fsdocs-tip" id="fs17">Multiple items<br />type DisplayData =
-  inherit DynamicObj
-  new: unit -&gt; DisplayData
-  static member Init: ?Label: string * ?Size: #IConvertible * ?Color: string * ?Hidden: bool * ?ForceLabel: bool * ?ZIndex: int * ?StyleType: string * ?X: #IConvertible * ?Y: #IConvertible -&gt; DisplayData
-  static member Style: ?Label: string * ?Size: #IConvertible * ?Color: string * ?Hidden: bool * ?ForceLabel: bool * ?ZIndex: int * ?StyleType: string * ?X: #IConvertible * ?Y: #IConvertible -&gt; (DisplayData -&gt; DisplayData)<br /><br />--------------------<br />new: unit -&gt; DisplayData</div>
-<div class="fsdocs-tip" id="fs18">static member DisplayData.Init: ?Label: string * ?Size: #IConvertible * ?Color: string * ?Hidden: bool * ?ForceLabel: bool * ?ZIndex: int * ?StyleType: string * ?X: #IConvertible * ?Y: #IConvertible -&gt; DisplayData</div>
-<div class="fsdocs-tip" id="fs19">val edgesToAdd: Edge list</div>
-<div class="fsdocs-tip" id="fs20">val y: int</div>
-<div class="fsdocs-tip" id="fs21">Multiple items<br />type Edge =
-  inherit DynamicObj
-  new: unit -&gt; Edge
-  static member Init: source: string * target: string * ?Key: string * ?DisplayData: DisplayData -&gt; Edge
-  static member Style: source: string * target: string * ?Key: string * ?DisplayData: DisplayData -&gt; (Edge -&gt; Edge)<br /><br />--------------------<br />new: unit -&gt; Edge</div>
-<div class="fsdocs-tip" id="fs22">static member Edge.Init: source: string * target: string * ?Key: string * ?DisplayData: DisplayData -&gt; Edge</div>
-<div class="fsdocs-tip" id="fs23">Multiple items<br />type VisGraph =
-  new: unit -&gt; VisGraph
-  static member empty: unit -&gt; SigmaGraph
-  static member show: unit -&gt; graph: SigmaGraph -&gt; unit
-  static member withCircularLayout: [&lt;Optional; DefaultParameterValue ((null :&gt; obj))&gt;] ?Scale: float * [&lt;Optional; DefaultParameterValue ((null :&gt; obj))&gt;] ?Center: float -&gt; (SigmaGraph -&gt; SigmaGraph)
-  static member withEdge: edge: Edge -&gt; graph: SigmaGraph -&gt; SigmaGraph
-  static member withEdges: edges: Edge seq -&gt; graph: SigmaGraph -&gt; SigmaGraph
-  static member withForceAtlas2: [&lt;Optional; DefaultParameterValue ((null :&gt; obj))&gt;] ?Iterations: int * [&lt;Optional; DefaultParameterValue ((null :&gt; obj))&gt;] ?Settings: FA2Settings * [&lt;Optional; DefaultParameterValue ((null :&gt; obj))&gt;] ?GetEdgeWeight: string -&gt; (SigmaGraph -&gt; SigmaGraph)
-  static member withHoverSelector: ?enable: bool -&gt; (SigmaGraph -&gt; SigmaGraph)
-  static member withNode: node: Node -&gt; graph: SigmaGraph -&gt; SigmaGraph
-  static member withNodes: nodes: Node seq -&gt; graph: SigmaGraph -&gt; SigmaGraph
-  ...<br /><br />--------------------<br />new: unit -&gt; VisGraph</div>
-<div class="fsdocs-tip" id="fs24">static member VisGraph.empty: unit -&gt; SigmaGraph</div>
-<div class="fsdocs-tip" id="fs25">static member VisGraph.withNodes: nodes: Node seq -&gt; graph: SigmaGraph -&gt; SigmaGraph</div>
-<div class="fsdocs-tip" id="fs26">static member VisGraph.withEdges: edges: Edge seq -&gt; graph: SigmaGraph -&gt; SigmaGraph</div>
-<div class="fsdocs-tip" id="fs27">static member VisGraph.withCircularLayout: [&lt;Runtime.InteropServices.Optional; Runtime.InteropServices.DefaultParameterValue ((null :&gt; obj))&gt;] ?Scale: float * [&lt;Runtime.InteropServices.Optional; Runtime.InteropServices.DefaultParameterValue ((null :&gt; obj))&gt;] ?Center: float -&gt; (SigmaGraph -&gt; SigmaGraph)</div>
-<div class="fsdocs-tip" id="fs28">namespace Graphoscope</div>
-<div class="fsdocs-tip" id="fs29">namespace Graphoscope.RandomModels</div>
-<div class="fsdocs-tip" id="fs30">val colors: string array</div>
-<div class="fsdocs-tip" id="fs31">val N: int</div>
-<div class="fsdocs-tip" id="fs32">val rnd: Random</div>
-<div class="fsdocs-tip" id="fs33">Multiple items<br />type Random =
+<div class="fsdocs-tip" id="fs4">val map: mapping: (&#39;T -&gt; &#39;U) -&gt; list: &#39;T list -&gt; &#39;U list</div>
+<div class="fsdocs-tip" id="fs5">val x: int</div>
+<div class="fsdocs-tip" id="fs6">Multiple items<br />val string: value: &#39;T -&gt; string<br /><br />--------------------<br />type string = String</div>
+<div class="fsdocs-tip" id="fs7">val edgesToAdd: obj list</div>
+<div class="fsdocs-tip" id="fs8">val y: int</div>
+<div class="fsdocs-tip" id="fs9">val colors: string array</div>
+<div class="fsdocs-tip" id="fs10">val N: int</div>
+<div class="fsdocs-tip" id="fs11">val rnd: Random</div>
+<div class="fsdocs-tip" id="fs12">Multiple items<br />type Random =
   new: unit -&gt; unit + 1 overload
   member GetItems&lt;&#39;T&gt; : choices: ReadOnlySpan&lt;&#39;T&gt; * length: int -&gt; &#39;T array + 2 overloads
   member Next: unit -&gt; int + 2 overloads
@@ -332,57 +310,9 @@ from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List
   member NextSingle: unit -&gt; float32
   member Shuffle&lt;&#39;T&gt; : values: Span&lt;&#39;T&gt; -&gt; unit + 1 overload
   static member Shared: Random<br /><em>&lt;summary&gt;Represents a pseudo-random number generator, which is an algorithm that produces a sequence of numbers that meet certain statistical requirements for randomness.&lt;/summary&gt;</em><br /><br />--------------------<br />Random() : Random<br />Random(Seed: int) : Random</div>
-<div class="fsdocs-tip" id="fs34">val myBollobasRiordan: FGraph&lt;int,int,float&gt;</div>
-<div class="fsdocs-tip" id="fs35">Multiple items<br />type BollobasRiordan =
-  new: unit -&gt; BollobasRiordan
-  static member initDirected: n: int * alpha: float * beta: float * gamma: float * delta_in: float * delta_out: float * create_using: FGraph&lt;int,int,float&gt; -&gt; FGraph&lt;int,int,float&gt; + 1 overload
-  static member initDirectedDiGraph: n: int -&gt; alpha: float -&gt; beta: float -&gt; gamma: float -&gt; delta_in: float -&gt; delta_out: float -&gt; create_using: DiGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; -&gt; &#39;a3 (requires comparison)
-  static member initDirectedFGraph: n: int -&gt; alpha: float -&gt; beta: float -&gt; gamma: float -&gt; delta_in: float -&gt; delta_out: float -&gt; create_using: FGraph&lt;int,int,float&gt; -&gt; FGraph&lt;int,int,float&gt;<br /><br />--------------------<br />new: unit -&gt; BollobasRiordan</div>
-<div class="fsdocs-tip" id="fs36">static member BollobasRiordan.initDirectedFGraph: n: int -&gt; alpha: float -&gt; beta: float -&gt; gamma: float -&gt; delta_in: float -&gt; delta_out: float -&gt; create_using: FGraph&lt;int,int,float&gt; -&gt; FGraph&lt;int,int,float&gt;</div>
-<div class="fsdocs-tip" id="fs37">Multiple items<br />module FGraph
-
-from Graphoscope<br /><br />--------------------<br />type FGraph =
-  new: unit -&gt; FGraph
-  static member addEdge: nk1: &#39;NodeKey -&gt; nk2: &#39;NodeKey -&gt; ed: &#39;EdgeData -&gt; g: FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; -&gt; FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; (requires comparison)
-  static member addEdges: edgeSeq: (&#39;NodeKey * &#39;NodeKey * &#39;EdgeData) seq -&gt; g: FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; -&gt; FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; (requires comparison)
-  static member addElement: nk1: &#39;NodeKey -&gt; nd1: &#39;NodeData -&gt; nk2: &#39;NodeKey -&gt; nd2: &#39;NodeData -&gt; ed: &#39;EdgeData -&gt; g: FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; -&gt; FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; (requires comparison)
-  static member addNode: nk: &#39;NodeKey -&gt; nd: &#39;NodeData -&gt; g: FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; -&gt; FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; (requires comparison)
-  static member addNodes: nodeSeq: (&#39;NodeKey * &#39;NodeData) seq -&gt; g: FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; -&gt; FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; (requires comparison)
-  static member clone: graph: FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; -&gt; FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; (requires comparison)
-  static member containsEdge: v1: &#39;NodeKey -&gt; v2: &#39;NodeKey -&gt; g: FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; -&gt; bool (requires comparison)
-  static member containsNode: vk: &#39;NodeKey -&gt; g: FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; -&gt; bool (requires comparison)
-  static member countEdges: g: FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; -&gt; int (requires comparison)
-  ...<br /><br />--------------------<br />type FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData (requires comparison)&gt; = Collections.Generic.Dictionary&lt;&#39;NodeKey,FContext&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt;&gt;<br /><br />--------------------<br />new: unit -&gt; FGraph</div>
-<div class="fsdocs-tip" id="fs38">val empty&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData (requires comparison)&gt; : FGraph&lt;&#39;NodeKey,&#39;NodeData,&#39;EdgeData&gt; (requires comparison)<br /><em>&lt;summary&gt; 
- Returns a new, empty graph
- &lt;/summary&gt;<br />&lt;returns&gt;Empty FGraph&lt;/returns&gt;</em></div>
-<div class="fsdocs-tip" id="fs39">val exampleVisGRaph: SigmaGraph</div>
-<div class="fsdocs-tip" id="fs40">val node: Collections.Generic.KeyValuePair&lt;int,FContext&lt;int,int,float&gt;&gt;</div>
-<div class="fsdocs-tip" id="fs41">property Collections.Generic.KeyValuePair.Key: int with get<br /><em>&lt;summary&gt;Gets the key in the key/value pair.&lt;/summary&gt;<br />&lt;returns&gt;A &lt;typeparamref name=&quot;TKey&quot; /&gt; that is the key of the &lt;see cref=&quot;T:System.Collections.Generic.KeyValuePair`2&quot; /&gt;.&lt;/returns&gt;</em></div>
-<div class="fsdocs-tip" id="fs42">Random.Next() : int<br />Random.Next(maxValue: int) : int<br />Random.Next(minValue: int, maxValue: int) : int</div>
-<div class="fsdocs-tip" id="fs43">val pred: Collections.Generic.Dictionary&lt;int,float&gt;</div>
-<div class="fsdocs-tip" id="fs44">val t: int</div>
-<div class="fsdocs-tip" id="fs45">property Collections.Generic.KeyValuePair.Value: FContext&lt;int,int,float&gt; with get<br /><em>&lt;summary&gt;Gets the value in the key/value pair.&lt;/summary&gt;<br />&lt;returns&gt;A &lt;typeparamref name=&quot;TValue&quot; /&gt; that is the value of the &lt;see cref=&quot;T:System.Collections.Generic.KeyValuePair`2&quot; /&gt;.&lt;/returns&gt;</em></div>
-<div class="fsdocs-tip" id="fs46">val kv: Collections.Generic.KeyValuePair&lt;int,float&gt;</div>
-<div class="fsdocs-tip" id="fs47">val source: (XmlAttribute list -&gt; XmlNode)</div>
-<div class="fsdocs-tip" id="fs48">static member VisGraph.withRandomLayout: [&lt;Runtime.InteropServices.Optional; Runtime.InteropServices.DefaultParameterValue ((null :&gt; obj))&gt;] ?Scale: int * [&lt;Runtime.InteropServices.Optional; Runtime.InteropServices.DefaultParameterValue ((null :&gt; obj))&gt;] ?Center: float * [&lt;Runtime.InteropServices.Optional; Runtime.InteropServices.DefaultParameterValue ((null :&gt; obj))&gt;] ?Dimensions: string -&gt; (SigmaGraph -&gt; SigmaGraph)</div>
-<div class="fsdocs-tip" id="fs49">static member VisGraph.withRenderer: settings: Render.Settings -&gt; (SigmaGraph -&gt; SigmaGraph)</div>
-<div class="fsdocs-tip" id="fs50">module Render
-
-from Sigma.NET</div>
-<div class="fsdocs-tip" id="fs51">Multiple items<br />type Settings =
-  inherit DynamicObj
-  new: unit -&gt; Settings
-  static member Init: ?HideEdgesOnMove: bool * ?HideLabelsOnMove: bool * ?RenderLabels: bool * ?RenderEdgeLabels: bool * ?EnableEdgeClickEvents: bool * ?EnableEdgeWheelEvents: bool * ?EnableEdgeHoverEvents: bool * ?DefaultNodeColor: string * ?DefaultNodeType: NodeType * ?DefaultEdgeColor: string * ?DefaultEdgeType: EdgeType * ?LabelFont: string * ?LabelSize: int * ?LabelWeight: string * ?LabelColor: ColorOrReference * ?EdgeLabelFont: string * ?EdgeLabelSize: int * ?EdgeLabelWeight: string * ?EdgeLabelColor: ColorOrReference * ?StagePadding: int * ?LabelDensity: int * ?LabelGridCellSize: int * ?LabelRenderedSizeThreshold: int * ?NodeReducer: string * ?EdgeReducer: string * ?ZIndex: bool * ?MinCameraRatio: int * ?MaxCameraRatio: int * ?LabelRenderer: string * ?HoverRenderer: string * ?EdgeLabelRenderer: string -&gt; Settings
-  static member Style: ?HideEdgesOnMove: bool * ?HideLabelsOnMove: bool * ?RenderLabels: bool * ?RenderEdgeLabels: bool * ?EnableEdgeClickEvents: bool * ?EnableEdgeWheelEvents: bool * ?EnableEdgeHoverEvents: bool * ?DefaultNodeColor: string * ?DefaultNodeType: NodeType * ?DefaultEdgeColor: string * ?DefaultEdgeType: EdgeType * ?LabelFont: string * ?LabelSize: int * ?LabelWeight: string * ?LabelColor: ColorOrReference * ?EdgeLabelFont: string * ?EdgeLabelSize: int * ?EdgeLabelWeight: string * ?EdgeLabelColor: ColorOrReference * ?StagePadding: int * ?LabelDensity: int * ?LabelGridCellSize: int * ?LabelRenderedSizeThreshold: int * ?NodeReducer: string * ?EdgeReducer: string * ?ZIndex: bool * ?MinCameraRatio: int * ?MaxCameraRatio: int * ?LabelRenderer: string * ?HoverRenderer: string * ?EdgeLabelRenderer: string -&gt; (Settings -&gt; Settings)<br /><br />--------------------<br />new: unit -&gt; Render.Settings</div>
-<div class="fsdocs-tip" id="fs52">static member Render.Settings.Init: ?HideEdgesOnMove: bool * ?HideLabelsOnMove: bool * ?RenderLabels: bool * ?RenderEdgeLabels: bool * ?EnableEdgeClickEvents: bool * ?EnableEdgeWheelEvents: bool * ?EnableEdgeHoverEvents: bool * ?DefaultNodeColor: string * ?DefaultNodeType: StyleParam.NodeType * ?DefaultEdgeColor: string * ?DefaultEdgeType: StyleParam.EdgeType * ?LabelFont: string * ?LabelSize: int * ?LabelWeight: string * ?LabelColor: Render.ColorOrReference * ?EdgeLabelFont: string * ?EdgeLabelSize: int * ?EdgeLabelWeight: string * ?EdgeLabelColor: Render.ColorOrReference * ?StagePadding: int * ?LabelDensity: int * ?LabelGridCellSize: int * ?LabelRenderedSizeThreshold: int * ?NodeReducer: string * ?EdgeReducer: string * ?ZIndex: bool * ?MinCameraRatio: int * ?MaxCameraRatio: int * ?LabelRenderer: string * ?HoverRenderer: string * ?EdgeLabelRenderer: string -&gt; Render.Settings</div>
-<div class="fsdocs-tip" id="fs53">Multiple items<br />type ColorOrReference =
-  inherit DynamicObj
-  new: unit -&gt; ColorOrReference
-  static member Init: ?Color: string * ?Reference: string -&gt; ColorOrReference
-  static member Style: ?Color: string * ?Reference: string -&gt; (ColorOrReference -&gt; ColorOrReference)<br /><br />--------------------<br />new: unit -&gt; Render.ColorOrReference</div>
-<div class="fsdocs-tip" id="fs54">static member Render.ColorOrReference.Init: ?Color: string * ?Reference: string -&gt; Render.ColorOrReference</div>
-<div class="fsdocs-tip" id="fs55">static member VisGraph.withHoverSelector: ?enable: bool -&gt; (SigmaGraph -&gt; SigmaGraph)</div>
+<div class="fsdocs-tip" id="fs13">val myBollobasRiordan: obj</div>
+<div class="fsdocs-tip" id="fs14">val exampleVisGRaph: obj</div>
+<div class="fsdocs-tip" id="fs15">Random.Next() : int<br />Random.Next(maxValue: int) : int<br />Random.Next(minValue: int, maxValue: int) : int</div>
 
     </div>
 </main>
@@ -405,8 +335,8 @@ from Sigma.NET</div>
     </a>
   </li>
   <li class="level-2">
-    <a href="#Creating-complex-Networks-and-using-other-Librarys-together-with-Sigma-NET">
-      Creating complex Networks and using other Librarys together with Sigma.NET
+    <a href="#Creating-complex-Networks-and-using-other-Librarys-together-with-SigmaGraph-NET">
+      Creating complex Networks and using other Librarys together with SigmaGraph.NET
     </a>
   </li>
   <li class="level-2">

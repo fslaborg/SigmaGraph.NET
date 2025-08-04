@@ -2,11 +2,11 @@
 
 open Fake.Core
 
-let project = "Sigma.NET"
+let project = "SigmaGraph.NET"
 
 let testProjects = 
     [
-        "tests/Sigma.NET.Tests"
+        "tests/SigmaGraph.NET.Tests"
     ]
 
 let solutionFile  = $"{project}.sln"
