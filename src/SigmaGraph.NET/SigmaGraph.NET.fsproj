@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Authors>Timo Mühlhaus, fslab contributors</Authors>
+    <Description>A .NET interface for sigma.js graph visualisation written in F#</Description>
+    <Summary>A .NET interface for sigma.js graph visualisation written in F#.</Summary>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://fslab.org/SigmaGraph.NET/</PackageProjectUrl>
+    <!--<PackageIcon>icon.png</PackageIcon>-->
+    <PackageTags>sigma graph visualisation fsharp csharp dotnet</PackageTags>
+    <RepositoryUrl>https://github.com/fslaborg/SigmaGraph.NET</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <FsDocsLicenseLink>https://github.com/fslaborg/SigmaGraph.NET/blob/master/LICENSE</FsDocsLicenseLink>
+    <FsDocsReleaseNotesLink>https://github.com/fslaborg/SigmaGraph.NET/blob/master/RELEASE_NOTES.md</FsDocsReleaseNotesLink>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>  
+
+  <ItemGroup>
+    <Content Include="graphology-library.min.js" copyToOutput="true">
+      <IncludeInPackage>true</IncludeInPackage>
+    </Content>
+    <Content Include="graphology.umd.min.js" copyToOutput="true">
+      <IncludeInPackage>true</IncludeInPackage>
+    </Content>
+    <Content Include="sigma.min.js" copyToOutput="true">
+      <IncludeInPackage>true</IncludeInPackage>
+    </Content>
+    <EmbeddedResource Include="graphology-library.min.js" />
+    <EmbeddedResource Include="graphology.umd.min.js" />
+    <EmbeddedResource Include="sigma.min.js" />
+    <Compile Include="Globals.fs" />
+    <Compile Include="InternalUtils.fs" />
+    <Compile Include="StyleParams.fs" />
+    <Compile Include="Layout.fs" />
+    <Compile Include="Renderer.fs" />
+    <Compile Include="GraphData.fs" />
+    <Compile Include="JsonConverter.fs" />
+    <Compile Include="DisplayOptions.fs" />
+    <Compile Include="Defaults.fs" />
+    <Compile Include="Sigma.fs" />
+    <Compile Include="Html.fs" />
+    <Compile Include="GraphAPI.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DynamicObj" Version="2.0.0" />
+    <PackageReference Include="Giraffe.ViewEngine" Version="1.4.0" />
+  </ItemGroup>
+
+</Project>
