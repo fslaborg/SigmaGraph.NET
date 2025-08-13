@@ -91,16 +91,15 @@ type FA2Settings() =
         ) =
             (fun (opt:FA2Settings) -> 
             
-                AdjustSizes        |> DynObj.setValueOpt opt "adjustSizes"
-                BarnesHutOptimize  |> DynObj.setValueOpt opt "barnesHutOptimize"
-                BarnesHutTheta     |> DynObj.setValueOpt opt "barnesHutTheta"
-                EdgeWeightInfluence|> DynObj.setValueOpt opt "edgeWeightInfluence"
-                Gravity            |> DynObj.setValueOpt opt "gravity"
-                LinLogMode         |> DynObj.setValueOpt opt "linLogMode"
-                OutboundAttractionDistribution |> DynObj.setValueOpt opt "outboundAttractionDistribution"
-                ScalingRatio       |> DynObj.setValueOpt opt "scalingRatio"
-                SlowDown           |> DynObj.setValueOpt opt "slowDown"
-                StrongGravityMode  |> DynObj.setValueOpt opt "strongGravityMode"
+                opt |> DynObj.setOptionalProperty "barnesHutOptimize"               BarnesHutOptimize   
+                opt |> DynObj.setOptionalProperty "barnesHutTheta"                  BarnesHutTheta   
+                opt |> DynObj.setOptionalProperty "edgeWeightInfluence"             EdgeWeightInfluence   
+                opt |> DynObj.setOptionalProperty "gravity"                         Gravity   
+                opt |> DynObj.setOptionalProperty "linLogMode"                      LinLogMode   
+                opt |> DynObj.setOptionalProperty "outboundAttractionDistribution"  OutboundAttractionDistribution
+                opt |> DynObj.setOptionalProperty "scalingRatio"                    ScalingRatio
+                opt |> DynObj.setOptionalProperty "slowDown"                        SlowDown
+                opt |> DynObj.setOptionalProperty "strongGravityMode"               StrongGravityMode
                 // out ->
                 opt
                 
@@ -166,11 +165,11 @@ type NoverlapSettings() =
         ) =
             (fun (opt:NoverlapSettings) -> 
 
-                GridSize        |> DynObj.setValueOpt opt "gridSize"
-                Margin          |> DynObj.setValueOpt opt "margin"
-                Expansion       |> DynObj.setValueOpt opt "expansion"
-                Ratio           |> DynObj.setValueOpt opt "ratio"
-                Speed           |> DynObj.setValueOpt opt "speed"
+                opt |> DynObj.setOptionalProperty "gridSize"   GridSize 
+                opt |> DynObj.setOptionalProperty "margin"     Margin   
+                opt |> DynObj.setOptionalProperty "expansion"  Expansion  
+                opt |> DynObj.setOptionalProperty "ratio"      Ratio    
+                opt |> DynObj.setOptionalProperty "speed"      Speed    
                 // out ->
                 opt
                 
@@ -223,9 +222,9 @@ type FA2Options() =
         ) =
             (fun (opt:FA2Options) -> 
 
-                Iterations        |> DynObj.setValueOpt opt "iterations"
-                GetEdgeWeight     |> DynObj.setValueOpt opt "getEdgeWeight"
-                Settings          |> DynObj.setValueOpt opt "settings"
+                opt|> DynObj.setOptionalProperty  "iterations"      Iterations
+                opt|> DynObj.setOptionalProperty  "getEdgeWeight"   GetEdgeWeight    
+                opt|> DynObj.setOptionalProperty  "settings"        Settings
                 // out ->
                 opt
                 
@@ -283,10 +282,10 @@ type NoverlapOptions() =
         ) =
             (fun (opt:NoverlapOptions) -> 
 
-                MaxIterations        |> DynObj.setValueOpt opt "maxIterations"
-                InputReducer         |> DynObj.setValueOpt opt "inputReducer"
-                OutputReducer        |> DynObj.setValueOpt opt "outputReducer"
-                Settings             |> DynObj.setValueOpt opt "settings"
+                opt|> DynObj.setOptionalProperty "maxIterations"   MaxIterations         
+                opt|> DynObj.setOptionalProperty "inputReducer"     InputReducer      
+                opt|> DynObj.setOptionalProperty "outputReducer"   OutputReducer         
+                opt|> DynObj.setOptionalProperty "settings"          Settings   
                 // out ->
                 opt
                 
@@ -337,13 +336,14 @@ type CircularOptions() =
         ) =
             (fun (opt:CircularOptions) -> 
 
-                Dimensions        |> DynObj.setValueOpt opt "dimensions"
-                Center            |> DynObj.setValueOpt opt "center"
-                Scale             |> DynObj.setValueOpt opt "scale"
+                opt|> DynObj.setOptionalProperty  "dimensions"  Dimensions               
+                opt|> DynObj.setOptionalProperty  "center"      Center               
+                opt|> DynObj.setOptionalProperty  "scale"       Scale                
                 // out ->
                 opt
                 
             )   
+
 //dimensions ?array [‘x’, ‘y’]: dimensions of the layout.
 //center ?number 0.5: center of the layout.
 //rng ?function Math.random: custom RNG function to use.
@@ -391,9 +391,9 @@ type RandomOptions() =
         ) =
             (fun (opt:RandomOptions) -> 
 
-                Dimensions        |> DynObj.setValueOpt opt "dimensions"
-                Center            |> DynObj.setValueOpt opt "center"
-                Scale             |> DynObj.setValueOpt opt "scale"
+                opt|> DynObj.setOptionalProperty  "dimensions"     Dimensions             
+                opt|> DynObj.setOptionalProperty  "center"         Center             
+                opt|> DynObj.setOptionalProperty  "scale"          Scale              
                 // out ->
                 opt
                 
@@ -444,9 +444,9 @@ type RotationOptions() =
         ) =
             (fun (opt:RotationOptions) -> 
 
-                Dimensions        |> DynObj.setValueOpt opt "dimensions"
-                Degrees           |> DynObj.setValueOpt opt "degrees"
-                CenteredOnZero    |> DynObj.setValueOpt opt "centeredOnZero"
+                opt|> DynObj.setOptionalProperty  "dimensions"          Dimensions           
+                opt|> DynObj.setOptionalProperty  "degrees"             Degrees           
+                opt|> DynObj.setOptionalProperty  "centeredOnZero"      CenteredOnZero           
                 // out ->
                 opt
                 

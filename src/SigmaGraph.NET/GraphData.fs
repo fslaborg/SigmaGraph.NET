@@ -91,15 +91,15 @@ type DisplayData() =
         ) =
             (fun (displayData:DisplayData) -> 
 
-                Label      |> DynObj.setValueOpt displayData "label"
-                Size       |> DynObj.setValueOpt displayData "size"                
-                Color      |> DynObj.setValueOpt displayData "color"
-                Hidden     |> DynObj.setValueOpt displayData "hidden"
-                ForceLabel |> DynObj.setValueOpt displayData "forceLabel"
-                ZIndex     |> DynObj.setValueOpt displayData "zIndex"
-                StyleType  |> DynObj.setValueOpt displayData "type" 
-                X          |> DynObj.setValueOpt displayData "x"
-                Y          |> DynObj.setValueOpt displayData "y"                
+                displayData|> DynObj.setOptionalProperty "label"        Label              
+                displayData|> DynObj.setOptionalProperty "size"         Size                           
+                displayData|> DynObj.setOptionalProperty "color"        Color              
+                displayData|> DynObj.setOptionalProperty "hidden"       Hidden             
+                displayData|> DynObj.setOptionalProperty "forceLabel"   ForceLabel             
+                displayData|> DynObj.setOptionalProperty "zIndex"       ZIndex             
+                displayData|> DynObj.setOptionalProperty "type"         StyleType       
+                displayData|> DynObj.setOptionalProperty "x"            X              
+                displayData|> DynObj.setOptionalProperty "y"            Y                              
                 // out ->
                 displayData
             )
@@ -153,11 +153,10 @@ type Edge() =
         ) =
             (fun (edge:Edge) -> 
                 
-                source      |> DynObj.setValue    edge "source"
-                target      |> DynObj.setValue    edge "target"
-                Key         |> DynObj.setValueOpt edge "key"
-                DisplayData |> DynObj.setValueOpt    edge "attributes"
-                
+                edge        |> DynObj.setProperty   "source"  source              
+                edge        |> DynObj.setProperty   "target"  target   
+                edge        |> DynObj.setOptionalProperty   "key"         Key                 
+                edge        |> DynObj.setOptionalProperty   "attributes"  DisplayData
                 // out ->
                 edge
             )
@@ -200,8 +199,9 @@ type Node() =
         ) =
             (fun (node:Node) -> 
 
-                key         |> DynObj.setValue node "key"
-                DisplayData |> DynObj.setValueOpt node "attributes"
+                node        |> DynObj.setProperty  "key" key
+                node        |> DynObj.setOptionalProperty  "attributes" DisplayData
+                
                 // out ->
                 node
             )

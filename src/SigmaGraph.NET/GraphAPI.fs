@@ -47,15 +47,16 @@ type VisGraphElement() =
         fun (node:Node) -> 
             let styleType = Option.map StyleParam.NodeType.toString StyleType
             let displayData = 
-                    match node.TryGetTypedValue<DisplayData>("attributes") with
+                    match node.TryGetTypedPropertyValue<DisplayData>("attributes") with
                     | None -> DisplayData()
                     | Some a -> a
                     |> DisplayData.Style
                         (?Label=Label,?Size=Size,?Color=Color,?Hidden=Hidden,
                          ?ForceLabel=ForceLabel,?ZIndex=ZIndex,?StyleType=styleType,?X=X,?Y=Y)
-            displayData |> DynObj.setValue node "attributes"
+            node |> DynObj.setProperty "attributes" displayData 
+
             node
-    
+
     
     /// <summary>
     /// Initializes a new edge with the given source and target nodes.
@@ -92,13 +93,13 @@ type VisGraphElement() =
         fun (edge:Edge) -> 
             let styleType = Option.map StyleParam.EdgeType.toString StyleType
             let displayData = 
-                    match edge.TryGetTypedValue<DisplayData>("attributes") with
+                    match edge.TryGetTypedPropertyValue<DisplayData>("attributes") with
                     | None -> DisplayData()
                     | Some a -> a
                     |> DisplayData.Style
                         (?Label=Label,?Size=Size,?Color=Color,?Hidden=Hidden,
                          ?ForceLabel=ForceLabel,?ZIndex=ZIndex,?StyleType=styleType,?X=X,?Y=Y)
-            displayData |> DynObj.setValue edge "attributes"
+            edge|> DynObj.setProperty  "attributes" displayData
             edge
 
 
