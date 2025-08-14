@@ -55,8 +55,8 @@ module Render =
                 ?Reference
             ) =
                 (fun (colorOrReference:ColorOrReference) -> 
-                    Color |> DynObj.setValueOpt colorOrReference "color"
-                    Reference |> DynObj.setValueOpt colorOrReference "reference"
+                    colorOrReference |> DynObj.setOptionalProperty "color"         Color 
+                    colorOrReference |> DynObj.setOptionalProperty "reference"     Reference 
                     // out ->
                     colorOrReference
                 )
@@ -171,40 +171,40 @@ module Render =
                 ?EdgeLabelRenderer
             ) =
                 (fun (settings:Settings) -> 
-                    HideEdgesOnMove |> DynObj.setValueOpt settings "hideEdgesOnMove"
-                    HideLabelsOnMove |> DynObj.setValueOpt settings "hideLabelsOnMove"
-                    RenderLabels |> DynObj.setValueOpt settings "renderLabels"
-                    RenderEdgeLabels |> DynObj.setValueOpt settings "renderEdgeLabels"
-                    EnableEdgeClickEvents |> DynObj.setValueOpt settings "enableEdgeClickEvents"
-                    EnableEdgeWheelEvents |> DynObj.setValueOpt settings "enableEdgeWheelEvents"
-                    EnableEdgeHoverEvents |> DynObj.setValueOpt settings "enableEdgeHoverEvents"
-                    DefaultNodeColor |> DynObj.setValueOpt settings "defaultNodeColor"
+                    settings|> DynObj.setOptionalProperty  "hideEdgesOnMove"         HideEdgesOnMove       
+                    settings|> DynObj.setOptionalProperty  "hideLabelsOnMove"        HideLabelsOnMove       
+                    settings|> DynObj.setOptionalProperty  "renderLabels"            RenderLabels    
+                    settings|> DynObj.setOptionalProperty  "renderEdgeLabels"        RenderEdgeLabels       
+                    settings|> DynObj.setOptionalProperty  "enableEdgeClickEvents"   EnableEdgeClickEvents           
+                    settings|> DynObj.setOptionalProperty  "enableEdgeWheelEvents"   EnableEdgeWheelEvents           
+                    settings|> DynObj.setOptionalProperty  "enableEdgeHoverEvents"   EnableEdgeHoverEvents           
+                    settings|> DynObj.setOptionalProperty  "defaultNodeColor"        DefaultNodeColor       
                     
-                    DefaultNodeType |> DynObj.setValueOptBy settings "defaultNodeType" StyleParam.NodeType.toString
+                    settings|> DynObj.setOptionalPropertyBy "defaultNodeType" DefaultNodeType StyleParam.NodeType.toString
                     
-                    DefaultEdgeColor |> DynObj.setValueOpt settings "defaultEdgeColor"
-                    DefaultEdgeType |> DynObj.setValueOptBy settings "defaultEdgeType" StyleParam.EdgeType.toString
-                    
-                    LabelFont |> DynObj.setValueOpt settings "labelFont"
-                    LabelSize |> DynObj.setValueOpt settings "labelSize"
-                    LabelWeight |> DynObj.setValueOpt settings "labelWeight"
-                    LabelColor |> DynObj.setValueOpt settings "labelColor"
-                    EdgeLabelFont |> DynObj.setValueOpt settings "edgeLabelFont"
-                    EdgeLabelSize |> DynObj.setValueOpt settings "edgeLabelSize"
-                    EdgeLabelWeight |> DynObj.setValueOpt settings "edgeLabelWeight"
-                    EdgeLabelColor |> DynObj.setValueOpt settings "edgeLabelColor"
-                    StagePadding |> DynObj.setValueOpt settings "stagePadding"
-                    LabelDensity |> DynObj.setValueOpt settings "labelDensity"
-                    LabelGridCellSize |> DynObj.setValueOpt settings "labelGridCellSize"
-                    LabelRenderedSizeThreshold |> DynObj.setValueOpt settings "labelRenderedSizeThreshold"
-                    NodeReducer |> DynObj.setValueOpt settings "nodeReducer"
-                    EdgeReducer |> DynObj.setValueOpt settings "edgeReducer"
-                    ZIndex |> DynObj.setValueOpt settings "zIndex"
-                    MinCameraRatio |> DynObj.setValueOpt settings "minCameraRatio"
-                    MaxCameraRatio |> DynObj.setValueOpt settings "maxCameraRatio"
-                    LabelRenderer |> DynObj.setValueOpt settings "labelRenderer"
-                    HoverRenderer |> DynObj.setValueOpt settings "hoverRenderer"
-                    EdgeLabelRenderer |> DynObj.setValueOpt settings "edgeLabelRenderer"
+                    settings|> DynObj.setOptionalProperty  "defaultEdgeColor" DefaultEdgeColor
+                    settings|> DynObj.setOptionalPropertyBy "defaultEdgeType" DefaultEdgeType StyleParam.EdgeType.toString
+
+                    settings|> DynObj.setOptionalProperty  "labelFont"                   LabelFont        
+                    settings|> DynObj.setOptionalProperty  "labelSize"                   LabelSize        
+                    settings|> DynObj.setOptionalProperty  "labelWeight"                 LabelWeight            
+                    settings|> DynObj.setOptionalProperty  "labelColor"                  LabelColor        
+                    settings|> DynObj.setOptionalProperty  "edgeLabelFont"               EdgeLabelFont            
+                    settings|> DynObj.setOptionalProperty  "edgeLabelSize"               EdgeLabelSize            
+                    settings|> DynObj.setOptionalProperty  "edgeLabelWeight"             EdgeLabelWeight                
+                    settings|> DynObj.setOptionalProperty  "edgeLabelColor"              EdgeLabelColor            
+                    settings|> DynObj.setOptionalProperty  "stagePadding"                StagePadding            
+                    settings|> DynObj.setOptionalProperty  "labelDensity"                LabelDensity            
+                    settings|> DynObj.setOptionalProperty  "labelGridCellSize"           LabelGridCellSize                
+                    settings|> DynObj.setOptionalProperty  "labelRenderedSizeThreshold"  LabelRenderedSizeThreshold                        
+                    settings|> DynObj.setOptionalProperty  "nodeReducer"                 NodeReducer            
+                    settings|> DynObj.setOptionalProperty  "edgeReducer"                 EdgeReducer            
+                    settings|> DynObj.setOptionalProperty  "zIndex"                      ZIndex    
+                    settings|> DynObj.setOptionalProperty  "minCameraRatio"              MinCameraRatio            
+                    settings|> DynObj.setOptionalProperty  "maxCameraRatio"              MaxCameraRatio            
+                    settings|> DynObj.setOptionalProperty  "labelRenderer"               LabelRenderer            
+                    settings|> DynObj.setOptionalProperty  "hoverRenderer"               HoverRenderer            
+                    settings|> DynObj.setOptionalProperty  "edgeLabelRenderer"           EdgeLabelRenderer                
                     
                     // out ->
                     settings

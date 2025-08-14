@@ -82,9 +82,9 @@ type DisplayOptions() =
         ) =
         (fun (displayOpts: DisplayOptions) ->
 
-            AdditionalHeadTags |> DynObj.setValueOpt displayOpts "AdditionalHeadTags"
-            Description |> DynObj.setValueOpt displayOpts "Description"
-            SigmaJSRef |> DynObj.setValueOpt displayOpts "SigmaJSRef"
+            displayOpts|> DynObj.setOptionalProperty "AdditionalHeadTags"   AdditionalHeadTags        
+            displayOpts|> DynObj.setOptionalProperty "Description"          Description 
+            displayOpts|> DynObj.setOptionalProperty "SigmaJSRef"           SigmaJSRef  
 
             displayOpts)
 
@@ -129,7 +129,7 @@ type DisplayOptions() =
     /// <returns>A function that sets the additional head tags in the display options.</returns>
     static member setAdditionalHeadTags(additionalHeadTags: XmlNode list) =
         (fun (displayOpts: DisplayOptions) ->
-            additionalHeadTags |> DynObj.setValue displayOpts "AdditionalHeadTags"
+            displayOpts|> DynObj.setProperty  "AdditionalHeadTags" additionalHeadTags
             displayOpts)
 
     /// <summary>
@@ -138,7 +138,7 @@ type DisplayOptions() =
     /// <param name="displayOpts">The display options object.</param>
     /// <returns>An option containing a list of XML nodes if the additional head tags exist, or None.</returns>
     static member tryGetAdditionalHeadTags(displayOpts: DisplayOptions) =
-        displayOpts.TryGetTypedValue<XmlNode list>("AdditionalHeadTags")
+        displayOpts.TryGetTypedPropertyValue<XmlNode list>("AdditionalHeadTags")
 
     /// <summary>
     /// Gets the additional head tags from the display options.
@@ -167,7 +167,7 @@ type DisplayOptions() =
     /// <returns>A function that sets the description in the display options.</returns>
     static member setDescription(description: XmlNode list) =
         (fun (displayOpts: DisplayOptions) ->
-            description |> DynObj.setValue displayOpts "Description"
+            displayOpts |> DynObj.setProperty  "Description" description
             displayOpts)
 
     /// <summary>
@@ -176,7 +176,7 @@ type DisplayOptions() =
     /// <param name="displayOpts">The display options object.</param>
     /// <returns>An option containing a list of XML nodes if the description exists, or None.</returns>
     static member tryGetDescription(displayOpts: DisplayOptions) =
-        displayOpts.TryGetTypedValue<XmlNode list>("Description")
+        displayOpts.TryGetTypedPropertyValue<XmlNode list>("Description")
 
     /// <summary>
     /// Gets the description from the display options.
@@ -203,7 +203,7 @@ type DisplayOptions() =
     /// <returns>A function that sets the Sigma.js reference in the display options.</returns>
     static member setSigmaReference(sigmaJSReference: JSlibReference) =
         (fun (displayOpts: DisplayOptions) ->
-            sigmaJSReference |> DynObj.setValue displayOpts "SigmaJSRef"
+            displayOpts |> DynObj.setProperty  "SigmaJSRef" sigmaJSReference
             displayOpts)
 
     /// <summary>
@@ -212,7 +212,7 @@ type DisplayOptions() =
     /// <param name="displayOpts">The display options object.</param>
     /// <returns>An option containing the JavaScript library reference for Sigma.js, or None.</returns>
     static member tryGetSigmaReference(displayOpts: DisplayOptions) =
-        displayOpts.TryGetTypedValue<JSlibReference>("SigmaJSRef")
+        displayOpts.TryGetTypedPropertyValue<JSlibReference>("SigmaJSRef")
 
     /// <summary>
     /// Gets the Sigma.js reference from the display options.
